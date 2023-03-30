@@ -1,0 +1,88 @@
+.d-flex {
+  display: flex !important;
+}
+.d-in-flex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.d-f-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.f-row {
+  display: flex;
+  flex-direction: row;
+}
+.f-row-reverse {
+  flex-direction: row-reverse !important;
+}
+.f-wrap {
+  flex-wrap: wrap;
+}
+.f-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.f-column {
+  display: flex;
+  flex-direction: column;
+}
+.f-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.align-items-start {
+  align-items: start !important;
+}
+.align-items-stretch {
+  align-items: stretch !important;
+}
+.f-end {
+  align-items: end !important;
+}
+
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+.justify-content-center {
+  justify-content: space-between !important;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+.gap4 {
+  gap: 4px !important;
+}
+.gap8 {
+  gap: 8px !important;
+}
+.gap12 {
+  gap: 12px !important;
+}
+.gap24 {
+  gap: 24px !important;
+}
+.gap32 {
+  gap: 32px !important;
+}
+.gap48 {
+  gap: 48px !important;
+}
+/*.f-responsive (Element cha: f-wrap = wrap && width động) */
+/*flex-grow (o||1) Quyết định giãn hơn value flex-basis */
+/*flex-shrink (o||1) Quyết định co hơn value flex-basis */
+
+.f-responsive {
+  --width-responsive: 400px;
+  width: var(--responsive);
+  flex-grow: 1;
+  flex-shrink: 1; /* không quan tâm */
+  flex-basis: var(--width-responsive);
+}
