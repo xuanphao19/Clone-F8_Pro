@@ -35,7 +35,7 @@
       <div class="header_wrap d-flex align-items-center justify-content-between">
         <div class="wrapperLogo d-flex align-items-center">
           <a class="navLogo d-flex align-items-center" href="">
-            <div class="header_logo">
+            <div class="headerFooter_logo">
               <img
                 id="logo"
                 class="Footer_top-logo d-f-center"
@@ -43,10 +43,10 @@
                 alt="F8" />
             </div>
 
-            <h2 class="logoText" id="logo_Text">Học Lập Trình Để Đi Làm</h2>
+            <h2 class="actionSlogans" id="logo_Text">Học Lập Trình Để Đi Làm</h2>
           </a>
 
-          <div class="circle_progress">
+          <div class="circle_progress rotateBgrWrap">
             <!-- <div class="progress"> -->
             <div class="rotateBgr"></div>
             <span> 99% </span>
@@ -57,7 +57,6 @@
         <div class="navBody d-flex">
           <div class="Search_wrapper d-flex align-items-center">
             <div class="Search_Icon"></div>
-
             <input class="Search_input" placeholder="Tìm kiếm khóa học, bài viết, video, ..." value="" />
           </div>
         </div>
@@ -80,7 +79,7 @@
           <div class="Sidebar_list f-column align-items-center">
             <ul class="f-column gap4 align-items-center">
               <li>
-                <a class="f-column" href="/">
+                <a class="f-column" href="index.html">
                   <img class="my_house Sidebar_list_img" src="./assets/img/Small_icon/house.svg" alt="Nha cua toi" />
 
                   <span> Home </span>
@@ -255,7 +254,7 @@
                             </a>
 
                             <a
-                              href="https://www.youtube.com/embed/DpvYHLUiZpc"
+                              href="https://xuanphao19.github.io/Clone-F8_Pro"
                               class="btn glightbox btn_watch_video gap12 align-items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -478,7 +477,7 @@
                             </a>
 
                             <a
-                              href="https://www.youtube.com/embed/DpvYHLUiZpc"
+                              href="https://www.youtube.com/embed/CLbx37dqYEI?list=PL_-VfJajZj0VgpFpEVFzS5Z-lkXtBe-x5"
                               class="btn glightbox btn_watch_video gap12 align-items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -566,18 +565,22 @@
                   <span class="main_price"> 1.299.000đ </span>
                 </div>
               </div>
+              <!-- proJavaScripCourse.html -->
 
               <div class="item item_Wrap">
-                <div class="item_thumb" style="background-image: url('./assets/img/team/jsPro.png')">
+                <a
+                  data-gallery="portfolioGallery"
+                  class="item_thumb"
+                  target="_self"
+                  href="proJavaScripCourse.html"
+                  style="background-image: url('./assets/img/team/jsPro.png')">
                   <div class="module_outer_item">
                     <span class="btn item_btn">Xem khóa học</span>
                   </div>
-                </div>
+                </a>
 
                 <h3>
-                  <a class="item_link" target="_self" href="https://fullstack.edu.vn/landing/htmlcssq/">
-                    JavaScript Pro
-                  </a>
+                  <a class="item_link" target="_self" href="proJavaScripCourse.html"> JavaScript Pro </a>
                 </h3>
 
                 <div class="icon_item">
@@ -1395,14 +1398,16 @@
         <div class="d-flex align-items-start justify-content-center gap32">
           <div class="item_Wrap f-column">
             <div class="d-flex align-items-center">
-              <a class="rotateBgrWrap" href="/">
-                <div class="rotateBgr"></div>
-                <img
-                  class="Footer_top-logo"
-                  src="	https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
-                  alt="F8" />
-              </a>
-              <h2 class="Footer_top-slogan">Học Lập Trình Để Đi Làm</h2>
+              <div class="headerFooter_logo">
+                <a class="rotateBgrWrap" href="/">
+                  <div class="rotateBgr"></div>
+                  <img
+                    class="Footer_top-logo"
+                    src="	https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                    alt="F8" />
+                </a>
+              </div>
+              <h2 class="Footer_top-slogan actionSlogans">Học Lập Trình Để Đi Làm</h2>
             </div>
 
             <p class="Footer_contact-list">
@@ -1510,7 +1515,6 @@
         <img src="./assets/img/clients/toTop.svg" alt="" />
       </span>
     </a>
-
     <div class="portfolio-item">
       <div class="portfolio-info">
         <a href="assets/img/family/screenshot_1662025446.png" data-gallery="portfolioGallery" class="Xuan_Phao"> </a>
@@ -1533,6 +1537,7 @@
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/js/jQ.js"></script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>

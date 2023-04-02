@@ -73,7 +73,7 @@
   --border-color-white: #191d1e;
   --border-bottom-color: #e4eef0;
 
-  --cta-hover-color: #007efe;
+  /* --cta-hover-color: #007efe; */
 
   --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
@@ -92,6 +92,7 @@
     linear-gradient(180deg, #5ebbff, #a174ff 40%) border-box;
   --bg-gradient-4: linear-gradient(rgb(251, 253, 255), rgb(251, 253, 255)) padding-box padding-box,
     linear-gradient(rgb(94, 187, 255) 0%, rgb(161, 116, 255) 40%) border-box border-box;
+  --bg-gradient-5: linear-gradient(115deg, #feed07 0%, #fe6a50 5%, #ed00aa 15%, #2fe3fe 50%, #8900ff 100%);
 
   --font-code: "SF Mono", monospace;
 
@@ -115,7 +116,8 @@
   right: 0;
   height: var(--height);
   font-size: 1.4rem;
-  background-color: var(--bs-white);
+  background: #ffffffb5;
+  backdrop-filter: blur(15px);
   box-shadow: 0 0 0 1px var(--bs-gray-200);
   transition: all 0.5s;
   z-index: 20;
@@ -214,19 +216,27 @@
   object-fit: contain;
   width: 38px;
 }
-#header .logoText {
+.actionSlogans {
   color: var(--text-color-9);
   font-size: 1.4rem;
   font-weight: 700;
   margin-left: 16px;
 }
+.header a.navLogo {
+  padding-right: 12px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.header a.navLogo:hover {
+  background: #fdbb7820;
+}
 /* Header login done course Pro*/
 
-.circle_progress {
+.header .circle_progress {
   position: relative;
   width: 32px;
   height: 32px;
-  margin-left: 12px;
   border-radius: 50%;
   background: var(--bg-linear-gradient);
   box-shadow: 0 0 0 2px var(--p-color-1);
@@ -274,6 +284,7 @@
   flex: 1 1 auto;
   border: none;
   caret-color: var(--bs-gray-600);
+  background: transparent;
 }
 
 /* The end Header */
@@ -452,17 +463,17 @@
 }
 
 .hero_section .swiper-button-next {
-  right: 8px;
+  right: 6px;
 }
 .hero_section .swiper-button-prev {
-  left: 8px;
+  left: 6px;
 }
 .hero_section .swiper-button-prev,
 .hero_section .swiper-button-next {
   width: 32px;
   height: 32px;
   transform: translateY(-50%);
-  background: #ffbb90dc;
+  background: #ffc79ad4;
   border-radius: 50%;
   box-shadow: inset -4px 0 4px rgba(255, 164, 60, 0.15), 0 -2px 2px rgba(226, 125, 47, 0.25),
     0 0 0 2px rgba(246, 137, 53, 0.37);
@@ -470,7 +481,7 @@
 }
 .hero_section .swiper-button-prev:hover,
 .hero_section .swiper-button-next:hover {
-  background: #ffd4b9;
+  background: #ffdeca;
 }
 .hero_section .swiper-button-prev::after,
 .hero_section .swiper-button-next::after {
@@ -657,13 +668,14 @@
 .your_List:last-child {
   padding-bottom: 120px !important;
 }
-
-#footer .container {
-  --bs-gutter-x: 30rem;
-  --bs-gutter-y: 12rem !important;
+#footer {
+  background-color: #181821;
+  padding: 40px 0;
+}
+#footer .Footer_wrapper {
+  width: 1168px !important;
   color: #a9b3bb;
   overflow: hidden;
-  background-color: #181821;
 }
 
 #footer .item_Wrap {
@@ -681,7 +693,8 @@
 .footer .heading:last-child {
   margin-bottom: -8px;
 }
-h2.Footer_top-slogan {
+span.actionSlogans,
+.footer .actionSlogans {
   color: #fff;
   font-size: 1.4rem;
   line-height: 1.6;
@@ -698,11 +711,18 @@ h2.Footer_top-slogan {
 }
 
 .rotateBgrWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 .rotateBgr {
+  position: relative;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -710,7 +730,7 @@ h2.Footer_top-slogan {
   height: inherit;
   background: linear-gradient(135deg, #feed07 0%, #fe6a50 5%, #ed00aa 15%, #2fe3fe 50%, #8900ff 100%);
   border-radius: 50%;
-  animation: rotate 1.2s linear infinite;
+  animation: rotate 1.8s linear infinite;
 }
 .rotateBgr::after {
   content: "";
@@ -722,13 +742,18 @@ h2.Footer_top-slogan {
   width: calc(100%);
   height: calc(100%);
   transform: translate(-50%, -50%);
-  background: linear-gradient(115deg, #feed07 0%, #fe6a50 5%, #ed00aa 15%, #2fe3fe 50%, #8900ff 100%);
-  filter: blur(15px);
+  background: var(--bg-gradient-5);
+  filter: blur(8px);
   z-index: 2;
 }
-.rotateBgr + span,
-.rotateBgr + svg,
-.rotateBgr + img {
+
+#header.header .rotateBgr::after {
+  filter: blur(4px);
+}
+
+.rotateBgrWrap span,
+.rotateBgrWrap svg,
+.rotateBgrWrap img {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,0 +1,680 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+.bridgeTop::before,
+.bridgeRight::before,
+.bridgeBottom::before,
+.bridgeLeft::before {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 10px solid;
+}
+
+.bridgeTop::before {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -99%);
+  border-bottom-color: var(--bs-gray-700);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+
+.bridgeRight::before {
+  top: 50%;
+  right: 0;
+  transform: translate(99%, -50%);
+  border-left-color: var(--bs-gray-700);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+.bridgeBottom::before {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 99%);
+  border-bottom-color: transparent;
+  border-top-color: var(--bs-gray-700);
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+.bridgeLeft::before {
+  top: 50%;
+  left: 0;
+  transform: translate(-99%, -50%);
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  border-right-color: var(--bs-gray-700);
+  border-left-color: transparent;
+}
+
+.dropDownWrap {
+  position: absolute;
+  background: var(--bg-gradient-4);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: var(--font-family) !important;
+  width: fit-content;
+  min-width: 232px;
+  display: none;
+  z-index: 9999;
+}
+
+.dropDown {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: var(--bg-linear-gradient);
+  overflow: hidden;
+}
+
+#header.header .rotateBgr::after {
+  filter: blur(1px);
+}
+
+#header.header .rotateBgrWrap span {
+  width: 108%;
+  height: 108%;
+  background: rgb(255 249 242 / 95%);
+}
+
+#header.header .rotateBgrWrap img {
+  width: 75%;
+  height: 65%;
+  top: 50%;
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.navbar .flashcards {
+}
+
+.actionTooltip {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.wrap_desc {
+  position: absolute;
+  width: fit-content;
+  white-space: nowrap;
+  color: var(--bs-gray-100);
+  padding: 4px 12px 6px;
+  border-radius: 4px;
+  background: var(--bs-gray-700);
+  opacity: 0;
+  display: none;
+  transition: all 0.35s;
+}
+.flashcards .wrap_desc {
+  top: 50%;
+  left: -50%;
+  transform: translate(-100%, -50%);
+}
+
+.flashcards .dropDownWrap {
+  position: absolute;
+  inset: 0px 0px auto auto;
+  transform: translate(22px, 50px);
+}
+
+.list_item {
+  position: relative;
+  padding: 8px 16px;
+  background-color: var(--bs-gray-100);
+  border-bottom: 1px solid var(--bs-gray-300);
+}
+.list_item,
+a.list_item,
+.list_item a {
+  width: 100%;
+  height: 48px;
+  font-size: 1.4rem;
+  color: var(--text-color-4);
+  transition: background-color 0.3s ease 0s;
+  overflow: hidden;
+}
+
+.list_item:hover {
+  background-color: var(--bs-gray-200);
+  border-bottom: 1px solid var(--bs-gray-400);
+}
+
+.flashcards .bridgeTop::before {
+  left: 84%;
+  border-bottom-color: #5fbaff;
+}
+
+/*  */
+.prev.wrap_desc,
+.seeNotes.wrap_desc,
+.seeNotify.wrap_desc {
+  left: 50%;
+  top: 152%;
+  transform: translate(-50%, 1px);
+}
+.prevLesson .dropDownWrap {
+  top: 50px;
+  left: -168px;
+}
+.prevLesson .dropDownWrap::before {
+  left: 186px;
+  border-bottom-color: #5fbaff;
+}
+.prevLessonLink img {
+  width: 22px;
+}
+
+
+
+.prevLesson:active .dropDownWrap,
+.flashcards:active .dropDownWrap {
+  display: flex;
+}
+/*  */
+
+/*  */
+.flashcards:hover .wrap_desc,
+.prevLesson:hover .prev.wrap_desc,
+.myNotes:hover .seeNotes.wrap_desc,
+.notify:hover .seeNotify.wrap_desc {
+  opacity: 1;
+  display: flex;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.navbar-current-user {
+  border-radius: 999px;
+  transition: background-color 0.3s ease 0s;
+  border: 1px solid transparent;
+  background: var(--bg-gradient-5);
+  user-select: none;
+}
+.navbar-current-user .wrapper {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0px 16px 0px 0px;
+  border-radius: 999px;
+  color: var(--text-color-7);
+  background-color: var(--bs-white);
+  transition: background-color 0.3s ease 0s;
+  cursor: pointer;
+}
+#header.header .wrapper .circle_progress img.avatar {
+  width: 92%;
+  height: 92%;
+}
+.navbar-current-user .wrapper .circle_progress {
+  margin-left: 4px;
+}
+.navbar-current-user .arrow img {
+  width: 16px;
+}
+
+#header.header .header_wrap .navbar .rotateCrown {
+  width: 60%;
+  height: 60%;
+  top: 45%;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+main {
+  width: 100%;
+  background-color: var(--bg-2);
+  position: fixed !important;
+}
+
+.presentationArea {
+  flex: 1;
+  --videojs-max-width: 132.25vh;
+  width: 77%;
+  height: calc(100vh - 68px) !important;
+  background: var(--bg-2);
+  overflow-y: scroll;
+}
+
+.videoWrap {
+  width: 100%;
+  background: var(--bg-5);
+  padding: 6px;
+}
+.videoPlayer {
+  position: relative;
+  width: 85%;
+  max-width: var(--videojs-max-width);
+  height: calc(var(--videojs-max-width) / 16 * 9);
+  background: #1d1a1a;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.famousBrand {
+  position: absolute;
+  border-radius: 8px;
+  background: #e7601d;
+  padding: 6px 8px;
+  font-size: 16px;
+  z-index: 999999;
+  border: none;
+  transform: scale(0);
+  /* transform: scale(1); */
+  opacity: 0;
+  /* opacity: 1; */
+  transition: all 0.3s;
+}
+.famousBrand .actionSlogans {
+  margin: 0;
+  font-weight: normal;
+}
+.videoForwarding {
+  --bs-gutter-x: 6rem;
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  height: 28%;
+  padding-bottom: 14px;
+  background: #381a1ae7;
+  z-index: 999;
+  /* opacity: 0; */
+  display: none;
+  transition: all 0.3s;
+}
+.videoForwarding p {
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-top: 10px;
+}
+.videoForwarding ul {
+  height: 70%;
+}
+.videoForwarding li {
+  --height: 100%;
+  height: var(--height);
+  width: calc(var(--height) / 9 * 16);
+}
+a.recommended {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  border-radius: 16px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  z-index: 9999;
+}
+a.recommended span {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  padding: 2px 8px 4px;
+  border-radius: 8px;
+  background: #2c2c2c5b;
+}
+a.recommended span:hover {
+  border: 2px solid var(--primary-color);
+  background-color: var(--bg-1);
+  color: var(--primary-color);
+}
+
+.videoPlayer .learnnow {
+  display: flex;
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  font-size: 22px;
+  border-radius: 8px;
+  background: var(--primary-color);
+  transform: scale(0);
+  /* transform: scale(1); */
+  opacity: 0;
+  /* opacity: 1; */
+  display: none;
+  transition: all 0.3s;
+}
+.videoPlayer .learnnow svg {
+  width: 42px;
+}
+.logoVideo {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  opacity: 0;
+  transition: all 0.6s;
+  z-index: 99;
+}
+.logoVideo img {
+  width: 42px;
+  height: 42px;
+  box-shadow: 0 0 0 4px rgba(246, 137, 53, 0.37);
+}
+.videoPlayer:hover .logoVideo {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.videoInfo,
+.lessonDetails {
+  width: 85%;
+  max-width: var(--videojs-max-width);
+  padding-top: 16px;
+}
+.titleAndAuthorWrap {
+  min-width: 60%;
+  flex: 1 0 auto;
+}
+.titleAndAuthor {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--p-color-2);
+  line-height: 1.5;
+}
+
+.titleAndAuthor h2#currentVideoTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--bs-black);
+}
+.notes_img,
+.bookmark img {
+  height: 20px;
+  cursor: pointer;
+}
+.videoNotesBlock {
+  flex: 0 0 auto;
+  padding: 6px;
+  background-color: var(--bg-1);
+}
+.videoNotesBlock:hover {
+  background-color: #f1f3f5;
+  cursor: pointer;
+}
+.videoNotesBlock .currentTime {
+  white-space: nowrap;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  user-select: none;
+  background-image: linear-gradient(-45deg, #d000f7, #24bae3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.titleAndAuthorWrap .updated {
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 16px;
+  color: var(--text-color-3);
+}
+span.author {
+  margin-left: 8px;
+  margin-bottom: 2px;
+  font-size: 1.4rem;
+  color: var(--bs-black);
+  align-self: flex-end;
+}
+.authorName {
+  color: var(--primary-color);
+}
+
+.lesson_feedback .question {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* Nội dung video bằng bài viết: */
+
+.lessonDetails {
+  width: 70%;
+}
+.videoMarker {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border-color-2);
+}
+.excerpt .excerptTitle {
+  margin-top: 4px;
+  padding: 4px 10px;
+  font-size: 1.6rem;
+  color: var(--text-color-3);
+  border-radius: 4px;
+  user-select: none;
+}
+.excerpt .excerptTitle:hover {
+  color: var(--text-color-6);
+  border-radius: 2px;
+  background-color: var(--bg-5);
+  cursor: pointer;
+}
+.lessonSegment {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.generality a {
+  color: var(--p-color-4);
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  text-decoration: none;
+}
+
+.lessonHeading {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.lessonDetails span {
+  color: #0e90ec;
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.remoteControlArea {
+  --bs-gutter-x: 4rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background: #ffffff55;
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+.remoteControlArea .action {
+  width: 30%;
+  flex: 0 1 30%;
+}
+
+.actionBtn .like,
+.actionBtn .unLike,
+.action .bottomNavIcon,
+.action .bottomDiscussIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: var(--bg-gradient-4);
+  cursor: pointer;
+}
+
+.videoControls .controlsBtn {
+  min-width: 186px;
+  padding: 2px 16px 4px 16px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  color: var(--primary-color-2);
+  transition: all 0.2s;
+  border: 2px solid transparent;
+  background: var(--bg-gradient-4);
+  border-radius: 8px;
+  user-select: none;
+  cursor: pointer;
+}
+.videoControls .controlsBtn:hover {
+  background: var(--bg-gradient-4);
+  opacity: 0.7;
+}
+
+.controlsBtn span {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(-45deg, #d000f7, #24bae3);
+}
+
+.controlsBtn svg {
+  width: 22px;
+  flex: 1 0 0;
+}
+.stopVideo svg {
+  width: 28px;
+  flex: 1 0 0;
+}
+.controlsBtn svg.nextLesson {
+  transform: rotate(180deg);
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.videoPlaylists {
+  width: 23%;
+  height: calc(100vh - 68px);
+  margin-right: 12px;
+  flex: 0 1 auto;
+  background: var(--bs-white);
+  overflow-y: scroll;
+}
+
+.videoPlaylists .sidebarHeader {
+  position: sticky;
+  top: 0;
+  padding: 16px;
+  backdrop-filter: blur(25px);
+}
+
+.sidebarHeader .Search_wrapper {
+  flex: 1 1 0%;
+  padding: 0;
+  align-items: center;
+  background-color: var(--bg-2);
+  border: 1px solid var(--bs-gray-400);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.sidebarHeader .Search_Icon {
+  margin-left: 4px;
+}
+.sidebarHeader .Search_input {
+  background-color: var(--bg-2);
+}
+
+.sidebarHeader .bookmark {
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 0px;
+  cursor: pointer;
+}
+.sidebarHeader .bookmark img {
+  width: 16px;
+}
+.sidebarHeader .bookmark span {
+  color: rgb(0, 147, 252);
+}
+.sidebar_tracks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item {
+  position: sticky;
+  top: 72px;
+  z-index: 1;
+  padding: 8px 16px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-code-color);
+  background-color: var(--dark-3);
+  backdrop-filter: blur(15px);
+  transition: background-color 0.3s ease-out 0s;
+  border-bottom: 1px solid var(--border-bottom-color);
+}
+
+.item:hover,
+.lesson:hover {
+  background-color: var(--bg-2);
+  color: var(--text-code-color);
+}
+
+.item .quantity {
+  color: rgb(128, 139, 154);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.lessonList .lesson {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out 0s;
+}
+
+.lessonList .icon_right,
+.lessonList .lessonContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lessonList h4.lessonTitle {
+  padding-right: 10px;
+  color: rgb(128, 139, 154);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.lessonList .icon_left {
+  width: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lesson_checked,
+.lesson_bookmark {
+  width: 10px;
+}
+
+.quantity,
+.lesson_duration {
+  color: rgb(128, 139, 154);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+/*
+
+
+
+*/
+/* .sidebar_tracks */
+.videoPlaylists::-webkit-scrollbar,
+.presentationArea::-webkit-scrollbar {
+  width: 0px !important;
+}

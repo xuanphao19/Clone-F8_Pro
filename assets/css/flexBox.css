@@ -37,9 +37,11 @@
 .align-items-center {
   align-items: center !important;
 }
-
 .align-items-start {
   align-items: start !important;
+}
+.align-items-baseline {
+  align-items: baseline !important;
 }
 .align-items-stretch {
   align-items: stretch !important;
@@ -51,11 +53,17 @@
 .justify-content-start {
   justify-content: flex-start !important;
 }
+.justify-content-end {
+  justify-content: flex-end !important;
+}
 .justify-content-center {
-  justify-content: space-between !important;
+  justify-content: center !important;
 }
 .justify-content-between {
   justify-content: space-between !important;
+}
+.justify-content-around {
+  justify-content: space-around !important;
 }
 .gap4 {
   gap: 4px !important;
@@ -65,6 +73,9 @@
 }
 .gap12 {
   gap: 12px !important;
+}
+.gap16 {
+  gap: 16px !important;
 }
 .gap24 {
   gap: 24px !important;

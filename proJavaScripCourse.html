@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>F8 JavaScript Pro 💔</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <!-- Favicons -->
+    <link href="assets/img/favicon.ico" rel="icon" />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/flexBox.css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/Responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/videoJS.css" />
+  </head>
+
+  <body>
+    <!-- ======= Header id="navbar" ======= -->
+
+    <header id="header" class="container_fluid header">
+      <div class="header_wrap d-flex align-items-center">
+        <div class="wrapperLogo d-flex align-items-center">
+          <a class="navLogo d-flex align-items-center" href="index.html">
+            <div class="header_logo">
+              <img
+                id="logo"
+                class="Footer_top-logo d-f-center"
+                src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                alt="F8" />
+            </div>
+            <h2 class="actionSlogans" id="logo_Text">Học Lập Trình Để Đi Làm</h2>
+          </a>
+
+          <div class="circle_progress rotateBgrWrap">
+            <div class="rotateBgr"></div>
+            <span> 99% </span>
+          </div>
+        </div>
+
+        <div class="navbar gap16 d-flex align-items-center" style="margin-left: auto">
+          <!-- !!!!!!!!!!!! -->
+          <div class="flashcards actionTooltip">
+            <div class="circle_progress rotateBgrWrap">
+              <div class="rotateBgr"></div>
+              <span> </span>
+              <img class="" src="./assets/img/Small_icon/cards.svg" alt="crown" />
+            </div>
+            <div class="wrap_desc bridgeRight">
+              <span class="description">Đã hoàn thành 100% flashcards !</span>
+            </div>
+            <div class="dropDownWrap d-in-flex bridgeTop">
+              <ul class="dropDown flashcardsMenu d-flex f-wrap">
+                <li class="list_item d-flex align-items-center gap16">
+                  <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                  <span>Quét mã QR</span>
+                  <!-- <div class="dialogQR lightBox">
+                    <div class="dialogContainer lightBoxContent">
+                      <h3 class="heading dialogTitle">Flashcards QR code</h3>
+                      <div class="dialogContent">
+                        <p class="dialogDesc">Để làm Flashcards trên điện thoại, hãy mở Camera và quét mã QR sau:</p>
+                        <div class="imgQR">
+                          <img src="./assets/img/QRcodeF8.png" alt="imgQR code" />
+                        </div>
+                        <div class="btn">Đóng lại</div>
+                      </div>
+                    </div>
+                  </div> -->
+                </li>
+
+                <li class="list_item d-flex align-items-center">
+                  <a
+                    class="flashcard_newTab d-flex align-items-center gap16"
+                    href="https://fullstack.edu.vn/blog/ban-da-cai-nhung-extensions-huu-ich-nay-chua.html">
+                    <img src="./assets/img/clients/topRight.svg" alt="topRight" />
+                    Mở trong tab mới
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="prevLesson actionTooltip">
+            <div class="circle_progress rotateBgrWrap">
+              <div class="rotateBgr"></div>
+              <span> </span>
+              <img style="top: 50%; width: 50%" src="./assets/img/Small_icon/Previouslesson.svg" alt="crown" />
+            </div>
+
+            <div class="prev wrap_desc bridgeTop">
+              <span class="description">Xem lại bài học trước!</span>
+            </div>
+            <div class="dropDownWrap d-in-flex bridgeTop">
+              <div class="dropDown flashcardsMenu d-flex f-wrap">
+                <a
+                  class="prevLessonLink list_item d-flex align-items-center gap16"
+                  href="https://fullstack.edu.vn/blog/can-chinh-moi-phan-tu-voi-thuoc-tinh-position.html">
+                  <img src="./assets/img/Small_icon/identification.svg" alt="" />
+                  Về bài học trước
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="myNotes actionTooltip">
+            <div class="circle_progress rotateBgrWrap">
+              <div class="rotateBgr"></div>
+              <span> </span>
+              <img style="top: 50%; width: 50%" src="./assets/img/Small_icon/book.svg" alt="crown" />
+            </div>
+            <div class="seeNotes wrap_desc bridgeTop">
+              <span class="description">Xem ghi chú của tôi!</span>
+            </div>
+
+            <!-- <div class="myNoteWrap lightBox">
+              <div class="myNoteContainer lightBoxContent">
+                <div class="myNoteHeard d-flex align-items-center justify-content-between">
+                  <h5 class="myNoteTitle heading">Ghi chú của tôi:</h5>
+                  <div class="myNoteMenu gap12 d-flex d-flex align-items-center">
+                    <div class="selectNote">
+                      <span class="listTitle">Trong chương hiện tại</span>
+                      <img class="arrowDown" src="./assets/img/chevronDown.svg" alt="arrowDown" />
+
+                      <div class="selectName drop_DownWrap bridgeTop">
+                        <ul class="note_List drop_Down">
+                          <li class="list_item d-flex align-items-center">Trong chương hiện tại</li>
+                          <li class="list_item d-flex align-items-center">Trong bài hiện tại</li>
+                          <li class="list_item d-flex align-items-center">Trong tất cả các chương</li>
+                          <li class="list_item d-flex align-items-center">Trong chương/bài khác...</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="selectNote">
+                      <span class="listTitle">Mới nhất</span>
+                      <img class="arrowDown" src="./assets/img/chevronDown.svg" alt="arrowDown" />
+
+                      <div class="selectTime drop_DownWrap bridgeTop">
+                        <ul class="note_List drop_Down">
+                          <li class="list_item d-flex align-items-center">Mới nhất</li>
+                          <li class="list_item d-flex align-items-center">Cũ nhất</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="noteClose">
+                    <img src="./assets/img/closeSvg.svg" alt="" />
+                  </div>
+                </div>
+                <div class="myNoteContent d-f-center f-column">
+                  <ul class=" noteList">
+                        <li>
+                          <a href=""></a>
+                        </li>
+                        <li>
+                          <a href=""></a>
+                        </li>
+                        <li>
+                          <a href=""></a>
+                        </li>
+                        <li>
+                          <a href=""></a>
+                        </li>
+                      </ul>
+                  <div class="notContent d-f-center f-column">
+                    <img src="./assets/img/not_Notes.svg" alt="not Notes" />
+                    <p class="notContentDesc">Bạn chưa có ghi chú nào!</p>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="notify actionTooltip">
+            <div class="circle_progress rotateBgrWrap">
+              <div class="rotateBgr"></div>
+              <span> </span>
+              <img class="rotateCrown" style="top: 50%" src="./assets/img/Small_icon/bell.svg" alt="crown" />
+            </div>
+            <div class="seeNotify wrap_desc bridgeTop">
+              <span class="description">Xem Thông báo của tôi!</span>
+            </div>
+
+            <!-- <span class="description"></span>
+            <div class="yourNotify">
+              <div class="notifyHeard">
+                <h5 class="notifyTitle"></h5>
+                <span class="notifyMenu">Đánh dấu đã đọc</span>
+              </div>
+              <ul class="noteList">
+                <li>
+                  <a href=""></a>
+                </li>
+                <li>
+                  <a href=""></a>
+                </li>
+                <li>
+                  <a href=""></a>
+                </li>
+                <li>
+                  <a href=""></a>
+                </li>
+              </ul>
+            </div> -->
+          </div>
+
+          <div class="navbar-current-user d-flex align-items-center">
+            <div class="wrapper d-flex align-items-center gap8">
+              <div class="circle_progress rotateBgrWrap">
+                <div class="rotateBgr"></div>
+                <img
+                  class="avatar"
+                  src="https://files.fullstack.edu.vn/f8-prod/user_avatars/36050/628a1334d274d.jpg"
+                  alt="Hòa" />
+              </div>
+              <span class="name"> Nguyễn Thanh Hòa </span>
+              <span class="arrow d-flex">
+                <img src="./assets/img/clients/chevronDown.svg" alt="" />
+              </span>
+            </div>
+          </div>
+
+          <div class="circle_progress rotateBgrWrap">
+            <div class="rotateBgr"></div>
+            <span> </span>
+            <img class="rotateCrown" src="./assets/img/clients/crown.svg" alt="crown" />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+      <div class="coursePresentation d-flex align-items-start justify-content-start">
+        <div class="currentCourse contain d-in-flex align-items-start justify-content-start">
+          <div class="presentationArea">
+            <div class="cinemaWrap contain">
+              <div id="cinema" class="cinema videoWrap">
+                <div class="videoPlayer contain d-f-center">
+                  <div id="player"></div>
+
+                  <div
+                    id="famousBrand"
+                    class="overlayVideo btn famousBrand f-column align-items-center justify-content-center">
+                    <span> 💔 F8 Js_Pro 💔 </span>
+                    <span class="actionSlogans"> Học lập trình để đi làm </span>
+                  </div>
+
+                  <div id="videoForwarding" class="overlayVideo videoForwarding container">
+                    <p>Video Đề xuất:</p>
+                    <ul class="d-flex align-items-center justify-content-center gap24 contain">
+                      <li>
+                        <a
+                          class="recommended"
+                          target="_self"
+                          href="https://xuanphao19.github.io/GIA-PHA-CU-NGHI/assets/img/Gia-Dinh/ong-ngu/Tet-tet-tet.png"
+                          style="
+                            background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png');
+                          ">
+                          <span> Xem Ngay! </span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          class="recommended"
+                          target="_self"
+                          href="https://xuanphao19.github.io/GIA-PHA-CU-NGHI/assets/img/Gia-Dinh/ong-ngu/Tet-tet-tet.png"
+                          style="
+                            background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png');
+                          ">
+                          <span> Xem Ngay! </span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          class="recommended"
+                          target="_self"
+                          href="https://xuanphao19.github.io/GIA-PHA-CU-NGHI/assets/img/Gia-Dinh/ong-ngu/Tet-tet-tet.png"
+                          style="
+                            background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png');
+                          ">
+                          <span> Xem Ngay! </span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          class="recommended"
+                          target="_self"
+                          href="https://xuanphao19.github.io/GIA-PHA-CU-NGHI/assets/img/Gia-Dinh/ong-ngu/Tet-tet-tet.png"
+                          style="
+                            background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png');
+                          ">
+                          <span> Xem Ngay! </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div id="logoVideo" class="logoVideo">
+                    <img
+                      class="Footer_top-logo d-f-center"
+                      src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                      alt="F8" />
+                  </div>
+
+                  <div id="learnnow" class="learnnow btn align-items-center gap16">
+                    <span> Learn now! </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="transparent"
+                      viewBox="0 0 24 24"
+                      stroke-width="1"
+                      stroke="#0f0"
+                      class="w-6 h-6">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="videoInfo container d-flex align-items-start justify-content-between">
+                <div class="titleAndAuthorWrap">
+                  <div class="titleAndAuthor d-flex align-items-center gap12">
+                    <div class="videoTitle d-flex align-items-center">
+                      <h2 id="currentVideoTitle" class="title"></h2>
+                      <span class="bookmark">
+                        <img src="./assets/img/Small_icon/bookmark.svg" alt="bookmark" />
+                      </span>
+                    </div>
+
+                    <div class="d-flex align-items-center gap4">
+                      <span class="author"> Tác giả: </span>
+                      <strong class="authorName"> Sơn Đặng </strong>
+                    </div>
+                  </div>
+
+                  <p class="updated">Cập nhật ngày 14 tháng 4 năm 2023</p>
+                </div>
+
+                <div class="videoNotesBlock d-flex align-items-center gap12">
+                  <img class="notes_img" src="./assets/img/clients/volUpSvg.svg" alt="clients" />
+                  <div class="currentTime d-flex gap8 align-items-center">
+                    <span class="notes_text"> Thêm ghi chú tại: </span>
+                    <span class="cur_hh cur"> 00 : </span>
+                    <span class="cur_mm cur"> 00 : </span>
+                    <span class="cur_ss cur"> 00 </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lessonDetails container">
+              <div class="videoMarker">
+                <div class="excerpt">
+                  <p class="excerptTitle d-in-flex gap8">
+                    00:09
+                    <span> - </span>
+                    Tìm hiểu về thẻ &lt;pre&gt;
+                  </p>
+                </div>
+
+                <div class="excerpt">
+                  <p class="excerptTitle d-in-flex gap8">
+                    00:09
+                    <span> - </span>
+                    Tìm hiểu về thẻ &lt;pre&gt;
+                  </p>
+                </div>
+
+                <div class="excerpt">
+                  <p class="excerptTitle d-in-flex gap8">
+                    00:09
+                    <span> - </span>
+                    Tìm hiểu về thẻ &lt;pre&gt;
+                  </p>
+                </div>
+              </div>
+
+              <div class="lessonSegment">
+                <ul class="generality">
+                  <li>
+                    <a href="">
+                      <span> # </span>
+                      Thẻ pre
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span> # </span>
+                      Tính ứng dụng
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span> # </span>
+                      Tóm tắt
+                    </a>
+                  </li>
+                </ul>
+
+                <div class="specificContent">
+                  <div class="lessonHeading">
+                    <h2><span>#</span> JavaScript có thể làm được gì?</h2>
+                  </div>
+
+                  <div class="lesson_content">
+                    <div class="caption"></div>
+
+                    <div class="example"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="applicability">
+                <h3><span>#</span> Tính ứng dụng:</h3>
+              </div>
+
+              <div class="lessonRecap">
+                <h3><span>#</span> Tóm tắt bài học:</h3>
+                <ul class="summary">
+                  <li>
+                    Thẻ
+                    <code> &lt;pre&gt; </code>
+                    (
+                    <em> preformatted </em>
+                    ) được sử dụng để giữ nguyên khoảng cách văn bản, ngắt dòng, tab và các ký tự định dạng khác mà
+                    trình duyệt web bỏ qua.
+                  </li>
+
+                  <li>
+                    Văn bản trong thẻ
+                    <code> &lt;pre&gt; </code>
+                    được hiển thị bằng phông chữ có độ rộng cố định, nhưng nó có thể được thay đổi bằng cách sử dụng
+                    <em> CSS </em>
+                    .
+                  </li>
+
+                  <li>
+                    Dấu xuống hàng đầu tiên và cuối cùng trong thẻ
+                    <code> &lt;pre&gt; </code>
+                    sẽ không được hiển thị ra trình duyệt.
+                  </li>
+
+                  <li>
+                    Thẻ
+                    <code> &lt;pre&gt; </code>
+                    thường được kết hợp với thẻ
+                    <code> &lt;code&gt; </code>
+                    để hiển thị khối code trên nội dung trang web.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="lessonResources">
+                <p>Tài nguyên trong bài học:</p>
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.figma.com/file/RHSM2a7CD05CmxmS0ArddO/4.-Lucy-Pet-Care-Landing-Page-(Easy)"
+                      target="_blank"
+                      rel="noopener">
+                      Thiết kế Figma của dự án IV
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/sondnpt00343/htmlcss-project-04" target="_blank" rel="noopener">
+                      Repo dự án trên Github
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://sondnpt00343.github.io/htmlcss-project-04/" target="_blank" rel="noopener">
+                      Dự án đã deploy trên Github pages
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="lesson_feedback">
+                <div class="actionFeedback d-flex align-items-center justify-content-center gap32">
+                  <div class="actionBtn">
+                    <div class="like d-f-center">
+                      <img src="./assets/img/clients/like.svg" alt="crown" />
+                    </div>
+                  </div>
+                  <div class="actionBtn">
+                    <div class="unLike d-f-center">
+                      <img src="./assets/img/clients/unLike.svg" alt="crown" />
+                    </div>
+                  </div>
+                </div>
+
+                <p class="question d-flex align-items-center justify-content-center">Bạn thấy bài học này thế nào?</p>
+              </div>
+            </div>
+
+            <div class="remoteControlArea container d-flex align-items-center justify-content-between">
+              <div class="action">
+                <div class="bottomDiscussIcon d-f-center">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxMiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcuODYzMjggMC4zNzVINC4xMDE1NkMyLjAyNzM0IDAuMzc1IDAuMzc1IDIuMDYyNSAwLjM3NSA0LjEzNjcyVjQuODc1QzAuMzc1IDUuMTkxNDEgMC42MjEwOTQgNS40Mzc1IDAuOTM3NSA1LjQzNzVDMS4yMTg3NSA1LjQzNzUgMS41IDUuMTkxNDEgMS41IDQuODc1VjQuMTM2NzJDMS41IDIuNjk1MzEgMi42NjAxNiAxLjUgNC4xMDE1NiAxLjVINy44NjMyOEM5LjMwNDY5IDEuNSAxMC41IDIuNjk1MzEgMTAuNSA0LjEzNjcyQzEwLjUgNS4wODU5NCA5Ljk3MjY2IDUuOTY0ODQgOS4xMjg5MSA2LjQ1NzAzTDUuNzE4NzUgOC4zNTU0N0M1LjE5MTQxIDguNjcxODggNC44NzUgOS4yMzQzOCA0Ljg3NSA5LjgzMjAzVjExLjA2MjVDNC44NzUgMTEuMzc4OSA1LjEyMTA5IDExLjY2MDIgNS40Mzc1IDExLjY2MDJDNS43MTg3NSAxMS42NjAyIDYgMTEuMzc4OSA2IDExLjA2MjVWOS44MzIwM0M2IDkuNjIxMDkgNi4xMDU0NyA5LjQ0NTMxIDYuMjgxMjUgOS4zMzk4NEw5LjY5MTQxIDcuNDA2MjVDMTAuODg2NyA2Ljc3MzQ0IDExLjYyNSA1LjUwNzgxIDExLjYyNSA0LjEzNjcyQzExLjYyNSAyLjA2MjUgOS45Mzc1IDAuMzc1IDcuODYzMjggMC4zNzVaTTUuNDM3NSAxMy4zMTI1QzQuODA0NjkgMTMuMzEyNSA0LjMxMjUgMTMuODM5OCA0LjMxMjUgMTQuNDM3NUM0LjMxMjUgMTUuMDcwMyA0LjgwNDY5IDE1LjU2MjUgNS40Mzc1IDE1LjU2MjVDNi4wMzUxNiAxNS41NjI1IDYuNTYyNSAxNS4wNzAzIDYuNTYyNSAxNC40Mzc1QzYuNTYyNSAxMy44Mzk4IDYuMDM1MTYgMTMuMzEyNSA1LjQzNzUgMTMuMzEyNVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yMDYyXzY2NjQpIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMjA2Ml82NjY0IiB4MT0iLTYiIHkxPSItNCIgeDI9Ii02IiB5Mj0iMjAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzVFQkJGRiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNBMTc0RkYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K"
+                    alt="Hỏi đáp &amp; Trợ giúp" />
+                </div>
+              </div>
+
+              <div class="action d-flex align-items-center justify-content-center">
+                <div class="videoControls container d-flex align-items-center justify-content-center gap24">
+                  <div class="stopVideo controlsBtn d-f-center" style="padding: 0; min-width: 32px">
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="transparent"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="#f05123"
+                        class="w-6 h-6">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874a.563.563 0 0 1-.563.563H9.564A.562.562 0 0 1 9 14.437V9.564z" />
+                      </svg>
+                    </span>
+                  </div>
+
+                  <a href="#cinema" class="preVideo btn controlsBtn d-f-center gap8">
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 previousLesson">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                      </svg>
+                    </span>
+                    <span> Bài học trước </span>
+                  </a>
+
+                  <a href="#cinema" class="nextVideo btn controlsBtn d-f-center gap8">
+                    <span> Bài tiếp theo </span>
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 nextLesson">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                      </svg>
+                    </span>
+                  </a>
+                  <div class="btn controlsBtn d-f-center testVideo" style="min-width: fit-content; height: 32px">
+                    testVideo
+                  </div>
+                  <a
+                    style="padding: 0; min-width: 32px; height: 32px"
+                    href="#"
+                    class="btn controlsBtn btnRight"
+                    onclick="location.reload()">
+                    💔
+                  </a>
+                </div>
+              </div>
+
+              <div class="action d-flex align-items-center justify-content-end">
+                <div class="bottomNavIcon d-f-center">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNiAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE1LjMxMjUgMC41QzE0Ljk5NjEgMC41IDE0Ljc1IDAuNzgxMjUgMTQuNzUgMS4wNjI1VjEzLjQzNzVDMTQuNzUgMTMuNzUzOSAxNC45OTYxIDE0IDE1LjMxMjUgMTRDMTUuNTkzOCAxNCAxNS44NzUgMTMuNzUzOSAxNS44NzUgMTMuNDM3NVYxLjA2MjVDMTUuODc1IDAuNzgxMjUgMTUuNTkzOCAwLjUgMTUuMzEyNSAwLjVaTTcuODI0MjIgMS44MDA3OEM3LjYxMzI4IDEuNTg5ODQgNy4yMjY1NiAxLjU4OTg0IDcuMDE1NjIgMS44MDA3OEM2LjgwNDY5IDIuMDExNzIgNi44MDQ2OSAyLjM5ODQ0IDcuMDE1NjIgMi42MDkzOEwxMS4xMjg5IDYuNjg3NUgwLjY4NzVDMC4zNzEwOTQgNi42ODc1IDAuMTI1IDYuOTY4NzUgMC4xMjUgNy4yNUMwLjEyNSA3LjU2NjQxIDAuMzcxMDk0IDcuODEyNSAwLjY4NzUgNy44MTI1SDExLjEyODlMNy4wMTU2MiAxMS45MjU4QzYuODA0NjkgMTIuMTM2NyA2LjgwNDY5IDEyLjUyMzQgNy4wMTU2MiAxMi43MzQ0QzcuMjI2NTYgMTIuOTQ1MyA3LjYxMzI4IDEyLjk0NTMgNy44MjQyMiAxMi43MzQ0TDEyLjg4NjcgNy42NzE4OEMxMi45OTIyIDcuNTY2NDEgMTMuMDYyNSA3LjQyNTc4IDEzLjA2MjUgNy4yNUMxMy4wNjI1IDcuMTA5MzggMTIuOTkyMiA2Ljk2ODc1IDEyLjg4NjcgNi44NjMyOEw3LjgyNDIyIDEuODAwNzhaIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfNjc2XzI5NDMpIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfNjc2XzI5NDMiIHgxPSItNCIgeTE9Ii01IiB4Mj0iLTQiIHkyPSIxOSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjNUVCQkZGIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0ExNzRGRiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo="
+                    alt="Đóng/mở danh sách bài học" />
+                </div>
+              </div>
+            </div>
+
+            <!-- ======= Footer ======= -->
+            <footer id="footer" class="footer d-flex align-items-center">
+              <section class="container Footer_wrapper">
+                <div class="d-flex align-items-start justify-content-center gap32">
+                  <div class="item_Wrap f-column">
+                    <div class="d-flex align-items-center">
+                      <a class="rotateBgrWrap" href="/">
+                        <div class="rotateBgr"></div>
+                        <img
+                          class="Footer_top-logo"
+                          src="	https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                          alt="F8" />
+                      </a>
+                      <h2 class="actionSlogans">Học Lập Trình Để Đi Làm</h2>
+                    </div>
+                    <p class="Footer_contact-list">
+                      Điện thoại:
+                      <a href="tel:0246.329.1102"> 0246.329.1102 </a>
+                      <br />
+                      Email:
+                      <a href="mailto:contact@fullstack.edu.vn"> contact@fullstack.edu.vn </a>
+                      <br />
+                      Địa chỉ: Số 26 Dương Đình Nghệ, Phường Yên Hòa, Quận Cầu Giấy, TP. Hà Nội
+                    </p>
+                  </div>
+
+                  <div class="item_Wrap f-column">
+                    <h2 class="heading">Về F8</h2>
+                    <ul class="Footer_list">
+                      <li>
+                        <a href="/about-us"> Giới thiệu </a>
+                      </li>
+                      <li>
+                        <a href="/contact-us"> Liên hệ </a>
+                      </li>
+                      <li>
+                        <a href="/terms"> Điều khoản </a>
+                      </li>
+                      <li>
+                        <a href="/privacy"> Bảo mật </a>
+                      </li>
+                      <li>
+                        <a href="/careers"> Cơ hội việc làm </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="item_Wrap f-column">
+                    <h2 class="heading">Sản phẩm</h2>
+                    <ul class="Footer_list">
+                      <li>
+                        <a href="https://nester.fullstack.edu.vn" target="_blank" rel="noreferrer"> Game Nester </a>
+                      </li>
+                      <li>
+                        <a href="https://css-diner.fullstack.edu.vn" target="_blank" rel="noreferrer">
+                          Game CSS Diner
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://css-selectors-cheatsheet.fullstack.edu.vn" target="_blank" rel="noreferrer">
+                          Game CSS Selectors
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://froggy.fullstack.edu.vn" target="_blank" rel="noreferrer"> Game Froggy </a>
+                      </li>
+                      <li>
+                        <a href="https://froggy-pro.fullstack.edu.vn" target="_blank" rel="noreferrer">
+                          Game Froggy Pro
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://css-scoops.fullstack.edu.vn" target="_blank" rel="noreferrer"> Game Scoops </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="item_Wrap f-column">
+                    <h2 class="heading">Công cụ</h2>
+                    <ul class="Footer_list">
+                      <li>
+                        <a href="https://cv.fullstack.edu.vn/" target="_blank" rel="noreferrer"> Tạo CV xin việc </a>
+                      </li>
+                      <li>
+                        <a href="/shorten-urls"> Rút gọn liên kết </a>
+                      </li>
+                      <li>
+                        <a href="https://clippy.fullstack.edu.vn/" target="_blank" rel="noreferrer">
+                          Clip-path maker
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://snippet-generator.fullstack.edu.vn/" target="_blank" rel="noreferrer">
+                          Snippet generator
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://botayra.fullstack.edu.vn/" target="_blank" rel="noreferrer">
+                          Cảnh báo sờ tay lên mặt
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="item_Wrap f-column">
+                    <h2>
+                      <a
+                        class="heading"
+                        target="_blank"
+                        href="https://www.google.com/search?q=C%C3%94NG+TY+C%E1%BB%94+PH%E1%BA%A6N+C%C3%94NG+NGH%E1%BB%86+GI%C3%81O+D%E1%BB%A4C+F8"
+                        rel="noreferrer">
+                        CÔNG TY CỔ PHẦN CÔNG NGHỆ GIÁO DỤC F8
+                      </a>
+                    </h2>
+                    <ul class="Footer_list">
+                      <li>Mã số thuế: 0109922901</li>
+                      <li>Ngày thành lập: 04/03/2022</li>
+                      <li>
+                        Lĩnh vực: Công nghệ, giáo dục, lập trình. F8 xây dựng và phát triển những sản phẩm mang lại giá
+                        trị cho cộng đồng.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="d-f-center">
+                  <p class="Footer_copyright">© 2018 - 2023 F8. Nền tảng học lập trình hàng đầu Việt Nam</p>
+                </div>
+              </section>
+            </footer>
+            <!-- End Footer -->
+          </div>
+          <div class="videoPlaylists f-column">
+            <div class="sidebarHeader d-flex align-items-center justify-content-between gap16">
+              <div class="Search_wrapper d-flex align-items-center">
+                <div class="Search_Icon"></div>
+                <input class="Search_input" placeholder="Tìm theo tên bài học" value="" />
+              </div>
+              <button class="bookmark f-column align-items-center">
+                <img
+                  alt="Bài học đã lưu"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNSAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE0LjUgMTEuNVYxLjVDMTQuNSAwLjY4NzUgMTMuODEyNSAwIDEzIDBIM0MxLjU5Mzc1IDAgMC41IDEuMTI1IDAuNSAyLjVWMTRDMC41IDE1LjEyNSAxLjM3NSAxNiAyLjUgMTZIMTRDMTQuMjUgMTYgMTQuNSAxNS43ODEyIDE0LjUgMTUuNUMxNC41IDE1LjI1IDE0LjI1IDE1IDE0IDE1SDEzLjVWMTIuOTM3NUMxNC4wNjI1IDEyLjcxODggMTQuNSAxMi4xNTYyIDE0LjUgMTEuNVpNMTAuNSAxVjYuNDY4NzVMOC43ODEyNSA1LjEyNUM4LjcxODc1IDUuMDYyNSA4LjU5Mzc1IDUgOC41IDVDOC4zNzUgNSA4LjI1IDUuMDYyNSA4LjE4NzUgNS4xMjVMNi41IDYuNDY4NzVWMUgxMC41Wk0xMi41IDE1SDIuNUMxLjkzNzUgMTUgMS41IDE0LjU2MjUgMS41IDE0QzEuNSAxMy40Njg4IDEuOTM3NSAxMyAyLjUgMTNIMTIuNVYxNVpNMTMgMTJIMi41QzIuMTI1IDEyIDEuNzgxMjUgMTIuMTI1IDEuNSAxMi4yODEyVjIuNUMxLjUgMS42ODc1IDIuMTU2MjUgMSAzIDFINS41VjcuNUM1LjUgNy43MTg3NSA1LjU5Mzc1IDcuODc1IDUuNzgxMjUgNy45Njg3NUM1LjkzNzUgOC4wNjI1IDYuMTU2MjUgOC4wMzEyNSA2LjMxMjUgNy45MDYyNUw4LjUgNi4xNTYyNUwxMC42NTYyIDcuOTA2MjVDMTAuNzUgNy45Njg3NSAxMC44NzUgOCAxMSA4QzExLjA2MjUgOCAxMS4xMjUgOCAxMS4xODc1IDcuOTY4NzVDMTEuMzc1IDcuODc1IDExLjUgNy43MTg3NSAxMS41IDcuNVYxSDEzQzEzLjI1IDEgMTMuNSAxLjI1IDEzLjUgMS41VjExLjVDMTMuNSAxMS43ODEyIDEzLjI1IDEyIDEzIDEyWiIgZmlsbD0iIzAwOTNGQyIvPgo8L3N2Zz4K" />
+
+                <span> Bài học đã lưu </span>
+              </button>
+            </div>
+
+            <div id="tracks" class="sidebar_tracks">
+              <a
+                class="item d-flex align-items-center align-items-center justify-content-between glightbox"
+                href="https://www.youtube.com/embed/DpvYHLUiZpc">
+                <div>
+                  <div class="open">Lời nói đầu!</div>
+                  <div class="quantity d-flex align-items-center gap8">
+                    <span> 3 / 3 </span>
+                    <span class="separate"> | </span>
+                    <span> 23:35 </span>
+                  </div>
+                </div>
+                <img src="./assets/img/Small_icon/down.svg" alt="" />
+              </a>
+
+              <div id="lessonList" class="lessonList">
+                <!-- 111111111111 -->
+                <div id="id_YT" class="lesson">
+                  <!--  -->
+                  <div class="lessonContent">
+                    <img class="icon_left" src="./assets/img/Small_icon/playVideo.svg" alt="left" />
+                    <div class="lessonInfo">
+                      <h4 class="lessonTitle">1. Chào mừng</h4>
+                      <span class="lesson_duration"> 03:00 </span>
+                    </div>
+                  </div>
+                  <div class="icon_right">
+                    <img class="lesson_bookmark" src="./assets/img/Small_icon/bookmark.svg" alt="bookmark" />
+                    <img class="lesson_checked" src="./assets/img/Small_icon/checked.svg" alt="lesson checked" />
+                  </div>
+                  <!--  -->
+                </div>
+
+                <div class="lesson">
+                  <!--  -->
+                  <div class="lessonContent">
+                    <img class="icon_left" src="./assets/img/Small_icon/playVideo.svg" alt="left" />
+                    <div class="lessonInfo">
+                      <h4 class="lessonTitle">1. Chào mừng</h4>
+                      <span class="lesson_duration"> 03:00 </span>
+                    </div>
+                  </div>
+                  <div class="icon_right">
+                    <img class="lesson_bookmark" src="./assets/img/Small_icon/bookmark.svg" alt="bookmark" />
+                    <img class="lesson_checked" src="./assets/img/Small_icon/checked.svg" alt="lesson checked" />
+                  </div>
+                  <!--  -->
+                </div>
+
+                <div class="lesson">
+                  <!--  -->
+                  <div class="lessonContent">
+                    <img class="icon_left" src="./assets/img/Small_icon/playVideo.svg" alt="left" />
+                    <div class="lessonInfo">
+                      <h4 class="lessonTitle">1. Chào mừng</h4>
+                      <span class="lesson_duration"> 03:00 </span>
+                    </div>
+                  </div>
+                  <div class="icon_right">
+                    <img class="lesson_bookmark" src="./assets/img/Small_icon/bookmark.svg" alt="bookmark" />
+                    <img class="lesson_checked" src="./assets/img/Small_icon/checked.svg" alt="lesson checked" />
+                  </div>
+                  <!--  -->
+                </div>
+
+                <div class="lesson">
+                  <!--  -->
+                  <div class="lessonContent">
+                    <img class="icon_left" src="./assets/img/Small_icon/playVideo.svg" alt="left" />
+                    <div class="lessonInfo">
+                      <h4 class="lessonTitle">1. Chào mừng</h4>
+                      <span class="lesson_duration"> 03:00 </span>
+                    </div>
+                  </div>
+                  <div class="icon_right">
+                    <img class="lesson_bookmark" src="./assets/img/Small_icon/bookmark.svg" alt="bookmark" />
+                    <img class="lesson_checked" src="./assets/img/Small_icon/checked.svg" alt="lesson checked" />
+                  </div>
+                  <!--  -->
+                </div>
+
+                <!-- 22222222222 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- End #main -->
+    <div class="portfolio-item">
+      <div class="portfolio-info"></div>
+    </div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/jQ.js"></script>
+    <!-- <script src="assets/js/proJsCourse.js"></script> -->
+    <!-- <script src="assets/js/main.js"></script> -->
+  </body>
+</html>

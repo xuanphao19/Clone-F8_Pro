@@ -14,7 +14,9 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
 }
-
+* {
+  scroll-behavior: smooth;
+}
 *,
 ::after,
 ::before {
@@ -65,15 +67,15 @@ h1 {
 }
 .h2,
 h2 {
-  font-size: calc(1.6rem + 0.9vw);
+  font-size: calc(1.2rem + 0.9vw);
 }
 .h3,
 h3 {
-  font-size: calc(1.6rem + 0.6vw);
+  font-size: calc(1rem + 0.6vw);
 }
 .h4,
 h4 {
-  font-size: calc(1.6rem + 0.3vw);
+  font-size: calc(1rem + 0.3vw);
 }
 .h5,
 h5 {
@@ -99,6 +101,11 @@ ul ol,
 ul ul {
   margin-bottom: 0;
 }
+
+li {
+  list-style-type: none;
+}
+
 dt {
   font-weight: 700;
 }
