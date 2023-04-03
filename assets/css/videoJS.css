@@ -170,8 +170,6 @@ a.list_item,
   width: 22px;
 }
 
-
-
 .prevLesson:active .dropDownWrap,
 .flashcards:active .dropDownWrap {
   display: flex;
@@ -260,13 +258,13 @@ main {
   background: #e7601d;
   padding: 6px 8px;
   font-size: 16px;
-  z-index: 999999;
-  border: none;
+  /* border: none; */
   transform: scale(0);
-  /* transform: scale(1); */
+  transform: scale(1);
   opacity: 0;
-  /* opacity: 1; */
+  opacity: 1;
   transition: all 0.3s;
+  z-index: 999999;
 }
 .famousBrand .actionSlogans {
   margin: 0;
@@ -385,6 +383,7 @@ a.recommended span:hover {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--bs-black);
+  padding-right: 16px;
 }
 .notes_img,
 .bookmark img {
