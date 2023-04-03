@@ -772,44 +772,44 @@ span.actionSlogans,
     transform: rotate(360deg);
   }
 }
-.portfolio-item {
+/* .portfolio-item {
   display: none;
-}
-.plyr__video-wrapper.plyr__video-embed {
+} */
+/* .plyr__video-wrapper.plyr__video-embed {
   position: relative;
-}
-.plyr__video-wrapper.plyr__video-embed::after {
-  /* transform: translate(100px 200px); */
-}
+} */
+/* .plyr__video-wrapper.plyr__video-embed::after {
+  transform: translate(100px 200px);
+} */
 
-.plyr__controls::before {
+/* .plyr__controls::before {
 }
 
 .plyr__control.plyr__control--overlaid {
   position: absolute;
-}
+} */
 
-.plyr__control.plyr__control--overlaid::after {
-  /* content: "";
+/* .plyr__control.plyr__control--overlaid::after {
+  content: "";
   min-width: 1940px;
   height: 330%;
   background: violet;
   position: absolute;
   bottom: -1046%;
   left: 50%;
-  transform: translate(-50%); */
-}
-button.plyr__control.plyr__control--overlaid {
+  transform: translate(-50%);
+} */
+/* button.plyr__control.plyr__control--overlaid {
   width: 100%;
   height: 230px;
   border-radius: 1px;
   top: 70%;
   left: 0;
-  /* transform: translateX(-12px); */
+  transform: translateX(-12px);
   transform: translateY(100px);
   z-index: 99999;
-}
-.plyr__control--overlaid svg {
+} */
+/* .plyr__control--overlaid svg {
   left: 50%;
   position: absolute;
-}
+} */
