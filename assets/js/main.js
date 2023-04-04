@@ -19,6 +19,25 @@
       }
     }
   };
+  
+ on(
+   "click",
+   ".scrollto",
+   function (e) {
+     if (select(this.hash)) {
+       e.preventDefault();
+       let navbar = select("#navbar");
+       if (navbar.classList.contains("navbar-mobile")) {
+         navbar.classList.remove("navbar-mobile");
+         let navbarToggle = select(".mobile-nav-toggle");
+         navbarToggle.classList.toggle("bi-list");
+         navbarToggle.classList.toggle("bi-x");
+       }
+       scrollto(this.hash);
+     }
+   },
+   true,
+ );
 
   const onscroll = (el, listener) => {
     el.addEventListener("scroll", listener);
@@ -37,25 +56,6 @@
     onscroll(document, toggleBacktotop);
   }
 
-  on(
-    "click",
-    ".scrollto",
-    function (e) {
-      if (select(this.hash)) {
-        e.preventDefault();
-
-        let navbar = select("#navbar");
-        if (navbar.classList.contains("navbar-mobile")) {
-          navbar.classList.remove("navbar-mobile");
-          let navbarToggle = select(".mobile-nav-toggle");
-          navbarToggle.classList.toggle("bi-list");
-          navbarToggle.classList.toggle("bi-x");
-        }
-        scrollto(this.hash);
-      }
-    },
-    true,
-  );
 
   let preloader = select("#preloader");
   if (preloader) {
@@ -66,6 +66,20 @@
 
   const glightbox = GLightbox({
     selector: ".glightbox",
+    //   Multiple data attributes / You can use the options as separated data attributes
+    // <a
+    //   class="glightbox || 1 - n"            Lớp. (Bộ chọn CSS = true)
+    //   href="large.jpg"                      tiêu đề
+    //   data-title="My title"                 thay thế
+    //   data-description="description here"   Sự miêu tả
+    //   data-desc-position="right"            mô tảVị trí
+    //   data-type="image"                     kiểu
+    //   data-effect="fade"                    tác dụng
+    //   data-width="900px"                    chiều rộng
+    //   data-height="auto"                    chiều cao
+    //   data-zoomable="true"                  có thể phóng to
+    //   data-draggable="true"                 có thể kéo được
+    // ></a>
   });
   new Swiper(".testimonials-slider", {
     spaceBetween: 5,

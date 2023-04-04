@@ -1,19 +1,74 @@
 {
   ("use strict");
-  let tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  let firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  let player;
-  // let playListId = "PL_-VfJajZj0VgpFpEVFzS5Z-lkXtBe-x5"; 116
-  let playListId = "PL_-VfJajZj0U1MSx1IMu13oLJq2nM97ac";
   $.ajaxSetup({
     async: false,
   });
+  const select = (el, all = false) => {
+    el = el.trim();
+    if (all) {
+      return [...document.querySelectorAll(el)];
+    } else {
+      return document.querySelector(el);
+    }
+  };
+  const getParent = (element, selector) => {
+    while (element.parentElement) {
+      if (element.parentElement.matches(selector)) {
+        return element.parentElement;
+      }
+      element = element.parentElement;
+    }
+    return element;
+  };
+  let url = "";
+  let currentVideoId;
+  let dataListIdVideo;
+  let videoPlayer = select(".videoPlayer");
+  let learnNow = select(".learnNow");
+  const famousBrand = select("#famousBrand");
+  const contentVideo = select("#lessonList");
+  const overlayContent = select(".overlayContent");
+  let presentationArea = select(".presentationArea");
+  let playListId = "PL_-VfJajZj0U1MSx1IMu13oLJq2nM97ac";
+
+  var myWidth = 1200;
+  var myHeight = `${(myWidth / 16) * 9}`;
+  let width_content;
+  let height_content;
+
+  function setWindowSize() {
+    if (typeof window.innerWidth == "number") {
+      myWidth = window.innerWidth;
+      myHeight = window.innerHeight;
+    } else {
+      if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+        myWidth = document.documentElement.clientWidth;
+        myHeight = document.documentElement.clientHeight;
+      } else {
+        if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+          myWidth = document.body.clientWidth;
+          myHeight = document.body.clientHeight;
+        }
+      }
+    }
+    width_content = (myWidth * 77) / 100;
+    height_content = ((width_content * 85) / 100 / 16) * 9;
+    videoPlayer.style.setProperty("width", (width_content * 85) / 100 + "px");
+    videoPlayer.style.setProperty("height", `${height_content}px`);
+  }
+  window.addEventListener("resize", setWindowSize);
+
+  /* ===========   Khởi tạo trình phát   ============= */
+  let tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  let firstScriptTag = $("script")[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  let player;
   function onYouTubeIframeAPIReady() {
+    window.addEventListener("resize", setWindowSize);
     player = new YT.Player("player", {
-      width: "1240",
-      height: "700",
+      // width:,
+      // height:,
       playerVars: {
         playsinline: 1,
         controls: 1,
@@ -27,134 +82,91 @@
         autoplay: 0,
         m: 0,
         enablejsapi: 1,
-        // list: playListId,
+        list: playListId,
       },
       events: {
         onReady: onPlayerReady,
       },
     });
   }
-  let vol = 50;
-  const volControls = document.querySelector(".volControls");
-  const volControl = document.querySelector(".volControl");
-  const playPause = document.querySelector(".playPause");
-  const playPauseBtn = document.querySelector(".playPauseVideo");
-  // const playPauseImg = playPauseBtn.querySelector(".playPauseImg");
-  const contentVideo = document.getElementById("hungTinh");
-
-  function getRandom(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-  }
+  /* ======== onPlayerReady ========== */
   function onPlayerReady(_event) {
     player.cuePlaylist({
       listType: "playlist",
-      list: playListId,
       index: 0,
       startSeconds: 0,
       suggestedQuality: "auto",
     });
-    player.setShuffle({
-      shufflePlaylist: 1,
-    });
     // player.cueVideoById("BmkVXoKoqVA");
+    player.setShuffle(0);
+    player.setShuffle(false);
+    player.setLoop(true);
+    player.getIframe().width = "100%";
+    player.getIframe().height = "100%";
     player.addEventListener("onStateChange", "onPlayerStateChange");
     player.stopVideo();
     showTime();
   }
-
+  let stateData = 0;
+  /* ======== Lắng nghe thay đổi State ========== */
   function onPlayerStateChange(event) {
+    window.addEventListener("resize", setWindowSize);
+    const videoPlaylists = select(".sidebar_tracks");
+    let titleVideo = player.videoTitle;
+    currentVideoId = event.target.getVideoData().video_id;
+    const handleActiveVideo = (currentId) => {
+      let element = select(".lesson", true);
+      if (element) {
+        element.map(function (elem) {
+          elem.classList.remove("active");
+          if (elem.id === currentId) {
+            elem.classList.add("active");
+            return;
+          }
+        });
+      }
+    };
     if ([1, 2, 5].indexOf(player.getPlayerState()) >= 0) {
-      if (player.videoTitle) {
-        document.getElementById("currentVideoTitle").innerText = player.videoTitle;
-      }
+      showTitle(titleVideo);
+      handleActiveVideo(currentVideoId);
     }
-    console.log(player.getPlayerState());
-    if (event.data === 1) {
-      playPause.style.display = "none";
-      playPauseImg.style.display = "flex";
-      volControls.onmousemove = function () {
-        volControl.style.display = "flex";
-        volControls.style.backgroundColor = "#2d295b54";
-        volControls.style.backdropFilter = "blur(10px)";
-      };
-    } else {
-      playPause.style.display = "flex";
-      playPauseImg.style.display = "none";
-    }
-    volControls.onmouseout = function () {
-      volControl.style.display = "none";
-      volControls.style.backgroundColor = "transparent";
-      volControls.style.backdropFilter = "blur(0)";
-    };
-    volControl.onmousedown = function (e) {
-      if (e.target.matches(".volUp") || e.target.matches(".volDown")) {
-        e.target.style.backgroundColor = "#abfabf80";
-        e.target.style.backgroundSize = "contain";
+    handleVideoPlaylist(dataListIdVideo);
+    videoPlaylists.onclick = function (e) {
+      let element = getParent(e.target, ".lesson");
+      if (e.target.id) {
+        specifiedVideo(e.target.id);
+      } else if (element) {
+        specifiedVideo(element.id);
       }
-    };
-    volControl.onmouseup = function (e) {
-      if (e.target.matches(".volUp") || e.target.matches(".volDown")) {
-        e.target.style.backgroundColor = "transparent";
-        e.target.style.backgroundSize = 0;
-      }
-    };
-    volControl.onclick = function (e) {
-      e.stopPropagation();
-      if (e.target.matches(".volUp") && vol < 100) {
-        vol += 10;
-      } else if (e.target.matches(".volDown") && vol > 0) {
-        vol -= 10;
-      }
-      player.setVolume(vol);
     };
     var isPlaying = false;
     function playPauseVideo() {
       switch (player.getPlayerState()) {
         case 5:
-          player.seekTo(0);
           isPlaying = true;
-          player.playVideo();
+          playVideo();
+          player.seekTo(0);
           return;
         case 1:
-          player.pauseVideo();
+          pauseVideo();
           return;
         case 2:
-          player.playVideo();
+          playVideo();
           return;
       }
     }
-    const overlayControl = document.querySelector(".overlayVideo");
-    overlayControl.onclick = function () {
-      playPauseVideo();
-    };
-    playPauseBtn.onclick = function () {
-      playPauseVideo();
-    };
+    stateData = event.data;
+    toggleOverlay(stateData);
 
-    const videoPlaylists = document.querySelector(".videoPlaylists");
-    videoPlaylists.onclick = function (e) {
-      console.log(e.target.id);
-      if (e.target.matches(".videoItem")) {
-        specifiedVideo(e.target.id);
+    learnNow.onclick = () => playPauseVideo();
+    famousBrand.onclick = () => playPauseVideo();
+    // window.addEventListener("resize", myFunctionResize);
+    function showTitle(titleVideo) {
+      var titleEl = select("#currentVideoTitle");
+      if (titleVideo) {
+        titleEl.innerText = titleVideo;
       }
-    };
-    function specifiedVideo(id) {
-      player.cueVideoById(id);
     }
-    function stopVideo() {
-      playPause.style.display = "flex";
-      player.stopVideo();
-    }
-    const StopVideoBtn = document.querySelector(".StopVideo");
-    StopVideoBtn.onclick = function () {
-      stopVideo();
-    };
-    const testVideoBtn = document.querySelector(".testVideo");
-    testVideoBtn.onclick = () => {
-      testVideo();
-    };
-    var url = "";
-    var dataListIdVideo;
     function handleVideoPlaylist(listIdVideo) {
       if (listIdVideo) {
         listIdVideo = listIdVideo;
@@ -165,8 +177,6 @@
         handleData(listIdVideo);
       }
     }
-    handleVideoPlaylist(dataListIdVideo);
-
     function handleData(listIds) {
       if (listIds && player.getPlayerState() === 5) {
         const htmls = listIds.map((IdVideo, i) => {
@@ -184,29 +194,113 @@
       });
     }
     function showPlayList(data, Id, i) {
-      let answerEle = document.createElement("li");
+      let answerEle = document.createElement("div");
       answerEle.id = `${Id}`;
-      answerEle.className = "videoItem";
-      answerEle.innerText = `${i + 1} - ${data.title}`;
+      answerEle.className = "lesson";
+      answerEle.innerHTML = `
+                  <div class="lessonContent">
+                    <img class="icon_left" src="./assets/img/Small_icon/playVideo.svg" alt="left">
+                    <div class="lessonInfo">
+                      <h4 class="lessonTitle"> ${i + 1} - ${data.title}</h4>
+                      <span class="lesson_duration"> 03:00 </span>
+                    </div>
+                  </div>
+                  <div class="icon_right">
+                    <img class="lesson_bookmark" src="./assets/img/Small_icon/bookmark.svg" alt="bookmark">
+                    <img class="lesson_checked" src="./assets/img/Small_icon/checked.svg" alt="lesson checked">
+                  </div>`;
       contentVideo.lastChild.after(answerEle);
       return answerEle;
     }
+    const handleId_Video = (num, currentId) => {
+      let element = select(".lesson", true);
+      let changeId = "";
+      if (element) {
+        element.map(function (elem, i) {
+          var j = i + num;
+          if (j <= 0) {
+            j = element.length - 1;
+          } else if (j >= element.length) {
+            j = 0;
+          }
+          if (elem.id === currentId) {
+            return (changeId = element[j]);
+          }
+        });
+      }
+      return changeId.id;
+    };
+    function testVideo() {
+      changePlaylist();
+    }
+    function playVideo() {
+      player.playVideo();
+    }
+    function pauseVideo() {
+      player.pauseVideo();
+    }
+    function stopVideo() {
+      player.stopVideo();
+    }
+    function nextVideo() {
+      currentVideoId = player.getVideoData().video_id;
+      let new_id = handleId_Video(1, currentVideoId);
+      if (new_id) {
+        player.loadVideoById(new_id);
+        player.seekTo(0, true);
+      }
+    }
+    function previousVideo() {
+      currentVideoId = player.getVideoData().video_id;
+      let new_id = handleId_Video(-1, currentVideoId);
+      if (new_id) {
+        player.loadVideoById(new_id);
+        player.seekTo(0, true);
+      }
+    }
+    function toggleOverlay(num) {
+      if (num != 5) {
+        learnNow.classList.add("dpn");
+      } else {
+        learnNow.classList.remove("dpn");
+      }
+      if (num === 2 || num === 5) {
+        overlayContent.classList.remove("dpn");
+      } else {
+        overlayContent.classList.add("dpn");
+      }
+    }
+    select(".testVideo").onclick = () => {
+      testVideo();
+    };
+    select("#stopVideo").onclick = () => {
+      stopVideo();
+    };
+    select("#preVideo").onclick = () => {
+      previousVideo();
+    };
+    select("#nextVideo").onclick = () => {
+      nextVideo();
+    };
+    function specifiedVideo(id) {
+      // chỉ định phát video theo id, phát từ đầu
+      player.loadVideoById(id);
+      player.seekTo(0, true);
+    }
+    function changePlaylist(playListId) {
+      contentVideo.innerHTML = `<p></p>`;
+      playListId = "PLe28tn1x4EIYnd9KSPfNEkstp-3rZiUOf";
+      var newPlayListId = playListId;
+      player.cuePlaylist({
+        list: newPlayListId,
+        index: 0,
+        startSeconds: 0,
+      });
+      dataListIdVideo = player.getPlaylist();
+      handleVideoPlaylist(dataListIdVideo);
+    }
   }
-  function testVideo() {
-    changePlaylist();
-  }
-  function changePlaylist(playListId) {
-    contentVideo.innerHTML = `<p></p>`;
-    playListId = "PL_-VfJajZj0U1MSx1IMu13oLJq2nM97ac";
-    player.cuePlaylist({
-      list: playListId,
-      index: 0,
-      startSeconds: 0,
-    });
-    dataListIdVideo = player.getPlaylist();
-    handleVideoPlaylist(dataListIdVideo);
-  }
-
+  /* Khởi tạo ngoài !!!!!!!!!! */
   function showTime() {
     let cur_hh = document.querySelector(".cur_hh");
     let cur_mm = document.querySelector(".cur_mm");
