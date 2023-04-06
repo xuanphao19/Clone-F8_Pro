@@ -70,35 +70,6 @@
   background: var(--bg-linear-gradient);
   overflow: hidden;
 }
-
-#header.header .rotateBgr::after {
-  filter: blur(1px);
-}
-
-#header.header .rotateBgrWrap span {
-  width: 108%;
-  height: 108%;
-  background: rgb(255 249 242 / 95%);
-}
-
-#header.header .rotateBgrWrap img {
-  width: 75%;
-  height: 65%;
-  top: 50%;
-}
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-/* .navbar .flashcards {
-} */
-
-.actionTooltip {
-  position: relative;
-  width: fit-content;
-  height: fit-content;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
-}
-
 .wrap_desc {
   position: absolute;
   width: fit-content;
@@ -111,18 +82,6 @@
   display: none;
   transition: all 0.35s;
 }
-.flashcards .wrap_desc {
-  top: 50%;
-  left: -50%;
-  transform: translate(-100%, -50%);
-}
-
-.flashcards .dropDownWrap {
-  position: absolute;
-  inset: 0px 0px auto auto;
-  transform: translate(22px, 50px);
-}
-
 .list_item {
   position: relative;
   padding: 8px 16px;
@@ -145,12 +104,50 @@ a.list_item,
   border-bottom: 1px solid var(--bs-gray-400);
 }
 
+/*--------------------------------------------------------------
+# End General
+--------------------------------------------------------------*/
+
+#header.header .rotateBgr::after {
+  filter: blur(1px);
+}
+
+#header.header .rotateBgrWrap span {
+  width: 108%;
+  height: 108%;
+  background: rgb(255 249 242 / 95%);
+}
+
+#header.header .rotateBgrWrap img {
+  width: 75%;
+  height: 65%;
+  top: 50%;
+}
+.actionTooltip {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.flashcards .wrap_desc {
+  top: 50%;
+  left: -50%;
+  transform: translate(-100%, -50%);
+}
+
+.flashcards .dropDownWrap {
+  position: absolute;
+  inset: 0px 0px auto auto;
+  transform: translate(22px, 50px);
+}
+
 .flashcards .bridgeTop::before {
   left: 84%;
   border-bottom-color: #5fbaff;
 }
-
-/*  */
 .prev.wrap_desc,
 .seeNotes.wrap_desc,
 .seeNotify.wrap_desc {
@@ -174,9 +171,6 @@ a.list_item,
 .flashcards:active .dropDownWrap {
   display: flex;
 }
-/*  */
-
-/*  */
 .flashcards:hover .wrap_desc,
 .prevLesson:hover .prev.wrap_desc,
 .myNotes:hover .seeNotes.wrap_desc,
@@ -185,7 +179,103 @@ a.list_item,
   display: flex;
 }
 
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.header_wrap div.container {
+  min-width: 360px;
+  max-width: 400px;
+  background-color: transparent;
+  flex: 1 1 auto;
+}
+div.dropdown {
+  position: relative;
+}
+div.dropdown > div.caption {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between;
+  height: 48px;
+  padding: 8px 0 8px 22px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: sans-serif;
+  color: rgba(27, 127, 204, 0.8);
+  appearance: none;
+  letter-spacing: 0.8px;
+  border-radius: 0.5rem;
+  -webkit-appearance: none;
+  border: 0.5px solid rgb(255 191 254 / 25%);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  transition: all 0.2s linear;
+  user-select: none;
+  cursor: pointer;
+}
+div.dropdown > div.caption::after {
+  position: relative;
+  content: "";
+  height: 100%;
+  width: 40px;
+  padding: 18px;
+  margin-left: 8px;
+  background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E);
+  background-position: bottom 10px center;
+  background-size: 36%;
+  background-repeat: no-repeat, repeat;
+  z-index: 99;
+}
+
+div.dropdown > div.list {
+  position: absolute;
+  background-color: #f2f2f2;
+  width: 100%;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+  overflow-y: auto;
+  user-select: none;
+  height: 50vh;
+  display: none;
+}
+.dropdown > .list > .optgroup > .item,
+div.list > .optgroup > div.option {
+  padding: 11px 24px;
+  top: 0;
+  height: 46px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(27, 127, 204, 0.8);
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+div.dropdown > div.caption:hover {
+  color: #ff9757f7;
+  box-shadow: 0 0 1px 1px rgba(59, 153, 252, 0.7);
+}
+.dropdown > .list > .optgroup > .item:not(.option) {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ff9757f7;
+  text-transform: uppercase;
+  border-bottom: 0.5px solid rgba(255, 208, 157, 0.325);
+
+  cursor: auto;
+}
+.dropdown > .list > .optgroup .disabled {
+  padding: 11px 24px;
+  top: 0;
+  height: 46px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  background: var(--bs-gray-300);
+}
+div.dropdown > div.list > .optgroup > div.option:hover {
+  outline: none;
+  color: #ff9757f7;
+  border-color: #aaa;
+  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  box-shadow: 0 0 1px 0.2px rgba(59, 153, 252, 0.7);
+}
+div.dropdown.open > div.list {
+  display: block;
+}
 
 .navbar-current-user {
   border-radius: 999px;
@@ -221,16 +311,13 @@ a.list_item,
   height: 60%;
   top: 45%;
 }
-
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 main {
   width: 100%;
   background-color: var(--bg-2);
   position: fixed !important;
 }
-
 .presentationArea {
-  --videoJs-max-width: 132.25vh;
+  --width: 132.25vh;
   flex: 1;
   width: 77%;
   height: calc(100vh - 68px) !important;
@@ -238,18 +325,17 @@ main {
   overflow-y: scroll;
   user-select: none;
 }
-
 .videoWrap {
   width: 100%;
-  background: var(--bg-5);
+  /* background: var(--bg-5); */
+  background: #4e5257;
   padding: 6px;
 }
 .videoPlayer {
   position: relative;
-  /* width: fit-content; */
   width: 85%;
-  max-width: var(--videoJs-max-width);
-  height: calc(var(--videoJs-max-width) / 16 * 9);
+  max-width: var(--width);
+  height: calc(var(--width) / 16 * 9);
   background: #1d1a1a82;
   border-radius: 18px;
   overflow: hidden;
@@ -260,9 +346,9 @@ main {
   position: absolute;
   inset: auto 0 46px !important;
   background: #00000000;
+  transition: all 0.25s ease;
   user-select: none;
 }
-
 .overlayContent {
   display: flex;
   flex-direction: column;
@@ -273,9 +359,10 @@ main {
   height: 100% !important;
 }
 .overlayContent img {
-  width: 30%;
+  width: 26%;
   height: auto;
   margin: auto;
+  transition: all 0.25s ease;
 }
 .famousItem {
   content: "";
@@ -293,7 +380,6 @@ main {
 .famousBrand.dpn {
   display: none;
 }
-
 #actionSlogans span {
   position: relative;
   width: 100%;
@@ -313,57 +399,63 @@ main {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.videoForwarding {
-  --bs-gutter-x: 6rem;
+
+.recommend_slider {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 28%;
-  padding-bottom: 14px;
-  background: rgb(47 14 14 / 93%);
-  z-index: 999;
-  /* display: none; */
-  transition: all 0.3s;
-}
-.videoForwarding p {
+  padding: 0 0 16px 0;
   color: #fff;
-  font-size: 0.8em;
-  line-height: 1;
-  margin-top: 0.6em;
+  box-sizing: content-box;
+  background: rgb(47 14 14 / 95%);
+  transition: all 0.25s ease;
+  overflow: hidden;
+  z-index: 999;
 }
-.videoForwarding ul {
+#videoForwarding > p {
+  display: none;
+}
+.recommend_slider p {
+  padding: 8px 0 0 20px;
+}
+.recommend_slider .Slideshow_wrap {
+  display: flex;
+  width: 100%;
   height: 70%;
+  transform: translate3d(0px, 0, 0);
+  user-select: none;
+  cursor: pointer;
 }
-.videoForwarding li {
-  --height: 100%;
-  height: var(--height);
-  width: calc(var(--height) / 9 * 16);
-}
-a.recommended {
+.recommend_slider .Slideshow {
   position: relative;
   display: inline-flex;
+  flex: 1 1 auto;
   width: 100%;
   height: 100%;
   color: #fff;
-  border-radius: 16px;
+  border-radius: 10px;
+  background: #7e6060;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom center;
+  background-position: top 100% center;
   z-index: 9999;
 }
-a.recommended span {
+.recommended span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  bottom: 6px;
+  bottom: 8px;
   left: 50%;
-  font-size: 0.6em;
-  min-width: 7em;
-  transform: translateX(-50%);
-  width: fit-content;
-  padding: 2px 8px 4px;
+  font-size: 0.8em;
+  min-width: 8rem;
   border-radius: 6px;
-  border: 2px solid var(--primary-color);
-  background-color: var(--bg-1);
-  color: var(--primary-color);
+  padding: 2px 8px 4px;
+  transform: translateX(-50%);
+  color: #0900b7;
+  background-color: #fffdc3;
+  border: 0.25px solid #ff812b;
 }
 a.recommended span:hover {
   opacity: 0.9;
@@ -372,12 +464,16 @@ a.recommended span:hover {
 .videoPlayer .learnNow {
   display: flex;
   position: absolute;
-  left: 4px;
+  left: 2px;
   bottom: 4px;
-  font-size: 24px;
+  width: 168px;
+  height: 42px;
+  font-size: 18px;
+  color: #50ff4a;
   border-radius: 8px;
   background: var(--primary-color);
   transition: all 0.3s;
+  overflow: hidden;
   z-index: 9999;
 }
 .videoPlayer .learnNow.dpn {
@@ -416,7 +512,7 @@ a.recommended span:hover {
 .videoInfo,
 .lessonDetails {
   width: 85%;
-  max-width: var(--videoJs-max-width);
+  max-width: var(--width);
   padding-top: 16px;
 }
 .titleAndAuthorWrap {

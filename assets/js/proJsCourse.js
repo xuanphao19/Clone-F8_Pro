@@ -20,22 +20,23 @@
     }
     return element;
   };
-  let url = "";
-  let currentVideoId;
-  let dataListIdVideo;
-  let videoPlayer = select(".videoPlayer");
-  let learnNow = select(".learnNow");
-  const famousBrand = select("#famousBrand");
-  const contentVideo = select("#lessonList");
-  const overlayContent = select(".overlayContent");
-  let presentationArea = select(".presentationArea");
-  let playListId = "PL_-VfJajZj0U1MSx1IMu13oLJq2nM97ac";
-
-  var myWidth = 1200;
-  var myHeight = `${(myWidth / 16) * 9}`;
-  let width_content;
-  let height_content;
-
+  let url = "",
+    stateData = 0,
+    videoState = 0,
+    currentVideoId,
+    dataListIdVideo,
+    learnNow = select(".learnNow"),
+    videoPlayer = select(".videoPlayer"),
+    presArea = select(".presentationArea"),
+    playListId = "PL_-VfJajZj0U1MSx1IMu13oLJq2nM97ac";
+  const famousBrand = select("#famousBrand"),
+    contentVideo = select("#lessonList"),
+    overlayContent = select(".overlayContent"),
+    videoForwarding = select("#videoForwarding");
+  let myWidth = 1200,
+    myHeight = `${(myWidth / 16) * 9}`,
+    width_contain,
+    height_contain;
   function setWindowSize() {
     if (typeof window.innerWidth == "number") {
       myWidth = window.innerWidth;
@@ -51,10 +52,11 @@
         }
       }
     }
-    width_content = (myWidth * 77) / 100;
-    height_content = ((width_content * 85) / 100 / 16) * 9;
-    videoPlayer.style.setProperty("width", (width_content * 85) / 100 + "px");
-    videoPlayer.style.setProperty("height", `${height_content}px`);
+    width_contain = Math.floor((myWidth * 77) / 100);
+    presArea.style.setProperty("--width", `${width_contain}px`);
+    height_contain = Math.floor((width_contain * 85) / 100 / 16) * 9;
+    videoPlayer.style.setProperty("width", (width_contain * 85) / 100 + "px");
+    videoPlayer.style.setProperty("height", `${height_contain}px`);
   }
   window.addEventListener("resize", setWindowSize);
 
@@ -65,10 +67,7 @@
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   let player;
   function onYouTubeIframeAPIReady() {
-    window.addEventListener("resize", setWindowSize);
     player = new YT.Player("player", {
-      // width:,
-      // height:,
       playerVars: {
         playsinline: 1,
         controls: 1,
@@ -89,7 +88,6 @@
       },
     });
   }
-  /* ======== onPlayerReady ========== */
   function onPlayerReady(_event) {
     player.cuePlaylist({
       listType: "playlist",
@@ -107,17 +105,16 @@
     player.stopVideo();
     showTime();
   }
-  let stateData = 0;
-  /* ======== Lắng nghe thay đổi State ========== */
   function onPlayerStateChange(event) {
     window.addEventListener("resize", setWindowSize);
     const videoPlaylists = select(".sidebar_tracks");
     let titleVideo = player.videoTitle;
     currentVideoId = event.target.getVideoData().video_id;
+
     const handleActiveVideo = (currentId) => {
       let element = select(".lesson", true);
       if (element) {
-        element.map(function (elem) {
+        element.map(function (elem, i) {
           elem.classList.remove("active");
           if (elem.id === currentId) {
             elem.classList.add("active");
@@ -126,11 +123,30 @@
         });
       }
     };
-    if ([1, 2, 5].indexOf(player.getPlayerState()) >= 0) {
+
+    videoState = player.getPlayerState();
+    if ([1, 2, 5].indexOf(videoState) >= 0) {
       showTitle(titleVideo);
-      handleActiveVideo(currentVideoId);
+      if (videoState === 1) {
+        recommendSlider(currentVideoId);
+        handleActiveVideo(currentVideoId);
+      }
     }
     handleVideoPlaylist(dataListIdVideo);
+
+    function changePlaylist(listId) {
+      contentVideo.innerHTML = `<p></p>`;
+      var newPlayListId = listId;
+      if (newPlayListId) {
+        player.cuePlaylist({
+          list: newPlayListId,
+          index: 0,
+          startSeconds: 0,
+        });
+        dataListIdVideo = player.getPlaylist();
+        handleVideoPlaylist(dataListIdVideo);
+      }
+    }
     videoPlaylists.onclick = function (e) {
       let element = getParent(e.target, ".lesson");
       if (e.target.id) {
@@ -141,7 +157,7 @@
     };
     var isPlaying = false;
     function playPauseVideo() {
-      switch (player.getPlayerState()) {
+      switch (videoState) {
         case 5:
           isPlaying = true;
           playVideo();
@@ -157,10 +173,12 @@
     }
     stateData = event.data;
     toggleOverlay(stateData);
-
     learnNow.onclick = () => playPauseVideo();
     famousBrand.onclick = () => playPauseVideo();
-    // window.addEventListener("resize", myFunctionResize);
+    select("#stopVideo").onclick = () => stopVideo();
+    select("#nextVideo").onclick = () => nextVideo();
+    select("#preVideo").onclick = () => previousVideo();
+
     function showTitle(titleVideo) {
       var titleEl = select("#currentVideoTitle");
       if (titleVideo) {
@@ -173,12 +191,12 @@
       } else {
         listIdVideo = player.getPlaylist();
       }
-      if (listIdVideo && player.getPlayerState() === 5) {
+      if (listIdVideo && videoState === 5) {
         handleData(listIdVideo);
       }
     }
     function handleData(listIds) {
-      if (listIds && player.getPlayerState() === 5) {
+      if (listIds && videoState === 5) {
         const htmls = listIds.map((IdVideo, i) => {
           url = "https://www.youtube.com/watch?v=" + IdVideo;
           return getTitle(url, IdVideo, i);
@@ -230,9 +248,19 @@
       }
       return changeId.id;
     };
-    function testVideo() {
-      changePlaylist();
+    function toggleOverlay(num) {
+      if (num === 5 || num === -1) {
+        learnNow.classList.remove("dpn");
+      } else {
+        learnNow.classList.add("dpn");
+      }
+      if (num === 2 || num === 5) {
+        overlayContent.classList.remove("dpn");
+      } else {
+        overlayContent.classList.add("dpn");
+      }
     }
+
     function playVideo() {
       player.playVideo();
     }
@@ -258,49 +286,77 @@
         player.seekTo(0, true);
       }
     }
-    function toggleOverlay(num) {
-      if (num != 5) {
-        learnNow.classList.add("dpn");
-      } else {
-        learnNow.classList.remove("dpn");
-      }
-      if (num === 2 || num === 5) {
-        overlayContent.classList.remove("dpn");
-      } else {
-        overlayContent.classList.add("dpn");
-      }
-    }
-    select(".testVideo").onclick = () => {
-      testVideo();
-    };
-    select("#stopVideo").onclick = () => {
-      stopVideo();
-    };
-    select("#preVideo").onclick = () => {
-      previousVideo();
-    };
-    select("#nextVideo").onclick = () => {
-      nextVideo();
-    };
+
     function specifiedVideo(id) {
-      // chỉ định phát video theo id, phát từ đầu
       player.loadVideoById(id);
       player.seekTo(0, true);
     }
-    function changePlaylist(playListId) {
-      contentVideo.innerHTML = `<p></p>`;
-      playListId = "PLe28tn1x4EIYnd9KSPfNEkstp-3rZiUOf";
-      var newPlayListId = playListId;
-      player.cuePlaylist({
-        list: newPlayListId,
-        index: 0,
-        startSeconds: 0,
-      });
-      dataListIdVideo = player.getPlaylist();
-      handleVideoPlaylist(dataListIdVideo);
+    function recommendSlider(Id) {
+      let element = select(".lesson", true);
+      let min = 0,
+        max = 5,
+        length = element.length;
+      if (element && element >= 5) {
+        element.map(function (elem, i) {
+          if (elem.id === Id) {
+            videoForwarding.innerHTML = `<p></p>`;
+            if (2 <= i && i < length - 2) {
+              min = i - 2;
+              max = i + 3;
+            } else if (i >= length - 2) {
+              min = length - 5;
+              max = length;
+            }
+            for (let index = min; index < max; index++) {
+              let eleId = element[index].id;
+              let videoInfo = document.createElement("div");
+              videoInfo.dataset.id = `${eleId}`;
+              videoInfo.className = "swiper-slide";
+              videoInfo.innerHTML = `
+                            <div class="Slideshow_wrap">
+                              <div
+                                class="Slideshow recommended"
+                                style="
+                                  background-image: url('https://img.youtube.com/vi/${eleId}/mqdefault.jpg');
+                                ">
+                                <span> Xem Ngay! </span>
+                              </div>
+                            </div>`;
+              videoForwarding.lastChild.after(videoInfo);
+            }
+          }
+        });
+      }
     }
+    videoForwarding.onclick = function (e) {
+      e.stopPropagation();
+      let suggestedVideos = select("[data-id]", true);
+      if (suggestedVideos) {
+        let videoEle = getParent(e.target, ".swiper-slide");
+        let videoId = videoEle.getAttribute("data-id");
+        if (videoId) {
+          specifiedVideo(videoId);
+        }
+      }
+    };
+    let selectList = select(".dropdown > .caption");
+    selectList.onclick = function (e) {
+      let eleParent = getParent(e.target, ".dropdown");
+      eleParent.classList.toggle("open");
+    };
+    let selectOption = select(".list > .optgroup > .option", true);
+    selectOption.map(function (option) {
+      option.onclick = function (e) {
+        let eleParent = getParent(e.target, ".dropdown");
+        eleParent.classList.toggle("open");
+        selectList.innerHTML = option.innerText;
+        let listId = e.target.getAttribute("data-list");
+        if (listId) {
+          changePlaylist(listId);
+        }
+      };
+    });
   }
-  /* Khởi tạo ngoài !!!!!!!!!! */
   function showTime() {
     let cur_hh = document.querySelector(".cur_hh");
     let cur_mm = document.querySelector(".cur_mm");

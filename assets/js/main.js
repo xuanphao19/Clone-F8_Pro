@@ -8,37 +8,6 @@
       return document.querySelector(el);
     }
   };
-
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all);
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach((e) => e.addEventListener(type, listener));
-      } else {
-        selectEl.addEventListener(type, listener);
-      }
-    }
-  };
-  
- on(
-   "click",
-   ".scrollto",
-   function (e) {
-     if (select(this.hash)) {
-       e.preventDefault();
-       let navbar = select("#navbar");
-       if (navbar.classList.contains("navbar-mobile")) {
-         navbar.classList.remove("navbar-mobile");
-         let navbarToggle = select(".mobile-nav-toggle");
-         navbarToggle.classList.toggle("bi-list");
-         navbarToggle.classList.toggle("bi-x");
-       }
-       scrollto(this.hash);
-     }
-   },
-   true,
- );
-
   const onscroll = (el, listener) => {
     el.addEventListener("scroll", listener);
   };
@@ -55,15 +24,12 @@
     window.addEventListener("load", toggleBacktotop);
     onscroll(document, toggleBacktotop);
   }
-
-
   let preloader = select("#preloader");
   if (preloader) {
     window.addEventListener("load", () => {
       preloader.remove();
     });
   }
-
   const glightbox = GLightbox({
     selector: ".glightbox",
     //   Multiple data attributes / You can use the options as separated data attributes
@@ -81,10 +47,13 @@
     //   data-draggable="true"                 có thể kéo được
     // ></a>
   });
-  new Swiper(".testimonials-slider", {
+  const portfolioLightbox = GLightbox({
+    selector: ".Xuan_Phao",
+  });
+  new Swiper(".hero_slider", {
     spaceBetween: 5,
     centeredSlides: true,
-    speed: 600,
+    speed: 1600,
     loop: true,
     autoplay: {
       delay: 5500,
@@ -102,34 +71,37 @@
     },
   });
 
-  // Portfolio details slider
-  const portfolioLightbox = GLightbox({
-    selector: ".Xuan_Phao",
-  });
-  new Swiper(".portfolio-details-slider", {
-    speed: 400,
+  new Swiper(".recommend_slider", {
+    // direction: "mặc định horizontal || auto; 'vertical === Thẳng đứng'",
+    /*    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    }, Hiệu ứng mờ */
+    // breakpointBase: "container",
+    // centeredSlides: true,
+    spaceBetween: 15,
+    centeredSlides: false,
+    speed: 4500,
     loop: true,
     autoplay: {
-      delay: 500,
+      delay: 1500,
       disableOnInteraction: false,
     },
-    pagination: {
-      el: ".swiper-pagination",
-      type: "bullets",
-      clickable: true,
-    },
-  });
-
-  // Family Photo slider
-  const familyPhoto = GLightbox({
-    selector: ".Thanh_Hoa",
-  });
-  new Swiper(".thu_Trang", {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 500,
-      disableOnInteraction: false,
+    slidesPerView: "auto",
+    breakpoints: {
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 10,
+      },
+      // when window width is >= 820px Ok cái này hay!
+      820: {
+        slidesPerView: 4,
+        spaceBetween: 15,
+      },
     },
   });
 

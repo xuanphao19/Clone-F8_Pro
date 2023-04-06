@@ -390,7 +390,7 @@ section .item_link {
 
 section .btn:hover {
   background-color: var(--bs-white);
-  color: var(--cta-hover-color);
+  color: var(--slide-hover-color);
 }
 
 section .icon_item {

@@ -1,6 +1,5 @@
 :root {
-  /* --videoJs-max-width: 132.25vh; */
-
+  /* --width: 132.25vh; */
   --primary-color: #f05123;
   --primary-color-2: #f04f23a4;
   --primary-color-hover: #d97053ce;
@@ -378,7 +377,7 @@
   z-index: 1;
 }
 /*---  hero_section */
-.hero_section .testimonials-slider {
+.hero_section .hero_slider {
   width: 98%;
   margin: auto;
   overflow: hidden;
@@ -774,6 +773,6 @@ span.actionSlogans,
     transform: rotate(360deg);
   }
 }
-.portfolio-item {
+/* .portfolio-item {
   display: none;
-}
+} */
