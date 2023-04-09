@@ -247,7 +247,7 @@ main {
   position: relative;
   width: 85%;
   max-width: var(--width);
-  height: calc(var(--width) / 16 * 9);
+  height: calc((var(--width) / 16) * 9);
   background: #1d1a1a82;
   border-radius: 18px;
   overflow: hidden;
@@ -423,7 +423,7 @@ a.recommended span:hover {
 
 .videoInfo {
   --bs-gutter-x: 2.5rem;
-  width: 100%;
+  width: 85%;
   padding-top: 16px;
   max-width: var(--width);
 }

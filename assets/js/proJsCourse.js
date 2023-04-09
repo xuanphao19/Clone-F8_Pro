@@ -24,12 +24,10 @@
     url = "",
     videoState = 0,
     currentVideoId,
-    myWidth = 1200,
-    width_contain,
-    height_contain,
+    myWidth,
+    myHeight,
     playListId,
     learnNow = select(".learnNow"),
-    videoPlayer = select(".videoPlayer"),
     presArea = select(".presentationArea"),
     tag = document.createElement("script"),
     selectList = select(".dropdown  .caption_title"),
@@ -38,7 +36,10 @@
     contentVideo = select("#lessonList"),
     overlayContent = select(".overlayContent"),
     videoForwarding = select("#videoForwarding");
-
+  document.onreadystatechange = () => {
+    var widthBody = select("body").clientWidth;
+    presArea.setAttribute("style", `--width:${Math.floor((((widthBody * 77) / 100) * 85) / 100)}px`);
+  };
   function setSizeVideoPlayer() {
     if (typeof window.innerWidth == "number") {
       myWidth = window.innerWidth;
@@ -54,12 +55,8 @@
         }
       }
     }
-    width_contain = Math.floor((myWidth * 77) / 100);
-    presArea.style.setProperty("--width", `${width_contain}px`);
-    height_contain = Math.floor((width_contain * 85) / 100 / 16) * 9;
-    videoPlayer.style.setProperty("width", Math.floor((width_contain * 85) / 100) + "px");
-    select(".videoInfo").style.setProperty("width", Math.floor((width_contain * 85) / 100) + "px");
-    videoPlayer.style.setProperty("height", `${height_contain}px`);
+    var width = `${Math.floor((((myWidth * 77) / 100) * 85) / 100)}`;
+    presArea.setAttribute("style", `--width:${width}px;`);
   }
   window.addEventListener("resize", setSizeVideoPlayer);
 
