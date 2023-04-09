@@ -29,7 +29,7 @@
   </head>
 
   <body>
-    <a
+    <!-- <a
       class="glightbox item d-flex align-items-center align-items-center justify-content-between"
       href="https://www.youtube.com/embed/tF8rn58_QLQ">
       <div>
@@ -42,9 +42,6 @@
       </div>
       <img src="./assets/img/Small_icon/down.svg" alt="" />
     </a>
-
-    <!-- End Footer -->
-
     <a href="#" class="back-to-top d-f-center">
       <span class="d-f-center">
         <img src="./assets/img/clients/toTop.svg" alt="" />
@@ -67,16 +64,29 @@
       </div>
       <div class="portfolio-info"></div>
       <div class="swiper-pagination"></div>
-    </div>
+    </div> -->
+
+    <div id="result"></div>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open(
+        "GET",
+        "http://www.youtube.com/oembed?url=https://www.youtube.com/playlist?list=PLe28tn1x4EIYQa4JZJWJcvVD-oske28RQ&format=json",
+        false,
+      );
+      xhr.send();
+      console.log(xhr);
+      document.getElementById("result").innerHTML = xhr.responseText;
+    </script>
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
+    <!-- <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script> -->
 
     <!-- Template Main JS File -->
     <script src="assets/js/jQ.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/proJsCourse.js"></script>
+    <!-- <script src="assets/js/main.js"></script>
+    <script src="assets/js/proJsCourse.js"></script> -->
   </body>
 </html>

@@ -20,24 +20,26 @@
     }
     return element;
   };
-  let url = "",
-    stateData = 0,
+  let player,
+    url = "",
     videoState = 0,
     currentVideoId,
-    dataListIdVideo,
+    myWidth = 1200,
+    width_contain,
+    height_contain,
+    playListId,
     learnNow = select(".learnNow"),
     videoPlayer = select(".videoPlayer"),
     presArea = select(".presentationArea"),
-    playListId = "PL_-VfJajZj0U1MSx1IMu13oLJq2nM97ac";
+    tag = document.createElement("script"),
+    selectList = select(".dropdown  .caption_title"),
+    selectOption = select(".list > .optgroup > .option", true);
   const famousBrand = select("#famousBrand"),
     contentVideo = select("#lessonList"),
     overlayContent = select(".overlayContent"),
     videoForwarding = select("#videoForwarding");
-  let myWidth = 1200,
-    myHeight = `${(myWidth / 16) * 9}`,
-    width_contain,
-    height_contain;
-  function setWindowSize() {
+
+  function setSizeVideoPlayer() {
     if (typeof window.innerWidth == "number") {
       myWidth = window.innerWidth;
       myHeight = window.innerHeight;
@@ -55,62 +57,81 @@
     width_contain = Math.floor((myWidth * 77) / 100);
     presArea.style.setProperty("--width", `${width_contain}px`);
     height_contain = Math.floor((width_contain * 85) / 100 / 16) * 9;
-    videoPlayer.style.setProperty("width", (width_contain * 85) / 100 + "px");
+    videoPlayer.style.setProperty("width", Math.floor((width_contain * 85) / 100) + "px");
+    select(".videoInfo").style.setProperty("width", Math.floor((width_contain * 85) / 100) + "px");
     videoPlayer.style.setProperty("height", `${height_contain}px`);
   }
-  window.addEventListener("resize", setWindowSize);
+  window.addEventListener("resize", setSizeVideoPlayer);
 
   /* ===========   Khởi tạo trình phát   ============= */
-  let tag = document.createElement("script");
   tag.src = "https://www.youtube.com/iframe_api";
   let firstScriptTag = $("script")[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  let player;
   function onYouTubeIframeAPIReady() {
     player = new YT.Player("player", {
       playerVars: {
-        playsinline: 1,
+        m: 0,
+        rel: 0,
+        index: 0,
         controls: 1,
+        showinfo: 0,
         autohide: 0,
+        autoplay: 0,
         disablekb: 1,
+        enablejsapi: 1,
+        playsinline: 1,
+        startSeconds: 0,
+        modestbranding: 1,
         cc_load_policy: 0,
         iv_load_policy: 3,
-        modestbranding: 1,
-        rel: 0,
-        showinfo: 0,
-        autoplay: 0,
-        m: 0,
-        enablejsapi: 1,
-        list: playListId,
+        suggestedQuality: "auto",
       },
       events: {
         onReady: onPlayerReady,
       },
     });
   }
-  function onPlayerReady(_event) {
-    player.cuePlaylist({
-      listType: "playlist",
-      index: 0,
-      startSeconds: 0,
-      suggestedQuality: "auto",
-    });
-    // player.cueVideoById("BmkVXoKoqVA");
+  function onPlayerReady(event, playListId = "PL_-VfJajZj0UjLMzxqGXUoE6iqpfbZysn") {
+    if (playListId) {
+      player.cuePlaylist({
+        list: playListId,
+        listType: "playlist",
+      });
+    } else {
+      player.cueVideoById("10j9phjctxI");
+    }
     player.setShuffle(0);
     player.setShuffle(false);
     player.setLoop(true);
     player.getIframe().width = "100%";
     player.getIframe().height = "100%";
     player.addEventListener("onStateChange", "onPlayerStateChange");
-    player.stopVideo();
+    player.seekTo(0, true);
     showTime();
   }
+  function changePlaylist(listId) {
+    onPlayerReady(event, listId);
+  }
+  selectList.onclick = function (e) {
+    let eleParent = getParent(e.target, ".dropdown");
+    eleParent.classList.toggle("open");
+  };
+  selectOption.map(function (option) {
+    option.onclick = function (e) {
+      let eleParent = getParent(e.target, ".dropdown");
+      eleParent.classList.toggle("open");
+      selectList.innerHTML = option.innerText;
+      let listId = e.target.getAttribute("data-list");
+      if (listId) {
+        changePlaylist(listId);
+      }
+    };
+  });
+
   function onPlayerStateChange(event) {
-    window.addEventListener("resize", setWindowSize);
     const videoPlaylists = select(".sidebar_tracks");
     let titleVideo = player.videoTitle;
     currentVideoId = event.target.getVideoData().video_id;
-
     const handleActiveVideo = (currentId) => {
       let element = select(".lesson", true);
       if (element) {
@@ -123,7 +144,6 @@
         });
       }
     };
-
     videoState = player.getPlayerState();
     if ([1, 2, 5].indexOf(videoState) >= 0) {
       showTitle(titleVideo);
@@ -132,21 +152,7 @@
         handleActiveVideo(currentVideoId);
       }
     }
-    handleVideoPlaylist(dataListIdVideo);
-
-    function changePlaylist(listId) {
-      contentVideo.innerHTML = `<p></p>`;
-      var newPlayListId = listId;
-      if (newPlayListId) {
-        player.cuePlaylist({
-          list: newPlayListId,
-          index: 0,
-          startSeconds: 0,
-        });
-        dataListIdVideo = player.getPlaylist();
-        handleVideoPlaylist(dataListIdVideo);
-      }
-    }
+    listIdVideo = player.getPlaylist();
     videoPlaylists.onclick = function (e) {
       let element = getParent(e.target, ".lesson");
       if (e.target.id) {
@@ -171,13 +177,6 @@
           return;
       }
     }
-    stateData = event.data;
-    toggleOverlay(stateData);
-    learnNow.onclick = () => playPauseVideo();
-    famousBrand.onclick = () => playPauseVideo();
-    select("#stopVideo").onclick = () => stopVideo();
-    select("#nextVideo").onclick = () => nextVideo();
-    select("#preVideo").onclick = () => previousVideo();
 
     function showTitle(titleVideo) {
       var titleEl = select("#currentVideoTitle");
@@ -185,28 +184,31 @@
         titleEl.innerText = titleVideo;
       }
     }
-    function handleVideoPlaylist(listIdVideo) {
-      if (listIdVideo) {
-        listIdVideo = listIdVideo;
-      } else {
-        listIdVideo = player.getPlaylist();
-      }
-      if (listIdVideo && videoState === 5) {
-        handleData(listIdVideo);
-      }
+    function myTimeout() {
+      listIdVideo = player.getPlaylist();
+      handleData(listIdVideo);
+    }
+    if (videoState === 5) {
+      setTimeout(myTimeout, 200);
     }
     function handleData(listIds) {
-      if (listIds && videoState === 5) {
+      player.cuePlaylist({
+        list: listIds,
+        listType: "playlist",
+      });
+      if (listIds) {
+        contentVideo.innerHTML = `<p></p>`;
         const htmls = listIds.map((IdVideo, i) => {
           url = "https://www.youtube.com/watch?v=" + IdVideo;
           return getTitle(url, IdVideo, i);
         });
       }
+      clearTimeout(myTimeout);
     }
     function getTitle(url, Id, i) {
       return $.getJSON("https://noembed.com/embed", {
-        format: "json",
         url: url,
+        format: "json",
       }).then(function (data) {
         showPlayList(data, Id, i);
       });
@@ -227,6 +229,7 @@
                     <img class="lesson_bookmark" src="./assets/img/Small_icon/bookmark.svg" alt="bookmark">
                     <img class="lesson_checked" src="./assets/img/Small_icon/checked.svg" alt="lesson checked">
                   </div>`;
+      let elements = select(".lesson", true);
       contentVideo.lastChild.after(answerEle);
       return answerEle;
     }
@@ -260,7 +263,6 @@
         overlayContent.classList.add("dpn");
       }
     }
-
     function playVideo() {
       player.playVideo();
     }
@@ -286,7 +288,6 @@
         player.seekTo(0, true);
       }
     }
-
     function specifiedVideo(id) {
       player.loadVideoById(id);
       player.seekTo(0, true);
@@ -296,7 +297,7 @@
       let min = 0,
         max = 5,
         length = element.length;
-      if (element && element >= 5) {
+      if (element && length >= 5) {
         element.map(function (elem, i) {
           if (elem.id === Id) {
             videoForwarding.innerHTML = `<p></p>`;
@@ -339,24 +340,14 @@
         }
       }
     };
-    let selectList = select(".dropdown > .caption");
-    selectList.onclick = function (e) {
-      let eleParent = getParent(e.target, ".dropdown");
-      eleParent.classList.toggle("open");
-    };
-    let selectOption = select(".list > .optgroup > .option", true);
-    selectOption.map(function (option) {
-      option.onclick = function (e) {
-        let eleParent = getParent(e.target, ".dropdown");
-        eleParent.classList.toggle("open");
-        selectList.innerHTML = option.innerText;
-        let listId = e.target.getAttribute("data-list");
-        if (listId) {
-          changePlaylist(listId);
-        }
-      };
-    });
+    toggleOverlay(videoState);
+    learnNow.onclick = () => playPauseVideo();
+    famousBrand.onclick = () => playPauseVideo();
+    select("#stopVideo").onclick = () => stopVideo();
+    select("#nextVideo").onclick = () => nextVideo();
+    select("#preVideo").onclick = () => previousVideo();
   }
+
   function showTime() {
     let cur_hh = document.querySelector(".cur_hh");
     let cur_mm = document.querySelector(".cur_mm");
