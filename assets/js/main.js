@@ -79,7 +79,8 @@
     }, Hiệu ứng mờ */
     // breakpointBase: "container",
     // centeredSlides: true,
-    spaceBetween: 15,
+    slidesPerView: 4,
+    spaceBetween: 12,
     centeredSlides: false,
     speed: 4500,
     loop: true,
@@ -87,21 +88,20 @@
       delay: 1500,
       disableOnInteraction: false,
     },
-    slidesPerView: "auto",
     breakpoints: {
-      480: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-      640: {
-        slidesPerView: 3,
-        spaceBetween: 10,
-      },
-      // when window width is >= 820px Ok cái này hay!
-      820: {
-        slidesPerView: 4,
-        spaceBetween: 15,
-      },
+      // 480: {
+      //   slidesPerView: 2,
+      //   spaceBetween: 10,
+      // },
+      // 640: {
+      //   slidesPerView: 3,
+      //   spaceBetween: 10,
+      // },
+      // // when window width is >= 820px Ok cái này hay!
+      // 820: {
+      //   slidesPerView: 4,
+      //   spaceBetween: 15,
+      // },
     },
   });
 

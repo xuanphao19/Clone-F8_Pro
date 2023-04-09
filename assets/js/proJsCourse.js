@@ -25,7 +25,6 @@
     videoState = 0,
     currentVideoId,
     myWidth,
-    myHeight,
     playListId,
     learnNow = select(".learnNow"),
     presArea = select(".presentationArea"),
@@ -145,7 +144,6 @@
     if ([1, 2, 5].indexOf(videoState) >= 0) {
       showTitle(titleVideo);
       if (videoState === 1) {
-        recommendSlider(currentVideoId);
         handleActiveVideo(currentVideoId);
       }
     }
@@ -186,7 +184,7 @@
       handleData(listIdVideo);
     }
     if (videoState === 5) {
-      setTimeout(myTimeout, 200);
+      setTimeout(myTimeout, 500);
     }
     function handleData(listIds) {
       player.cuePlaylist({
@@ -218,7 +216,7 @@
                   <div class="lessonContent">
                     <img class="icon_left" src="./assets/img/Small_icon/playVideo.svg" alt="left">
                     <div class="lessonInfo">
-                      <h4 class="lessonTitle"> ${i + 1} - ${data.title}</h4>
+                      <h4 class="lessonTitle"> ${i + 1} 💔 ${data.title}</h4>
                       <span class="lesson_duration"> 03:00 </span>
                     </div>
                   </div>
@@ -230,6 +228,7 @@
       contentVideo.lastChild.after(answerEle);
       return answerEle;
     }
+
     const handleId_Video = (num, currentId) => {
       let element = select(".lesson", true);
       let changeId = "";
@@ -289,10 +288,12 @@
       player.loadVideoById(id);
       player.seekTo(0, true);
     }
-    function recommendSlider(Id) {
+    function recommendSlider(minIndex, maxIndex, currId) {
+      console.log(videoState, "id 22222222222 === ", player.getPlaylist());
       let element = select(".lesson", true);
-      let min = 0,
-        max = 5,
+      let min = minIndex,
+        max = maxIndex,
+        Id = currId ? currId : element[0].id,
         length = element.length;
       if (element && length >= 5) {
         element.map(function (elem, i) {
@@ -337,12 +338,17 @@
         }
       }
     };
+
     toggleOverlay(videoState);
     learnNow.onclick = () => playPauseVideo();
     famousBrand.onclick = () => playPauseVideo();
     select("#stopVideo").onclick = () => stopVideo();
     select("#nextVideo").onclick = () => nextVideo();
     select("#preVideo").onclick = () => previousVideo();
+    videoState = player.getPlayerState();
+    if ([1, 5].indexOf(videoState) >= 0) {
+      recommendSlider(0, 5, currentVideoId);
+    }
   }
 
   function showTime() {

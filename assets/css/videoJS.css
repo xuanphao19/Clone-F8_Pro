@@ -315,9 +315,9 @@ main {
 .recommend_slider {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 98%;
   height: 28%;
-  padding: 0 0 16px 0;
+  padding: 0 1% 16px;
   color: #fff;
   box-sizing: content-box;
   background: rgb(47 14 14 / 95%);
@@ -343,7 +343,7 @@ main {
   position: relative;
   display: inline-flex;
   flex: 1 1 auto;
-  width: 100%;
+  width: 24%;
   height: 100%;
   color: #fff;
   border-radius: 10px;
