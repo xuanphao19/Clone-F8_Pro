@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"> <filter id="filter"> <feTurbulence baseFrequency="0.01 0.0001" numOctaves="5"/> <feColorMatrix values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1"/></filter> <rect width="100%" height="100%" filter="url(#filter)"/> </svg>

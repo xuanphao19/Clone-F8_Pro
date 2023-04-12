@@ -76,12 +76,8 @@
 
   /* --cta-hover-color: #007efe; */
 
-  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
   --font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --button-image: linear-gradient(70.06deg, #2cccff -5%, #22dfbf 106%);
@@ -773,6 +769,6 @@ span.actionSlogans,
     transform: rotate(360deg);
   }
 }
-/* .portfolio-item {
+/* .wrap-item.dpn {
   display: none;
 } */
