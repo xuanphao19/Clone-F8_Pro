@@ -941,3 +941,6 @@ div.dropdown.toggle > div.list {
   width: 0px !important;
 }
 
+.dpn {
+  display: none;
+}
