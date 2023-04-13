@@ -73,28 +73,28 @@
   const phaoThu = GLightbox({
     selector: ".phaoThu",
   });
-  new Swiper(".recommend_slider", {
-    // direction: "mặc định horizontal || auto; 'vertical === Thẳng đứng'",
-    /*    effect: "fade",
-    fadeEffect: { crossFade: true, }, Hiệu ứng mờ */
-    // breakpointBase: "container",
-    // centeredSlides: true,
-    slidesPerView: 4,
-    spaceBetween: 15,
-    centeredSlides: false,
-    speed: 4500,
-    loop: true,
-    autoplay: {
-      delay: 1500,
-      disableOnInteraction: false,
-    },
-    breakpoints: {
-      // 480: {//   slidesPerView: 2, //   spaceBetween: 10, // },
-      // 640: { //   slidesPerView: 3, //   spaceBetween: 10, // },
-      // // when window width is >= 820px Ok cái này hay!
-      // 820: { //   slidesPerView: 4, //   spaceBetween: 15, // },
-    },
-  });
+  // new Swiper(".recommend_slider", {
+  //   // direction: "mặc định horizontal || auto; 'vertical === Thẳng đứng'",
+  //   /*    effect: "fade",
+  //   fadeEffect: { crossFade: true, }, Hiệu ứng mờ */
+  //   // breakpointBase: "container",
+  //   // centeredSlides: true,
+  //   slidesPerView: 4,
+  //   spaceBetween: 15,
+  //   centeredSlides: false,
+  //   speed: 4500,
+  //   loop: true,
+  //   autoplay: {
+  //     delay: 1500,
+  //     disableOnInteraction: false,
+  //   },
+  //   breakpoints: {
+  //     // 480: {//   slidesPerView: 2, //   spaceBetween: 10, // },
+  //     // 640: { //   slidesPerView: 3, //   spaceBetween: 10, // },
+  //     // // when window width is >= 820px Ok cái này hay!
+  //     // 820: { //   slidesPerView: 4, //   spaceBetween: 15, // },
+  //   },
+  // });
 
   window.addEventListener("load", () => {
     AOS.init({

@@ -402,7 +402,7 @@ div#famousBrand.toggle {
 a.recommended span:hover {
   opacity: 0.9;
 }
-.preLoades {
+.preLoadBlock {
   position: absolute;
   bottom: 28%;
   margin: auto;
@@ -852,7 +852,9 @@ div.dropdown.toggle > div.list {
 .sidebar_tracks {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
+  /* top: 0;
+  overflow-y: scroll; */
 }
 
 .item {
@@ -943,4 +945,13 @@ div.dropdown.toggle > div.list {
 
 .dpn {
   display: none;
+}
+
+a.btn.glightbox.btn_watch_video.gap12.align-items-center {
+  position: absolute;
+  z-index: 99999900;
+  margin: auto 0;
+  width: 252px;
+  height: 48px;
+  inset: 0 auto;
 }
