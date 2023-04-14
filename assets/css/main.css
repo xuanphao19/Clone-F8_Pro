@@ -168,11 +168,12 @@ iframe {
   width: 8px;
 }
 html ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: #00ff0029;
 }
 ::-webkit-scrollbar-thumb {
   background-color: transparent;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid #167ac6;
+  width: 4px;
   /* border-top: 168px solid rgba(0, 255, 4, 0.71); */
   border-radius: 4px;
 }

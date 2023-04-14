@@ -730,7 +730,7 @@
             <div class="sidebarHeader d-flex align-items-center justify-content-between gap16">
               <div class="Search_wrapper d-flex align-items-center">
                 <div class="Search_Icon"></div>
-                <input class="Search_input" placeholder="Tìm theo tên bài học" value="" />
+                <input id="search_lessons" class="Search_input" placeholder="Tìm theo tên bài học" value="" />
               </div>
               <button class="bookmark f-column align-items-center">
                 <img
@@ -837,9 +837,13 @@
               </div>
             </div>
           </div>
+          <div class="resultWrap">
+            <div class="searchResult"></div>
+          </div>
         </div>
       </div>
     </main>
+
     <!-- End #main -->
 
     <!-- Vendor JS Files -->

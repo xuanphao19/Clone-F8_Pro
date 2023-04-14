@@ -23,11 +23,15 @@
   var pl_Id;
   let player,
     url = "",
+    lessonEle,
     videoState = 0,
     currentVideoId,
     listIdVideo;
   const learnNow = select(".learnNow"),
     logoVideo = select(".logoVideo"),
+    resultWrap = select(".resultWrap"),
+    resultEle = select(".searchResult"),
+    inputEle = select("#search_lessons"),
     contentVideo = select("#lessonList"),
     famousBrand = select("#famousBrand"),
     preLoadBlock = select(".preLoadBlock"),
@@ -44,17 +48,20 @@
       preloader.remove();
     });
   }
-  new Swiper(".recommend_slider", {
-    slidesPerView: 4,
-    spaceBetween: 15,
-    centeredSlides: false,
-    speed: 4500,
-    loop: true,
-    autoplay: {
-      delay: 1500,
-      disableOnInteraction: false,
-    },
-  });
+
+  (() => {
+    new Swiper(".recommend_slider", {
+      slidesPerView: 4,
+      spaceBetween: 15,
+      centeredSlides: false,
+      speed: 5500,
+      loop: true,
+      autoplay: {
+        delay: 1500,
+        disableOnInteraction: false,
+      },
+    });
+  })();
 
   document.onreadystatechange = () => {
     var widthBody = select("body").clientWidth;
@@ -350,34 +357,13 @@
         player.seekTo(0, true);
       }
     }
-    function specifiedVideo(id) {
-      player.loadVideoById(id);
-      player.seekTo(0, true);
-    }
-
-    function recommendSlider(minIndex, maxIndex, currId) {
-      let element = select(".lesson", true);
-      let min = minIndex,
-        max = maxIndex,
-        length = element.length;
-      if (element && length >= 5) {
-        let Id = currId ? currId : element[2].id;
-        element.map(function (elem, i) {
-          if (elem.id === Id) {
-            videoForwarding.innerHTML = `<p></p>`;
-            if (2 <= i && i < length - 2) {
-              min = i - 2;
-              max = i + 3;
-            } else if (i >= length - 2) {
-              min = length - 5;
-              max = length;
-            }
-            for (let index = min; index < max; index++) {
-              let eleId = element[index].id;
-              let videoInfo = document.createElement("div");
-              videoInfo.dataset.id = `${eleId}`;
-              videoInfo.className = "swiper-slide";
-              videoInfo.innerHTML = `
+    function renderVdForwarding(min, max, element) {
+      for (let index = min; index < max; index++) {
+        let eleId = element[index].id;
+        let videoInfo = document.createElement("div");
+        videoInfo.dataset.id = `${eleId}`;
+        videoInfo.className = "swiper-slide";
+        videoInfo.innerHTML = `
                             <div class="Slideshow_wrap">
                               <div
                                 class="Slideshow recommended"
@@ -387,7 +373,33 @@
                                 <span> Xem Ngay! </span>
                               </div>
                             </div>`;
-              videoForwarding.lastChild.after(videoInfo);
+        videoForwarding.lastChild.after(videoInfo);
+      }
+    }
+    function recommendSlider(minIndex, maxIndex, currId) {
+      let element = select(".lesson", true);
+      let min = minIndex,
+        max = maxIndex,
+        length = element.length;
+      if (element) {
+        let Id = currId ? currId : element[0].id;
+        element.map(function (elem, i) {
+          if (elem.id === Id) {
+            if (length >= 5) {
+              videoForwarding.innerHTML = `<p></p>`;
+              if (2 <= i && i < length - 2) {
+                min = i - 2;
+                max = i + 3;
+              } else if (i >= length - 2) {
+                min = length - 5;
+                max = length;
+              }
+              renderVdForwarding(min, max, element);
+            } else {
+              videoForwarding.innerHTML = `<p></p>`;
+              min = 0;
+              max = length;
+              renderVdForwarding(min, max, element);
             }
           }
         });
@@ -417,6 +429,45 @@
     select("#preVideo").onclick = () => previousVideo();
     select("#logoVideo").onclick = () => specifiedVideo("1T0vfGh_0-4");
   }
+  function specifiedVideo(id) {
+    player.loadVideoById(id);
+    player.seekTo(0, true);
+  }
+  let inputValue, lessonInfo;
+  inputEle.oninput = function () {
+    lessonEle = select(".lesson", true);
+    inputValue = inputEle.value.toLowerCase();
+    if (!inputValue || inputValue == undefined) {
+      lessonInfo = "";
+      resultWrap.setAttribute("style", "display:none;");
+    } else {
+      lessonInfo = "";
+      resultEle.innerHTML = "";
+      resultWrap.setAttribute("style", "display:block;");
+      lessonEle.map(function (item) {
+        let itemText = item.innerText.toLowerCase();
+        if (itemText.includes(inputValue)) {
+          lessonInfo += `<p data-id="${item.id}">${itemText}</p>`;
+        }
+      });
+    }
+    resultEle.innerHTML = lessonInfo
+      ? lessonInfo
+      : `<p style="color:red; font-size: 18px;">Rất tiếc, không tìm thấy nội dung bạn chỉ định!</p>`;
+  };
+  resultEle.onclick = function (e) {
+    e.stopPropagation();
+    if (e.target.getAttribute("data-id")) {
+      inputEle.value = "";
+      let data_id = e.target.getAttribute("data-id");
+      specifiedVideo(data_id);
+      resultWrap.setAttribute("style", "display:none;");
+    }
+  };
+  resultWrap.onclick = () => {
+    inputEle.value = "";
+    resultWrap.setAttribute("style", "display:none;");
+  };
 
   function showTime() {
     let cur_hh = document.querySelector(".cur_hh");

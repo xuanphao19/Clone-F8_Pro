@@ -1,5 +1,6 @@
 (function () {
   ("use strict");
+  //e.stopPropagation();
   const select = (el, all = false) => {
     el = el.trim();
     if (all) {
@@ -73,6 +74,7 @@
   const phaoThu = GLightbox({
     selector: ".phaoThu",
   });
+
   // new Swiper(".recommend_slider", {
   //   // direction: "mặc định horizontal || auto; 'vertical === Thẳng đứng'",
   //   /*    effect: "fade",

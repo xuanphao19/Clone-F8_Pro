@@ -113,7 +113,7 @@
   right: 0;
   height: var(--height);
   font-size: 1.4rem;
-  background: #ffffffb5;
+  background: #ffffffab;
   backdrop-filter: blur(15px);
   box-shadow: 0 0 0 1px var(--bs-gray-200);
   transition: all 0.5s;
@@ -421,7 +421,7 @@
   margin: 0 0 26px 26px;
 }
 
-.glightbox.btn_watch_video {
+.hero_section .btn_watch_video {
   display: inline-flex !important;
   margin-left: 8px;
   padding: 2px 12px 2px 4px;
@@ -431,7 +431,7 @@
   border: 2px solid #bababa3d;
   background: #00000016;
 }
-.glightbox.btn_watch_video svg {
+.hero_section .btn_watch_video svg {
   width: 32px;
 }
 
@@ -787,7 +787,7 @@ ul.Footer_list {
   margin: auto;
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: #fafafa90;
 }
 .gsc-control-cse.gsc-control-cse-vi {
   position: relative;
@@ -822,6 +822,7 @@ div#gsc-iw-id1 {
   border: none;
   height: 100%;
   padding: 0 60px !important;
+  background: transparent;
 }
 table.gsc-search-box td {
   position: absolute;
@@ -875,6 +876,7 @@ button.gsc-search-button {
 input#gsc-i-id1 {
   height: 42px !important;
   width: 100% !important;
+  background: transparent;
 }
 
 table.gstl_50.gssb_c {
