@@ -118,6 +118,7 @@
   box-shadow: 0 0 0 1px var(--bs-gray-200);
   transition: all 0.5s;
   z-index: 99920;
+  user-select: none;
 }
 .header_wrap {
   height: inherit;
@@ -125,9 +126,11 @@
 .lightBox {
   position: fixed;
   inset: 0;
-  background: #00000032;
+  height: 100vh;
+  width: 100vw;
   cursor: auto;
-  z-index: 999999999999 !important;
+  background: #4f4f4f6b;
+  z-index: 999999999 !important;
 }
 .lightBoxContent {
   position: absolute;
@@ -649,11 +652,25 @@
   }
 }
 /*--------------------------------------------------------------
-# Featured Services
+# freeCourses  Section featuredVideos
 --------------------------------------------------------------*/
+.freeCourses .icon_item,
+.freeCourses .container h2 span {
+  background: linear-gradient(147deg, #06d7dbdc, rgba(0, 156, 161, 0.72));
+  box-shadow: inset 0.5px 0.5px 0px 1px rgb(55 249 255);
+}
+
+.featuredPosts .icon_item,
+.featuredPosts .container h2 span {
+  background-color: #00c;
+}
+.featuredVideos .icon_item,
+.featuredVideos .container h2 span {
+  background-color: #8900ff;
+}
 
 /*--------------------------------------------------------------
-# About
+# About #00c
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------

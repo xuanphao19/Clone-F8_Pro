@@ -1,7 +1,9 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-
+body {
+  overflow: hidden;
+}
 .bridgeTop::before,
 .bridgeRight::before,
 .bridgeBottom::before,
@@ -148,6 +150,63 @@ a.list_item,
   left: 84%;
   border-bottom-color: #5fbaff;
 }
+
+.dialogQR.lightBox {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  backdrop-filter: brightness(0.5) blur(5px);
+  display: none;
+}
+.dialogQR.lightBox .lightBoxContent {
+  position: absolute;
+  inset: 0;
+  max-width: 568px;
+  max-height: 600px;
+  min-height: 500px;
+  margin: auto;
+  padding: 28px;
+  user-select: none;
+  border-radius: 1rem;
+  background: var(--bs-white);
+  box-shadow: 0 1px 60px 1px rgba(59, 152, 252, 0.945);
+}
+.dialogQR .dialogTitle {
+  padding: 24px 32px 0;
+  color: var(--text-color) !important;
+}
+.dialogQR .dialogDesc {
+  padding: 12px 32px 0;
+  text-align: left;
+}
+.dialogQR .imgQR {
+  position: absolute;
+  inset: 0;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+.dialogContent .btn {
+  position: absolute;
+  right: 40px;
+  bottom: 32px;
+  max-width: 150px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 2px solid #f04f2345;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(-45deg, #d000f7, #24bae3);
+}
+.dialogContent .closeQR.btn:hover {
+  opacity: 0.9;
+  border: 2px solid #f04f2386;
+}
+
 .prev.wrap_desc,
 .seeNotes.wrap_desc,
 .seeNotify.wrap_desc {
@@ -157,7 +216,7 @@ a.list_item,
 }
 .prevLesson .dropDownWrap {
   top: 50px;
-  left: -168px;
+  left: -170px;
 }
 .prevLesson .dropDownWrap::before {
   left: 186px;
@@ -166,11 +225,132 @@ a.list_item,
 .prevLessonLink img {
   width: 22px;
 }
-
-.prevLesson:active .dropDownWrap,
-.flashcards:active .dropDownWrap {
-  display: flex;
+.myNoteWrap {
+  opacity: 0;
+  visibility: hidden;
+  background: #9e9e9e42;
+  transform: translateX(100%);
+  transition: all 0.3s linear;
 }
+.myNoteContainer {
+  opacity: 0;
+  min-width: 600px;
+  width: 40%;
+  height: 100vh;
+  margin-left: auto !important;
+  transition: all 0.3s linear;
+  z-index: 9999999999 !important;
+}
+
+.myNoteHeard {
+  z-index: 2;
+  padding: 20px 20px 15px 32px;
+  margin-bottom: 16px;
+  background-color: var(--bg-white-1);
+  box-sizing: border-box;
+}
+.selectNote {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 38px;
+  border-radius: 8px;
+  padding: 0px 2px 0px 16px;
+  background-color: var(--bg-2);
+  border: 2px solid var(--bg-3);
+  user-select: none;
+  cursor: pointer;
+}
+.listTitle {
+  color: var(--text-color-6);
+  margin-bottom: 2px;
+}
+.selectNote .note_List {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.myNoteMenu .drop_DownWrap {
+  position: absolute;
+  display: none;
+}
+.selectNote.open .drop_DownWrap {
+  display: block;
+}
+.myNoteMenu .selectTime,
+.myNoteMenu .selectName {
+  top: 150%;
+  left: 0;
+  border: none;
+  min-width: 242px;
+  border-radius: 12px;
+  transform: translate(0, 0);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 16px;
+}
+.myNoteMenu .selectTime {
+  min-width: 150px;
+}
+.selectWrap {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.selectNote .bridgeTop::before {
+  border-bottom-color: #c1bfca91;
+}
+.selectNote img {
+  padding: 10px;
+  width: 36px;
+  border-radius: 4px;
+}
+.selectNote li.list_item {
+  height: 40px;
+  padding: 8px 16px 10px 28px;
+  font-size: 1.4rem;
+  color: var(--text-color-6);
+  border-bottom: 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 1px 0.1px;
+  transition: all 0.3s linear;
+}
+.noteClose {
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+img.noteClose:hover,
+.selectNote li.list_item:hover,
+.myNoteMenu .arrowDown:hover {
+  outline: none;
+  color: #ff9757f7;
+  border-color: #aaa;
+  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  box-shadow: 0 0 1px 0.2px rgba(59, 153, 252, 0.7);
+}
+
+.notContent img {
+  width: 100%;
+  padding: 16rem 6rem 6rem;
+}
+.notContentDesc {
+  font-size: 26px;
+}
+
+.dialogQR.lightBox.open,
+.myNotes.open .myNoteWrap,
+.prevLesson.open > .dropDownWrap,
+.flashcards.open > .dropDownWrap {
+  opacity: 1;
+  display: block;
+}
+.myNotes.open .myNoteWrap {
+  visibility: visible;
+  transform: translateX(0%);
+}
+.myNotes.open .myNoteWrap .myNoteContainer {
+  opacity: 1;
+}
+/* 1111111111111111111111111111111 */
+
 .flashcards:hover .wrap_desc,
 .prevLesson:hover .prev.wrap_desc,
 .myNotes:hover .seeNotes.wrap_desc,
@@ -235,15 +415,16 @@ main {
   flex: 1;
   width: 77%;
   margin-top: -70px;
-  padding-top: 70px;
-  height: calc(100vh - 68px) !important;
+  padding-bottom: 50px;
+  height: 100vh;
   background: var(--bg-2);
   overflow-y: scroll;
   user-select: none;
 }
 .videoWrap {
   width: 100%;
-  background: #4e5257ba;
+  padding-top: 70px;
+  background: rgba(211, 212, 213, 0.73);
 }
 .videoPlayer {
   position: relative;
@@ -742,7 +923,7 @@ span.author {
   position: absolute;
   inset: 68px 20% auto auto;
   width: 450px;
-  max-height: 40%;
+  max-height: 50%;
   border-top: 38px solid transparent;
   border-bottom: 38px solid transparent;
   border-radius: 12px;
@@ -821,24 +1002,38 @@ div.caption .caption_title {
   display: flex !important;
   align-items: center !important;
   justify-content: center;
-  width: 100%;
+  width: 88%;
   font-size: 1.6rem;
   color: #ff9757f7;
 }
-div.dropdown > div.caption .caption_bg {
-  position: relative;
+div.dropdown > div.caption .caption_bg,
+div.dropdown > div.caption .caption_close {
+  position: absolute;
+  right: 8px;
   content: "";
-  height: 100%;
+  height: 31%;
   width: 40px;
-  padding: 18px;
+  /* padding: 24px; */
   margin-left: auto;
-  background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E);
-  background-position: bottom 10px center;
+  background-position: bottom 0px center;
   background-size: 36%;
-  background-repeat: no-repeat, repeat;
-  z-index: 99;
+  background-repeat: no-repeat;
+  z-index: 9;
+}
+div.dropdown > div.caption .caption_bg {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
 }
 
+div.dropdown > div.caption .caption_close {
+  background-image: url(../img/clients/closeSvg.svg);
+  display: none;
+}
+div.dropdown.toggle > div.caption .caption_close {
+  display: block;
+}
+div.dropdown.toggle > div.caption .caption_bg {
+  display: none;
+}
 div.dropdown > div.list {
   position: absolute;
   background-color: #f2f2f2;
@@ -958,7 +1153,9 @@ div.dropdown.toggle > div.list {
   align-items: center;
   gap: 8px;
 }
-
+.lessonList > p {
+  margin: 0;
+}
 .lessonList h4.lessonTitle {
   padding-right: 10px;
   color: rgb(128, 139, 154);
