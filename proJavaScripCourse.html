@@ -44,12 +44,14 @@
           <div class="flashcards actionTooltip">
             <div class="circle_progress rotateBgrWrap">
               <div class="rotateBgr"></div>
-              <span> </span>
               <img class="" src="./assets/img/Small_icon/cards.svg" alt="crown" />
+              <span> </span>
             </div>
+
             <div class="wrap_desc bridgeRight">
               <span class="description">Đã hoàn thành 100% flashcards !</span>
             </div>
+
             <div class="dropDownWrap d-in-flex bridgeTop">
               <ul class="dropDown flashcardsMenu d-flex f-wrap">
                 <li class="list_item flashcardQR d-flex align-items-center gap16">
@@ -67,20 +69,32 @@
                 </li>
               </ul>
             </div>
+
+            <div class="dialogQR lightBox">
+              <div class="dialogContainer lightBoxContent">
+                <h3 class="heading dialogTitle">Flashcards QR code</h3>
+                <div class="dialogContent">
+                  <p class="dialogDesc">Để làm Flashcards trên điện thoại, hãy mở Camera và quét mã QR sau:</p>
+                  <div class="imgQR">
+                    <img src="./assets/img/team/QRcodeF8.png" alt="imgQR code" />
+                  </div>
+                  <div class="closeQR btn">Đóng lại</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="prevLesson actionTooltip">
             <div class="circle_progress rotateBgrWrap">
               <div class="rotateBgr"></div>
-              <span> </span>
               <img style="top: 50%; width: 50%" src="./assets/img/Small_icon/Previouslesson.svg" alt="crown" />
+              <span> </span>
             </div>
-
             <div class="prev wrap_desc bridgeTop">
               <span class="description">Xem lại bài học trước!</span>
             </div>
             <div class="dropDownWrap d-in-flex bridgeTop">
-              <div class="dropDown flashcardsMenu d-flex f-wrap">
+              <div class="dropDown d-flex f-wrap">
                 <a
                   class="prevLessonLink list_item d-flex align-items-center gap16"
                   href="https://fullstack.edu.vn/blog/can-chinh-moi-phan-tu-voi-thuoc-tinh-position.html">
@@ -91,11 +105,11 @@
             </div>
           </div>
 
-          <div class="myNotes actionTooltip">
+          <div class="myNotes">
             <div class="circle_progress rotateBgrWrap">
               <div class="rotateBgr"></div>
-              <span> </span>
-              <img style="top: 50%; width: 50%" src="./assets/img/Small_icon/book.svg" alt="crown" />
+
+              <img style="top: 50%; width: 50%" src="./assets/img/Small_icon/book.svg" alt="crown" /> <span> </span>
             </div>
             <div class="seeNotes wrap_desc bridgeTop">
               <span class="description">Xem ghi chú của tôi!</span>
@@ -167,34 +181,256 @@
           <div class="notify actionTooltip">
             <div class="circle_progress rotateBgrWrap">
               <div class="rotateBgr"></div>
-              <span> </span>
+
               <img class="rotateCrown" style="top: 50%" src="./assets/img/Small_icon/bell.svg" alt="crown" />
+              <span> </span>
             </div>
             <div class="seeNotify wrap_desc bridgeTop">
               <span class="description">Xem Thông báo của tôi!</span>
             </div>
 
-            <!-- <span class="description"></span>
-            <div class="yourNotify">
-              <div class="notifyHeard">
-                <h5 class="notifyTitle"></h5>
-                <span class="notifyMenu">Đánh dấu đã đọc</span>
+            <div class="yourNotify dropDownWrap f-column bridgeTop">
+              <div class="notifyWrap dropDown d-flex f-wrap">
+                <div class="notifyHeard d-flex align-items-center justify-content-between">
+                  <h5 class="notifyTitle">Thông báo</h5>
+                  <span class="notifyBtn">Đánh dấu đã đọc</span>
+                </div>
+
+                <div class="notifyList justify-content-start">
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img class="avatar" src="https://htmlcss.fullstack.edu.vn/155cdb2376c5d99ea151.jpg" alt="" />
+                      <span class="fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img
+                        class="avatar"
+                        src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                        alt="" />
+                      <span class="fallback">
+                        <img
+                          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzM3NjZfMTY0OTMpIj4KPHBhdGggZD0iTTEyIDBDOC44MTc0IDAgNS43NjUxNiAxLjI2NDI4IDMuNTE0NzIgMy41MTQ3MkMxLjI2NDI4IDUuNzY1MTYgMCA4LjgxNzQgMCAxMkMwIDE1LjE4MjYgMS4yNjQyOCAxOC4yMzQ4IDMuNTE0NzIgMjAuNDg1M0M1Ljc2NTE2IDIyLjczNTcgOC44MTc0IDI0IDEyIDI0QzE1LjE4MjYgMjQgMTguMjM0OCAyMi43MzU3IDIwLjQ4NTMgMjAuNDg1M0MyMi43MzU3IDE4LjIzNDggMjQgMTUuMTgyNiAyNCAxMkMyNCA4LjgxNzQgMjIuNzM1NyA1Ljc2NTE2IDIwLjQ4NTMgMy41MTQ3MkMxOC4yMzQ4IDEuMjY0MjggMTUuMTgyNiAwIDEyIDBWMFoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8zNzY2XzE2NDkzKSIvPgo8cGF0aCBkPSJNMTguMjQzIDExLjAwN0MxOC41MDcgMTEuMTkxNSAxOC43NSAxMS4zNzQ1IDE4Ljc1IDEyLjAxOEMxOC43NSAxMi42NjMgMTguNDA2NSAxMi45MjQgMTguMDM5IDEzLjEwNTVDMTguMTg5IDEzLjM1IDE4LjIzNyAxMy42NDU1IDE4LjE3MjUgMTMuOTI0NUMxOC4wNTcgMTQuNDQwNSAxNy41ODQ1IDE0Ljg0MSAxNy4xNjQ1IDE0Ljk1OTVDMTcuMzQ2IDE1LjI1MDUgMTcuNDAzIDE1LjUzNyAxNy4xODcgMTUuODg5NUMxNi45MDk1IDE2LjMzMiAxNi42NjggMTYuNSAxNS42IDE2LjVIMTEuMjVDOS43NjggMTYuNSA5IDE1LjY4MSA5IDE1VjExLjQ5NzVDOSA5LjY1MjUgMTEuMjAwNSA4LjA4NSAxMS4yMDA1IDYuODAyNUwxMS4wNDE1IDUuMjA1QzExLjAzNCA1LjEwNzUgMTEuMDUzNSA0Ljg2OSAxMS4xMjg1IDQuOEMxMS4yNDg1IDQuNjgxNSAxMS41OCA0LjUgMTIuMDgxIDQuNUMxMi40MDggNC41IDEyLjYyNTUgNC41NjE1IDEyLjg4MiA0LjY4NDVDMTMuNzUzNSA1LjEgMTMuOTggNi4xNTE1IDEzLjk4IDYuOTk3NUMxMy45OCA3LjQwNCAxMy4zNTkgOC42MjIgMTMuMjc1IDkuMDQzNUMxMy4yNzUgOS4wNDM1IDE0LjU3NTUgOC43NTU1IDE2LjA5MzUgOC43NDVDMTcuNjg1IDguNzM2IDE4LjcxNyA5LjAzIDE4LjcxNyAxMC4wMDhDMTguNzE3IDEwLjM5OTUgMTguMzg4NSAxMC43OTI1IDE4LjI0MyAxMS4wMDdaTTUuNCAxMC41SDYuNkM2LjgzODcgMTAuNSA3LjA2NzYxIDEwLjU5NDggNy4yMzY0IDEwLjc2MzZDNy40MDUxOCAxMC45MzI0IDcuNSAxMS4xNjEzIDcuNSAxMS40VjE3LjFDNy41IDE3LjMzODcgNy40MDUxOCAxNy41Njc2IDcuMjM2NCAxNy43MzY0QzcuMDY3NjEgMTcuOTA1MiA2LjgzODcgMTggNi42IDE4SDUuNEM1LjE2MTMxIDE4IDQuOTMyMzkgMTcuOTA1MiA0Ljc2MzYgMTcuNzM2NEM0LjU5NDgyIDE3LjU2NzYgNC41IDE3LjMzODcgNC41IDE3LjFWMTEuNEM0LjUgMTEuMTYxMyA0LjU5NDgyIDEwLjkzMjQgNC43NjM2IDEwLjc2MzZDNC45MzIzOSAxMC41OTQ4IDUuMTYxMzEgMTAuNSA1LjQgMTAuNVoiIGZpbGw9IndoaXRlIi8+CjwvZz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8zNzY2XzE2NDkzIiB4MT0iMTIiIHkxPSIwIiB4Mj0iMTIiIHkyPSIyNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMThBRkZGIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNjJERiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzM3NjZfMTY0OTMiPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" />
+                      </span>
+                    </div>
+
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name lessons">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img class="avatar" src="https://htmlcss.fullstack.edu.vn/155cdb2376c5d99ea151.jpg" alt="" />
+                      <span class="fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img
+                        class="avatar"
+                        src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                        alt="" />
+                      <span class="fallback">
+                        <img
+                          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjgiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl80MzQ2XzEwNTUzKSIvPgo8cGF0aCBkPSJNMy40ODM1NyA2LjYwMzM3TDYuNjkwMzQgMy40NTE0QzYuOTYzNjQgMy4xODAwNCA3LjQxOTE1IDMuNDA5NjUgNy40MTkxNSAzLjgyNzEzVjUuNTE3OTNDMTAuMzM0NCA1LjUxNzkzIDEyLjY2NjYgNi4yMDY3NyAxMi42NjY2IDkuMzc5NjFDMTIuNjY2NiAxMC42NTI5IDExLjkzNzggMTEuOTI2MiAxMS4xMzYxIDEyLjU5NDJDMTAuODk5MiAxMi44MDI5IDEwLjUzNDggMTIuNTMxNiAxMC42MjU5IDEyLjE5NzZDMTEuNDQ1OCA5LjE3MDg3IDEwLjI0MzMgOC4zNzc2NiA3LjQxOTE1IDguMzE1MDRWMTAuMTUxOUM3LjQxOTE1IDEwLjU5MDMgNi45NjM2NCAxMC44MTk5IDYuNjkwMzQgMTAuNTQ4NkwzLjQ4MzU3IDcuMzc1NzFDMy4yODMxNSA3LjE2Njk3IDMuMjgzMTUgNi44MTIxMSAzLjQ4MzU3IDYuNjAzMzdaIiBmaWxsPSJ3aGl0ZSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzQzNDZfMTA1NTMiIHgxPSIwIiB5MT0iMCIgeDI9IjEuMTMzMjFlLTA3IiB5Mj0iMTYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzVFQkJGRiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNBMTc0RkYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" />
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name lessons">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img
+                        class="avatar"
+                        src="https://files.fullstack.edu.vn/f8-prod/user_avatars/36050/628a1334d274d.jpg"
+                        alt="" />
+                      <span class="fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img
+                        class="avatar"
+                        src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                        alt="" />
+                      <span class="fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name lessons">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img
+                        class="avatar"
+                        src="https://files.fullstack.edu.vn/f8-prod/user_avatars/36050/628a1334d274d.jpg"
+                        alt="" />
+                      <span class="fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img
+                        class="avatar"
+                        src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                        alt="" />
+                      <span class="fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name lessons">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img
+                        class="avatar"
+                        src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                        alt="" />
+                      <span class="fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img
+                        class="avatar"
+                        src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                        alt="" />
+                      <span class="fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name lessons">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+
+                  <div class="list_item d-flex align-items-center justify-content-between gap12">
+                    <div class="userAvatar d-f-center">
+                      <img
+                        class="avatar"
+                        src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                        alt="" />
+                      <span class="fallback">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="noticeInfo">
+                      <div class="content">
+                        <span class="name">Bài học</span>
+                        <span class="message"><strong>Làm phần blog #2</strong> mới được thêm vào.</span>
+                      </div>
+                      <div class="noticeTime">2 giờ trước</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <ul class="noteList">
-                <li>
-                  <a href=""></a>
-                </li>
-                <li>
-                  <a href=""></a>
-                </li>
-                <li>
-                  <a href=""></a>
-                </li>
-                <li>
-                  <a href=""></a>
-                </li>
-              </ul>
-            </div> -->
+            </div>
           </div>
 
           <div class="navbar-current-user actionTooltip d-flex align-items-center">
@@ -208,15 +444,81 @@
               </div>
               <span class="name"> Nguyễn Thanh Hòa </span>
               <span class="arrow d-flex">
-                <img src="./assets/img/clients/chevronDown.svg" alt="" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
               </span>
+            </div>
+
+            <div class="dropDownWrap d-in-flex bridgeTop">
+              <div class="menuAction dropDown d-flex f-wrap">
+                <div class="chooseAction">
+                  <p>Lựa chọn hiển thị</p>
+                  <ul class="displaySelection">
+                    <li class="list_item d-flex align-items-center gap16">
+                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                      <span>Ẩn ghi chú phổ biến</span>
+                    </li>
+                    <li class="list_item d-flex align-items-center gap16">
+                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                      <span> Tắt kiểu font chữ ghép</span>
+                    </li>
+
+                    <li class="lightFace changeTheme list_item d-flex align-items-center gap16">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                      </svg>
+
+                      <span>Giao diện tối</span>
+                    </li>
+
+                    <li class="darkFace list_item changeTheme align-items-center gap16">
+                      <span class="symbol">&#9788;</span>
+                      <span>Giao diện sáng</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="yourAccount">
+                  <p>Tài khoản</p>
+                  <ul class="">
+                    <li class="list_item d-flex align-items-center gap16">
+                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                      <span>Cài đặt tài khoản</span>
+                    </li>
+
+                    <li class="list_item d-flex align-items-center gap16">
+                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                      <span>Liên kết giới thiệu</span>
+                    </li>
+                    <li class="list_item d-flex align-items-center gap16">
+                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                      <span>Đăng xuất</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="circle_progress rotateBgrWrap">
+          <div class="rotateCrownWrap circle_progress rotateBgrWrap">
             <div class="rotateBgr"></div>
-            <span> </span>
-            <img class="rotateCrown" src="./assets/img/clients/crown.svg" alt="crown" />
+            <img class="rotateCrown" src="./assets/img/clients/crown.svg" alt="crown" /> <span> </span>
           </div>
         </div>
       </div>
@@ -227,7 +529,6 @@
       <div class="coursePresentation d-flex align-items-start justify-content-start">
         <div class="currentCourse contain d-in-flex align-items-start justify-content-start">
           <div class="presentationArea">
-            <!-- <div class="pads"></div> -->
             <div class="cinemaWrap contain">
               <div id="cinema" class="cinema videoWrap">
                 <div class="videoPlayer contain d-f-center">
@@ -328,6 +629,7 @@
                       src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
                       alt="F8" />
                   </div>
+                  <div class="overlayDark"></div>
                 </div>
               </div>
 
@@ -642,7 +944,20 @@
           <div class="videoPlaylists f-column">
             <div class="sidebarHeader d-flex align-items-center justify-content-between gap16">
               <div class="Search_wrapper d-flex align-items-center">
-                <div class="Search_Icon"></div>
+                <div class="Search_Icon d-f-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                  </svg>
+                </div>
                 <input id="search_lessons" class="Search_input" placeholder="Tìm theo tên bài học" value="" />
               </div>
               <button class="bookmark f-column align-items-center">
@@ -759,19 +1074,6 @@
       </div>
     </main>
     <!-- End #main -->
-    <div class="dialogQR lightBox">
-      <div class="dialogContainer lightBoxContent">
-        <h3 class="heading dialogTitle">Flashcards QR code</h3>
-        <div class="dialogContent">
-          <p class="dialogDesc">Để làm Flashcards trên điện thoại, hãy mở Camera và quét mã QR sau:</p>
-          <div class="imgQR">
-            <img src="./assets/img/team/QRcodeF8.png" alt="imgQR code" />
-          </div>
-          <div class="closeQR btn">Đóng lại</div>
-        </div>
-      </div>
-    </div>
-
     <div class="remoteControlArea container d-flex align-items-center justify-content-between">
       <div class="action" style="flex-basis: 0">
         <div class="bottomDiscussIcon d-f-center">
@@ -830,7 +1132,6 @@
               </svg>
             </span>
           </a>
-          <!-- <div class="testVideo btn" style="color: red">TestVideo</div> -->
         </div>
       </div>
 

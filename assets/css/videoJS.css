@@ -1,8 +1,27 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+html * {
+  scroll-behavior: smooth;
+  overscroll-behavior-block: contain !important;
+  writing-mode: horizontal-tb;
+}
+html.dark {
+  animation: changeTheme 0.3s linear;
+  /* writing-mode: vertical-rl; */
+  /* padding-block: 40px;  */
+}
+@keyframes changeTheme {
+  to {
+    opacity: 0.95;
+  }
+  from {
+    opacity: 1;
+  }
+}
 body {
   overflow: hidden;
+  background-color: var(--dark-2);
 }
 .bridgeTop::before,
 .bridgeRight::before,
@@ -13,7 +32,6 @@ body {
   display: block;
   border: 10px solid;
 }
-
 .bridgeTop::before {
   top: 0;
   left: 50%;
@@ -54,16 +72,23 @@ body {
 
 .dropDownWrap {
   position: absolute;
-  background: var(--bg-gradient-4);
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-family: var(--font-family) !important;
   width: fit-content;
   min-width: 232px;
   display: none;
   z-index: 9999;
+  opacity: 0.5;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: var(--bg-gradient-4);
+  font-family: var(--font-family) !important;
+  transition: all 0.25s ease-in-out;
 }
-
+.dropDownWrap.open {
+  opacity: 1;
+  display: flex !important;
+  transition: all 0.25s ease-in-out;
+  box-shadow: var(--list-box-shadow-dark);
+}
 .dropDown {
   width: 100%;
   height: 100%;
@@ -87,12 +112,13 @@ body {
 .list_item {
   position: relative;
   padding: 8px 16px;
-  background-color: var(--bs-gray-100);
+  background: var(--bg-2);
   border-bottom: 1px solid var(--bs-gray-300);
 }
 .list_item,
 a.list_item,
 .list_item a {
+  justify-content: start;
   width: 100%;
   height: 48px;
   font-size: 1.4rem;
@@ -102,29 +128,36 @@ a.list_item,
 }
 
 .list_item:hover {
-  background-color: var(--bs-gray-200);
   border-bottom: 1px solid var(--bs-gray-400);
+  color: #ff9757f7;
+  border-color: #aaa;
+  background-image: var(--bg-gradient-6, var(--bs-gray-200));
+  box-shadow: 0 0 1px 0.2px rgba(59, 153, 252, 0.7);
 }
 
 /*--------------------------------------------------------------
 # End General
 --------------------------------------------------------------*/
 
-#header.header .rotateBgr::after {
-  filter: blur(1px);
-}
-
 #header.header .rotateBgrWrap span {
   width: 108%;
   height: 108%;
-  background: rgb(255 249 242 / 95%);
+  background-color: var(--navbar-button-color, rgb(255 249 242 / 95%));
 }
-
+#header.header .rotateBgr::after {
+  filter: blur(1px);
+}
 #header.header .rotateBgrWrap img {
   width: 75%;
   height: 65%;
   top: 50%;
+  z-index: 99;
 }
+#header.header .rotateBgrWrap span:hover,
+#header.header .rotateBgrWrap img:hover ~ span {
+  background-color: var(--navbar-button-hovered-color) !important;
+}
+
 .actionTooltip {
   position: relative;
   width: fit-content;
@@ -152,24 +185,16 @@ a.list_item,
 }
 
 .dialogQR.lightBox {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 100vw;
   backdrop-filter: brightness(0.5) blur(5px);
   display: none;
 }
 .dialogQR.lightBox .lightBoxContent {
-  position: absolute;
-  inset: 0;
   max-width: 568px;
   max-height: 600px;
   min-height: 500px;
   margin: auto;
   padding: 28px;
-  user-select: none;
   border-radius: 1rem;
-  background: var(--bs-white);
   box-shadow: 0 1px 60px 1px rgba(59, 152, 252, 0.945);
 }
 .dialogQR .dialogTitle {
@@ -206,7 +231,6 @@ a.list_item,
   opacity: 0.9;
   border: 2px solid #f04f2386;
 }
-
 .prev.wrap_desc,
 .seeNotes.wrap_desc,
 .seeNotify.wrap_desc {
@@ -232,6 +256,7 @@ a.list_item,
   transform: translateX(100%);
   transition: all 0.3s linear;
 }
+
 .myNoteContainer {
   opacity: 0;
   min-width: 600px;
@@ -255,40 +280,40 @@ a.list_item,
   left: 0;
   height: 38px;
   border-radius: 8px;
-  padding: 0px 2px 0px 16px;
   background-color: var(--bg-2);
   border: 2px solid var(--bg-3);
   user-select: none;
   cursor: pointer;
+  background: linear-gradient(147deg, transparent, #32353b);
+  background: var(--bg-gradient-dark-4);
+  box-shadow: var(--box-shadow-inset-dark);
 }
+
 .listTitle {
-  color: var(--text-color-6);
-  margin-bottom: 2px;
+  width: 100%;
+  margin: 0;
+  padding: 8px 0 8px 18px;
 }
 .selectNote .note_List {
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 .myNoteMenu .drop_DownWrap {
   position: absolute;
   display: none;
 }
-.selectNote.open .drop_DownWrap {
-  display: block;
-}
+
 .myNoteMenu .selectTime,
 .myNoteMenu .selectName {
   top: 150%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   border: none;
-  min-width: 242px;
+  min-width: 252px;
   border-radius: 12px;
-  transform: translate(0, 0);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 16px;
 }
-.myNoteMenu .selectTime {
-  min-width: 150px;
-}
+
 .selectWrap {
   border-radius: 12px;
   overflow: hidden;
@@ -305,7 +330,7 @@ a.list_item,
   height: 40px;
   padding: 8px 16px 10px 28px;
   font-size: 1.4rem;
-  color: var(--text-color-6);
+  color: var(--light-when-dark, var(--text-color-6));
   border-bottom: 0;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 1px 0.1px;
   transition: all 0.3s linear;
@@ -318,13 +343,18 @@ a.list_item,
 }
 
 img.noteClose:hover,
-.selectNote li.list_item:hover,
-.myNoteMenu .arrowDown:hover {
+.selectNote li.list_item:hover {
   outline: none;
   color: #ff9757f7;
   border-color: #aaa;
-  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background: var(--bg-gradient-6, linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%));
   box-shadow: 0 0 1px 0.2px rgba(59, 153, 252, 0.7);
+}
+.selectNote:hover .arrowDown,
+.selectNote:hover .listTitle {
+  color: #ff9757f7;
+  opacity: 0.8;
+  transition: all 0.25s;
 }
 
 .notContent img {
@@ -335,21 +365,159 @@ img.noteClose:hover,
   font-size: 26px;
 }
 
+.yourNotify.dropDownWrap {
+  top: 50px;
+  left: 50%;
+  min-width: 396px;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: none;
+}
+
+.notify .bridgeTop::before {
+  border-bottom-color: #5fbcff !important;
+}
+.notifyHeard {
+  width: 100%;
+  padding: 8px 16px;
+  margin-bottom: 1px;
+  background-color: var(--bg-4);
+  user-select: none;
+}
+.notifyTitle {
+  margin: 0px;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--text-code-color);
+  font-family: var(--font-family);
+}
+.notifyBtn {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 24px;
+  color: rgb(0, 147, 252);
+  font-family: var(--font-family);
+  cursor: pointer;
+  user-select: none;
+}
+.notifyList {
+  max-width: 460px;
+  max-height: 450px;
+  background-color: var(--dark-2);
+  overflow: hidden;
+  overflow-y: overlay;
+}
+
+.notifyList::-webkit-scrollbar {
+  width: 1px;
+}
+
+.notifyList .list_item {
+  position: relative;
+  padding: 10px 16px;
+  margin-bottom: 1px;
+  height: auto;
+  background-color: var(--dark-3);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  border-bottom: 0;
+  box-shadow: 0 0 0.6px 0.1px rgba(59, 153, 252, 0.5);
+}
+.notifyList .list_item:hover {
+  background: var(--bg-gradient-dark, #f0910d29);
+  box-shadow: 0 0 1px 0.5px var(--bs-gray-dark, var(--primary-color-2));
+}
+.userAvatar {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.avatar {
+  width: 38px;
+  height: 38px;
+  margin-right: 8px;
+  overflow: clip;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+.fallback {
+  position: absolute;
+  right: 4px;
+  bottom: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 15px;
+  padding: 2px;
+  background: red;
+  border-radius: 99px;
+}
+.fallback img {
+  width: 16px;
+}
+.fallback svg {
+  width: 12px;
+  color: #fff;
+  overflow: clip;
+  object-fit: cover;
+  translate: 0px 1px;
+  border-radius: 999px;
+}
+.noticeInfo {
+}
+.content {
+  padding-right: 8px;
+  margin-bottom: 8px;
+}
+.name {
+  color: rgb(0, 147, 252);
+}
+.name.lessons {
+  color: #4e586b;
+  color: var(--light-when-dark);
+  font-size: 1.3rem;
+}
+.message {
+  color: #4e586b;
+}
+.message strong {
+  color: #2e3441;
+}
+.noticeTime {
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(128, 139, 154);
+  font-family: var(--font-family);
+}
+
 .dialogQR.lightBox.open,
-.myNotes.open .myNoteWrap,
-.prevLesson.open > .dropDownWrap,
-.flashcards.open > .dropDownWrap {
+.prevLesson > .dropDownWrap.open,
+.flashcards > .dropDownWrap.open {
+  box-shadow: var(--list-box-shadow-dark);
   opacity: 1;
   display: block;
 }
-.myNotes.open .myNoteWrap {
+.dialogQR.lightBox.open {
+  background: rgba(0 0 0 / 96%);
+}
+.myNotes {
+  position: relative;
+}
+.myNoteWrap.open {
+  opacity: 1;
   visibility: visible;
   transform: translateX(0%);
 }
-.myNotes.open .myNoteWrap .myNoteContainer {
+.myNoteWrap.open .myNoteContainer {
   opacity: 1;
+  background: var(--bg-white-dark-1, #fff);
+  position: absolute;
 }
-/* 1111111111111111111111111111111 */
 
 .flashcards:hover .wrap_desc,
 .prevLesson:hover .prev.wrap_desc,
@@ -384,7 +552,7 @@ div.dropdown {
   padding: 0px 16px 0px 0px;
   border-radius: 999px;
   color: var(--text-color-7);
-  background-color: var(--bs-white);
+  background-color: var(--navbar-button-color, var(--bs-white));
   transition: background-color 0.3s ease 0s;
   cursor: pointer;
 }
@@ -395,8 +563,80 @@ div.dropdown {
 .navbar-current-user .wrapper .circle_progress {
   margin-left: 4px;
 }
-.navbar-current-user .arrow img {
-  width: 16px;
+.navbar-current-user .arrow svg {
+  width: 18px;
+}
+.navbar-current-user .dropDownWrap {
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 316px;
+  background: #32353b;
+  padding: 0;
+  border-radius: 12px;
+  background: var(--bg-gradient-dark-4, var(--bg-gradient-4));
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 16px;
+  display: none;
+}
+.chooseAction,
+.yourAccount {
+  flex: 1 0 320px;
+}
+.navbar-current-user .dropDownWrap p {
+  margin: 0;
+  padding: 6px 6px 6px 12px;
+  width: 100%;
+  background: var(--bs-dark);
+}
+.navbar-current-user .dropDownWrap ul {
+  width: 100%;
+}
+.navbar-current-user .dropDownWrap::before {
+  border-bottom-color: #5fbaff;
+}
+
+.navbar-current-user .dropDownWrap ul li {
+  justify-content: start;
+  padding-left: 28px;
+  width: 100%;
+  min-height: 52px;
+  font-size: 1.6rem;
+  border: none;
+  box-shadow: var(--box-shadow-dark-2);
+}
+
+.navbar-current-user .dropDownWrap.open {
+  box-shadow: var(--list-box-shadow-dark);
+  display: block;
+}
+.navbar-current-user:has(.open) .arrow {
+  animation: arrowRotate 0.25s linear forwards;
+}
+.navbar-current-user .arrow {
+  transition: animation 0.5s linear;
+}
+
+.navbar-current-user .wrapper:hover {
+  color: var(--primary-color);
+  background-color: var(--navbar-button-hovered-color) !important;
+}
+.navbar-current-user .wrapper:hover .name {
+  color: var(--primary-color);
+}
+.darkFace svg,
+.lightFace svg {
+  width: 20px;
+}
+li.darkFace {
+  display: none;
+}
+li.darkFace span.symbol {
+  font-size: 20px;
+}
+@keyframes arrowRotate {
+  100% {
+    transform: rotate(180deg);
+  }
 }
 
 #header.header .header_wrap .navbar .rotateCrown {
@@ -424,15 +664,17 @@ main {
 .videoWrap {
   width: 100%;
   padding-top: 70px;
-  background: rgba(211, 212, 213, 0.73);
+  background-color: var(--bg-4, rgba(211, 212, 213, 0.73));
 }
 .videoPlayer {
   position: relative;
   width: 85%;
   max-width: var(--width);
   height: calc((var(--width) / 16) * 9);
+  aspect-ratio: 16/9;
   background: transparent;
   border-radius: 10px;
+  object-fit: cover;
   overflow: hidden;
 }
 .famousBrand {
@@ -443,6 +685,7 @@ main {
   background: #00000000;
   transition: all 0.25s ease;
   user-select: none;
+  z-index: 9;
 }
 div#famousBrand {
   --w-curtain: 50%;
@@ -695,6 +938,7 @@ a.recommended span:hover {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--bs-black);
+  color: var(--light-when-dark);
   padding-right: 16px;
   max-width: 600px;
   overflow: hidden;
@@ -716,10 +960,10 @@ span.author {
   align-self: flex-end;
 }
 .authorName {
-  color: var(--primary-color);
+  margin-left: 8px;
+  color: var(--primary-color) !important;
   font-size: 1.8rem;
 }
-
 .titleAndAuthorWrap .updated {
   font-weight: 400;
   font-size: 12px;
@@ -736,10 +980,12 @@ span.author {
 .videoNotesBlock {
   flex: 0 0 auto;
   padding: 4px 6px;
+  border-radius: 4px;
   background-color: var(--bg-1);
+  overflow: hidden;
 }
 .videoNotesBlock:hover {
-  background-color: #f1f3f5;
+  background-color: var(--navbar-button-hovered-color) !important;
   cursor: pointer;
 }
 .videoNotesBlock .currentTime {
@@ -784,6 +1030,7 @@ span.author {
 }
 .excerpt .excerptTitle:hover {
   color: var(--text-color-6);
+  color: var(--light-when-dark);
   border-radius: 2px;
   background-color: var(--bg-5);
   cursor: pointer;
@@ -808,7 +1055,6 @@ span.author {
 .lessonDetails span {
   color: #0e90ec;
 }
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 .remoteControlArea {
   --bs-gutter-x: 4rem;
@@ -817,7 +1063,7 @@ span.author {
   bottom: 0;
   padding-top: 6px;
   padding-bottom: 6px;
-  background: #ffffff55;
+  background: var(--bs-gray-dark, #ffffff55);
   backdrop-filter: blur(5px);
   z-index: 999;
 }
@@ -833,10 +1079,15 @@ span.author {
   height: 42px;
   border-radius: 50%;
   border: 1px solid transparent;
-  background: var(--bg-gradient-4);
+  background: var(--bg-gradient-dark-4, var(--bg-gradient-4));
   cursor: pointer;
 }
-
+.actionBtn .like:hover,
+.actionBtn .unLike:hover,
+.action .bottomNavIcon:hover,
+.action .bottomDiscussIcon:hover {
+  opacity: 0.8;
+}
 .videoControls .controlsBtn {
   min-width: 186px;
   padding: 2px 16px 4px 16px;
@@ -848,13 +1099,13 @@ span.author {
   color: var(--primary-color-2);
   transition: all 0.2s;
   border: 2px solid transparent;
-  background: var(--bg-gradient-4);
+  background: var(--bg-gradient-dark-4, var(--bg-gradient-4));
   border-radius: 8px;
   user-select: none;
   cursor: pointer;
 }
 .videoControls .controlsBtn:hover {
-  background: var(--bg-gradient-4);
+  background: var(--bg-gradient-dark-4, var(--bg-gradient-4));
   opacity: 0.7;
 }
 
@@ -876,12 +1127,12 @@ span.author {
   transform: rotate(180deg);
 }
 
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .videoPlaylists {
   width: 23%;
   height: calc(100vh - 118px);
   flex: 0 1 auto;
-  background: var(--bs-white);
+  background: var(--bg-2-dark, whitesmoke);
+  box-shadow: var(--box-shadow-dark-1);
   overflow-y: scroll;
 }
 
@@ -889,13 +1140,13 @@ span.author {
   position: sticky;
   top: 0px;
   padding: 12px 14px;
-  background: rgb(240, 248, 255);
+  background-color: var(--dark-3, rgb(240, 248, 255));
   z-index: 9999999;
 }
 
 .sidebarHeader .Search_wrapper {
   flex: 1 1 0%;
-  gap: 12px;
+  gap: 4px;
   padding: 0;
   align-items: center;
   background-color: var(--bg-2);
@@ -905,9 +1156,17 @@ span.author {
 }
 .sidebarHeader .Search_Icon {
   margin-left: 2px;
+  margin-top: 1px;
   flex: 0 0 auto;
   cursor: pointer;
+  color: var(--light-when-dark, #333);
+  background-color: var(--bg-2);
+  background-image: url("");
 }
+.sidebarHeader .Search_Icon svg {
+  width: 20px;
+}
+
 .sidebarHeader .Search_input {
   background-color: var(--bg-2);
 }
@@ -927,12 +1186,11 @@ span.author {
   border-top: 38px solid transparent;
   border-bottom: 38px solid transparent;
   border-radius: 12px;
-  background: var(--bg-5);
+  background: var(--bg-2-dark, var(--bg-5));
   overflow-y: auto;
   overflow-x: hidden;
-
+  box-shadow: var(--list-box-shadow-dark, --box-shadow-light);
   z-index: 999999;
-  box-shadow: rgb(83 68 40 / 20%) 0px 0px 12px 0.02px, inset rgb(83 68 40 / 20%) 0px 0px 2px 0.02px;
 }
 .searchResult p {
   padding: 8px 32px;
@@ -942,11 +1200,11 @@ span.author {
 .searchResult p:hover {
   color: #ff9757f7;
   border-color: #aaa;
-  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background: var(--bg-gradient-6);
   box-shadow: 0 0 1px 0.2px rgba(59, 153, 252, 0.7);
 }
 .searchResult::-webkit-scrollbar {
-  width: 4px;
+  width: 1px;
 }
 .searchResult::-webkit-scrollbar-thumb {
   background-color: #fffed7;
@@ -966,11 +1224,13 @@ span.author {
 .sidebarHeader .bookmark span {
   color: rgb(0, 147, 252);
 }
+
 .captionWrap {
   position: sticky;
-  top: 62px;
+  top: 66px;
   padding: 6px 0;
   background: rgba(240, 248, 255, 0.305);
+  background-color: var(--dark-3);
   backdrop-filter: blur(5px);
   border-top: 1px solid rgba(255, 173, 110, 0.25);
   box-shadow: 0 1px 0 0px rgb(255 173 110 / 23%);
@@ -993,7 +1253,8 @@ div.dropdown > div.caption {
   border-radius: 0.5rem;
   -webkit-appearance: none;
   border: 0.5px solid rgb(255 191 254 / 25%);
-  background-image: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-image: var(--bg-gradient-6);
+  background-color: var(--dark-3);
   transition: all 0.2s linear;
   user-select: none;
   cursor: pointer;
@@ -1013,7 +1274,6 @@ div.dropdown > div.caption .caption_close {
   content: "";
   height: 31%;
   width: 40px;
-  /* padding: 24px; */
   margin-left: auto;
   background-position: bottom 0px center;
   background-size: 36%;
@@ -1036,27 +1296,42 @@ div.dropdown.toggle > div.caption .caption_bg {
 }
 div.dropdown > div.list {
   position: absolute;
-  background-color: #f2f2f2;
+  top: 58px;
   width: 100%;
-  border-radius: 0 0 6px 6px;
+  height: 52vh;
+  display: none;
   overflow: hidden;
   overflow-y: auto;
   user-select: none;
-  height: 50vh;
-  display: none;
+  border-radius: 0 0 6px 6px;
+  border: 2px solid transparent;
+  background-color: var(--dark-2);
+  background: var(--bg-gradient-5-dark, var(--bg-gradient-4));
+  overscroll-behavior-block: contain !important;
+  box-shadow: var(--list-box-shadow-dark);
+}
+div.dropdown > div.list::-webkit-scrollbar {
+  width: 2px !important;
+}
+div.dropdown > div.list::-webkit-scrollbar-thumb {
+  background: rgb(43, 255, 0) !important;
+  border: none !important;
+  border-radius: 4px;
 }
 .dropdown > .list > .optgroup > .item,
 div.list > .optgroup > div.option {
-  padding: 11px 24px;
+  padding: 18px 24px;
   top: 0;
-  height: 46px;
-  font-size: 1.4rem;
+  height: auto;
+  font-size: 1.6rem;
   font-weight: 400;
   color: rgba(27, 127, 204, 0.8);
+  background: var(--bg-list);
+  border: none;
   cursor: pointer;
   transition: all 0.2s linear;
+  box-shadow: var(--box-shadow-dark);
 }
-
 div.dropdown > div.caption:hover {
   color: #ff9757f7;
   box-shadow: 0 0 1px 1px rgba(59, 153, 252, 0.7);
@@ -1067,25 +1342,27 @@ div.dropdown > div.caption:hover {
   color: #ff9757f7;
   text-transform: uppercase;
   border-bottom: 0.5px solid rgba(255, 208, 157, 0.325);
-
+  background: var(--bg-list);
   cursor: auto;
 }
 .optgroup > .item:not(.option):hover {
   background-color: #f2f2f2;
+  background-color: var(--dark-3);
 }
 .dropdown > .list > .optgroup .disabled {
   padding: 11px 24px;
-  top: 0;
   height: 46px;
   font-size: 1.6rem;
   font-weight: 400;
-  background: var(--bs-gray-300);
+  color: var(--text-color-4);
+  background: var(--bs-disabled);
+  opacity: 1;
 }
 div.dropdown > div.list > .optgroup > div.option:hover {
   outline: none;
   color: #ff9757f7;
   border-color: #aaa;
-  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-image: var(--bg-gradient-6);
   box-shadow: 0 0 1px 0.2px rgba(59, 153, 252, 0.7);
 }
 div.dropdown.toggle > div.list {
@@ -1130,6 +1407,7 @@ div.dropdown.toggle > div.list {
   padding: 10px 16px;
   cursor: pointer;
   transition: all 0.35s ease-out 0s;
+  box-shadow: var(--box-shadow-dark, #ddd);
   user-select: none;
 }
 
@@ -1137,11 +1415,12 @@ div.dropdown.toggle > div.list {
 .lesson:hover,
 .lesson:active,
 .lessons:hover {
-  background-color: var(--bg-2);
+  background-color: var(--bg-hover-dark, var(--bg-5));
   color: var(--text-code-color);
 }
 .lesson.active {
-  background-color: #f0910d29;
+  background: var(--bg-gradient-dark, #f0910d29);
+  box-shadow: 0 0 1px 0.5px var(--bs-gray-dark, var(--primary-color-2));
 }
 #lessonList .lesson.active .lessonInfo span,
 #lessonList .lesson.active .lessonInfo .lessonTitle {
@@ -1158,7 +1437,7 @@ div.dropdown.toggle > div.list {
 }
 .lessonList h4.lessonTitle {
   padding-right: 10px;
-  color: rgb(128, 139, 154);
+  color: var(--dark-color, rgb(128, 139, 154));
   font-size: 1.4rem;
   font-weight: 400;
 }
@@ -1177,17 +1456,19 @@ div.dropdown.toggle > div.list {
 
 .quantity,
 .lesson_duration {
-  color: rgb(128, 139, 154);
+  color: rgb(128, 139, 154) !important;
   font-weight: 400;
   font-size: 1.2rem;
 }
 
-/* .sidebar_tracks */
 .videoPlaylists::-webkit-scrollbar,
 .presentationArea::-webkit-scrollbar {
   width: 0px !important;
 }
 
 .dpn {
-  display: none;
+  display: none !important;
+}
+.dpf {
+  display: flex !important;
 }

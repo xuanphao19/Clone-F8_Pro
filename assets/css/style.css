@@ -27,7 +27,6 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-gray-dark: #343a40;
   --bs-secondary: #6c757d;
 
   --text-color-1: #fefefe;
@@ -50,17 +49,13 @@
   --bg-1: #fbfdff;
   --bg-2: #f6f7f9;
   --bg-3: #f2f9ff;
-  --bg-4: #eef4fc;
+  /* --bg-4: #eef4fc; */
   --bg-5: #eaedf2;
   --bg-6: #c9fffc;
   --bg-7: #0093fc;
 
   --bs-light: #f8f9fa;
-  --bs-dark: #212529;
-  --light-when-dark: #fff;
-  --dark-when-light: #222;
   --light-icon-color: #919191;
-  --dark-icon-color: #222;
 
   --bs-success: #198754;
   --bs-warning: #ffc107;
@@ -74,8 +69,6 @@
   --border-color-white: #191d1e;
   --border-bottom-color: #e4eef0;
 
-  /* --cta-hover-color: #007efe; */
-
   --font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -84,17 +77,19 @@
 
   --bg-gradient-0: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
   --bg-gradient-1: linear-gradient(to bottom, rgb(255, 255, 255) 60%, rgba(0, 0, 0, 0));
-  --bg-gradient-2: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+
   --bg-gradient-3: linear-gradient(#fbfdff, #fbfdff) padding-box,
     linear-gradient(180deg, #5ebbff, #a174ff 40%) border-box;
   --bg-gradient-4: linear-gradient(rgb(251, 253, 255), rgb(251, 253, 255)) padding-box padding-box,
     linear-gradient(rgb(94, 187, 255) 0%, rgb(161, 116, 255) 40%) border-box border-box;
   --bg-gradient-5: linear-gradient(115deg, #feed07 0%, #fe6a50 5%, #ed00aa 15%, #2fe3fe 50%, #8900ff 100%);
-
+  --bg-gradient-6: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  --bs-disabled: #e9e9e9;
   --font-code: "SF Mono", monospace;
-
+  --box-shadow-light: rgb(83 68 40 / 20%) 0px 0px 12px 0.02px, inset rgb(83 68 40 / 20%) 0px 0px 2px 0.02px;
   --home-slideshow-left-space: 116px;
   --home-section-left-space: 160px;
+  --navbar-button-hovered-color: #ffe4ef;
 }
 
 /*--------------------------------------------------------------
@@ -116,6 +111,8 @@
   background: #ffffffab;
   backdrop-filter: blur(15px);
   box-shadow: 0 0 0 1px var(--bs-gray-200);
+  box-shadow: 0 0 0 1px var(--bs-gray-dark);
+  background: var(--bg-navbar-backdrop);
   transition: all 0.5s;
   z-index: 99920;
   user-select: none;
@@ -139,7 +136,9 @@
   border-radius: 0.5rem;
   user-select: none;
 }
+/* github.com/leminhson22/project-final-01/ */
 
+/* https://Tuanvu1504.github.oi/f8-HtmlCss-01 */
 .bridgeTop::before,
 .bridgeRight::before,
 .bridgeBottom::before,
