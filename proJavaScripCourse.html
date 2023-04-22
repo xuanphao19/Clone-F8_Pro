@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="vi">
+<html lang="vi" class="dark">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -16,8 +16,10 @@
     <link href="assets/css/main.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/videoJS.css" rel="stylesheet" />
+    <!-- <link href="assets/css/Zip.css" rel="stylesheet" /> -->
     <link href="assets/css/Responsive.css" rel="stylesheet" />
   </head>
+
   <body>
     <!-- ======= Header id="navbar" ======= -->
     <header id="header" class="container_fluid header">
@@ -52,7 +54,7 @@
               <span class="description">Đã hoàn thành 100% flashcards !</span>
             </div>
 
-            <div class="dropDownWrap d-in-flex bridgeTop">
+            <div class="dropDownWrap fulcrum d-in-flex bridgeTop">
               <ul class="dropDown flashcardsMenu d-flex f-wrap">
                 <li class="list_item flashcardQR d-flex align-items-center gap16">
                   <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
@@ -93,7 +95,7 @@
             <div class="prev wrap_desc bridgeTop">
               <span class="description">Xem lại bài học trước!</span>
             </div>
-            <div class="dropDownWrap d-in-flex bridgeTop">
+            <div class="dropDownWrap fulcrum d-in-flex bridgeTop">
               <div class="dropDown d-flex f-wrap">
                 <a
                   class="prevLessonLink list_item d-flex align-items-center gap16"
@@ -105,7 +107,7 @@
             </div>
           </div>
 
-          <div class="myNotes">
+          <div class="myNotes actionTooltip">
             <div class="circle_progress rotateBgrWrap">
               <div class="rotateBgr"></div>
 
@@ -115,16 +117,26 @@
               <span class="description">Xem ghi chú của tôi!</span>
             </div>
 
-            <div class="myNoteWrap lightBox">
+            <div class="myNoteWrap fulcrum lightBox">
               <div class="myNoteContainer lightBoxContent">
                 <div class="myNoteHeard d-flex align-items-center justify-content-between">
                   <h5 class="myNoteTitle heading">Ghi chú của tôi:</h5>
                   <div class="myNoteMenu gap12 d-flex d-flex align-items-center">
                     <div class="selectNote d-flex align-items-center">
                       <span class="listTitle">Trong chương hiện tại</span>
-                      <img class="arrowDown" src="./assets/img/clients/chevronDown.svg" alt="arrowDown" />
+                      <div class="arrowDown">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                      </div>
 
-                      <div class="selectName drop_DownWrap bridgeTop">
+                      <div class="selectName fulcrum drop_DownWrap bridgeTop">
                         <div class="selectWrap">
                           <ul class="note_List drop_Down">
                             <li class="list_item d-flex align-items-center">Trong chương hiện tại</li>
@@ -137,9 +149,18 @@
                     </div>
                     <div class="selectNote d-flex align-items-center">
                       <span class="listTitle">Mới nhất</span>
-                      <img class="arrowDown" src="./assets/img/clients/chevronDown.svg" alt="arrowDown" />
-
-                      <div class="selectTime drop_DownWrap bridgeTop">
+                      <div class="arrowDown">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                      </div>
+                      <div class="selectTime fulcrum drop_DownWrap bridgeTop">
                         <div class="selectWrap">
                           <ul class="note_List drop_Down">
                             <li class="list_item d-flex align-items-center">Mới nhất</li>
@@ -189,7 +210,7 @@
               <span class="description">Xem Thông báo của tôi!</span>
             </div>
 
-            <div class="yourNotify dropDownWrap f-column bridgeTop">
+            <div class="yourNotify fulcrum dropDownWrap f-column bridgeTop">
               <div class="notifyWrap dropDown d-flex f-wrap">
                 <div class="notifyHeard d-flex align-items-center justify-content-between">
                   <h5 class="notifyTitle">Thông báo</h5>
@@ -456,21 +477,39 @@
               </span>
             </div>
 
-            <div class="dropDownWrap d-in-flex bridgeTop">
+            <div class="dropDownWrap fulcrum d-in-flex bridgeTop">
               <div class="menuAction dropDown d-flex f-wrap">
                 <div class="chooseAction">
                   <p>Lựa chọn hiển thị</p>
                   <ul class="displaySelection">
                     <li class="list_item d-flex align-items-center gap16">
-                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M3 3l1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 011.743-1.342 48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664L19.5 19.5" />
+                      </svg>
+
                       <span>Ẩn ghi chú phổ biến</span>
                     </li>
+
                     <li class="list_item d-flex align-items-center gap16">
-                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                      <span>&gt;=</span>
                       <span> Tắt kiểu font chữ ghép</span>
                     </li>
 
-                    <li class="lightFace changeTheme list_item d-flex align-items-center gap16">
+                    <li class="lightFace open changeTheme list_item align-items-center gap16">
+                      <span class="symbol">&#9788;</span>
+                      <span>Giao diện sáng</span>
+                    </li>
+
+                    <li class="darkFace list_item changeTheme align-items-center gap16">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -486,39 +525,82 @@
 
                       <span>Giao diện tối</span>
                     </li>
-
-                    <li class="darkFace list_item changeTheme align-items-center gap16">
-                      <span class="symbol">&#9788;</span>
-                      <span>Giao diện sáng</span>
-                    </li>
                   </ul>
                 </div>
 
                 <div class="yourAccount">
                   <p>Tài khoản</p>
-                  <ul class="">
+                  <ul class="list">
                     <li class="list_item d-flex align-items-center gap16">
-                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+
                       <span>Cài đặt tài khoản</span>
                     </li>
 
                     <li class="list_item d-flex align-items-center gap16">
-                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                      </svg>
+
                       <span>Liên kết giới thiệu</span>
                     </li>
-                    <li class="list_item d-flex align-items-center gap16">
-                      <img src="./assets/img/Small_icon/QR_icon.svg" alt="Qr icon" />
-                      <span>Đăng xuất</span>
+                    <li class="list_item d-flex align-items-center">
+                      <a href="index.html" class="d-flex align-items-center gap12">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6">
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                        </svg>
+
+                        <span>Đăng xuất</span>
+                      </a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
+          <div class="actionTooltip">
+            <div class="rotateCrownWrap circle_progress rotateBgrWrap">
+              <div class="rotateBgr"></div>
+              <img class="rotateCrown" src="./assets/img/clients/crown.svg" alt="crown" /> <span> </span>
+            </div>
 
-          <div class="rotateCrownWrap circle_progress rotateBgrWrap">
-            <div class="rotateBgr"></div>
-            <img class="rotateCrown" src="./assets/img/clients/crown.svg" alt="crown" /> <span> </span>
+            <div class="dropDownWrap emday">
+              <div class="menuAction dropDown d-flex f-wrap">
+                <div class="chooseAction">
+                  <p>Lựa chọn hiển thị</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -720,8 +802,6 @@
 
                   <div class="lesson_content">
                     <div class="caption"></div>
-
-                    <div class="example"></div>
                   </div>
                 </div>
               </div>
@@ -1134,7 +1214,6 @@
           </a>
         </div>
       </div>
-
       <div class="action d-flex align-items-center justify-content-end" style="flex-basis: 0">
         <div class="bottomNavIcon d-f-center">
           <img
@@ -1151,9 +1230,10 @@
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Template JS File -->
+    <!-- Template JS File  -->
+    <script src="assets/js/proJsCourseZip.js"></script>
     <!-- <script src="assets/js/HoanThanh.js"></script> -->
     <!-- <script src="assets/js/proJsCourses.js"></script> -->
-    <script src="assets/js/proJsCourseZip.js"></script>
+    <!-- <script src="assets/js/A_test.js"></script> -->
   </body>
 </html>

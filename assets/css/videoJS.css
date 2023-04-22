@@ -9,8 +9,21 @@ html * {
 html.dark {
   animation: changeTheme 0.3s linear;
   /* writing-mode: vertical-rl; */
-  /* padding-block: 40px;  */
+  /* padding-block: 40px;
+,
+ */
 }
+
+html.dark .header,
+html.dark .header a.navLogo h2,
+html.dark .header .notifyWrap *,
+html.dark .searchResult,
+html.dark .lessonDetails *,
+html.dark .videoPlaylists *,
+html.dark .cinemaWrap.contain * {
+  color: var(--dark-color);
+}
+
 @keyframes changeTheme {
   to {
     opacity: 0.95;
@@ -122,7 +135,7 @@ a.list_item,
   width: 100%;
   height: 48px;
   font-size: 1.4rem;
-  color: var(--text-color-4);
+  color: var(--dark-color, var(--text-color-4));
   transition: background-color 0.3s ease 0s;
   overflow: hidden;
 }
@@ -195,15 +208,16 @@ a.list_item,
   margin: auto;
   padding: 28px;
   border-radius: 1rem;
-  box-shadow: 0 1px 60px 1px rgba(59, 152, 252, 0.945);
+  box-shadow: 0 1px 60px 1px #3b98fcf1;
 }
 .dialogQR .dialogTitle {
   padding: 24px 32px 0;
-  color: var(--text-color) !important;
+  color: var(--dark-when-light, --text-color) !important;
 }
 .dialogQR .dialogDesc {
   padding: 12px 32px 0;
   text-align: left;
+  color: var(--dark-when-light, --text-color) !important;
 }
 .dialogQR .imgQR {
   position: absolute;
@@ -302,6 +316,9 @@ a.list_item,
   position: absolute;
   display: none;
 }
+.myNoteMenu .drop_DownWrap.open {
+  display: flex;
+}
 
 .myNoteMenu .selectTime,
 .myNoteMenu .selectName {
@@ -315,19 +332,25 @@ a.list_item,
 }
 
 .selectWrap {
+  width: 100%;
   border-radius: 12px;
   overflow: hidden;
+  /* color: currentColor; */
 }
 .selectNote .bridgeTop::before {
   border-bottom-color: #c1bfca91;
 }
-.selectNote img {
-  padding: 10px;
-  width: 36px;
+.selectNote svg {
+  padding: 6px;
+  width: 30px;
+  margin-right: 4px;
+  margin-left: 4px;
   border-radius: 4px;
 }
+
 .selectNote li.list_item {
   height: 40px;
+  width: 100%;
   padding: 8px 16px 10px 28px;
   font-size: 1.4rem;
   color: var(--light-when-dark, var(--text-color-6));
@@ -350,13 +373,16 @@ img.noteClose:hover,
   background: var(--bg-gradient-6, linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%));
   box-shadow: 0 0 1px 0.2px rgba(59, 153, 252, 0.7);
 }
+.selectNote:hover svg,
 .selectNote:hover .arrowDown,
 .selectNote:hover .listTitle {
   color: #ff9757f7;
   opacity: 0.8;
   transition: all 0.25s;
 }
-
+.selectNote:has(.open) > .arrowDown {
+  animation: 0.25s linear 0s 1 normal forwards running arrowRotate;
+}
 .notContent img {
   width: 100%;
   padding: 16rem 6rem 6rem;
@@ -429,7 +455,13 @@ img.noteClose:hover,
 .notifyList .list_item:hover {
   background: var(--bg-gradient-dark, #f0910d29);
   box-shadow: 0 0 1px 0.5px var(--bs-gray-dark, var(--primary-color-2));
+  transition: all 0.3s linear;
 }
+.notifyList .list_item:hover * {
+  color: var(--color-dark-active, var(--primary-color)) !important;
+  transition: color 0.3s linear;
+}
+
 .userAvatar {
   position: relative;
   top: 0;
@@ -473,6 +505,7 @@ img.noteClose:hover,
   padding-right: 8px;
   margin-bottom: 8px;
 }
+.arrow,
 .name {
   color: rgb(0, 147, 252);
 }
@@ -503,7 +536,7 @@ img.noteClose:hover,
   display: block;
 }
 .dialogQR.lightBox.open {
-  background: rgba(0 0 0 / 96%);
+  background: rgba(0 0 0 / 80%);
 }
 .myNotes {
   position: relative;
@@ -568,8 +601,7 @@ div.dropdown {
 }
 .navbar-current-user .dropDownWrap {
   top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: -80%;
   min-width: 316px;
   background: #32353b;
   padding: 0;
@@ -578,16 +610,33 @@ div.dropdown {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 16px;
   display: none;
 }
+
 .chooseAction,
 .yourAccount {
   flex: 1 0 320px;
 }
 .navbar-current-user .dropDownWrap p {
   margin: 0;
-  padding: 6px 6px 6px 12px;
+  padding: 6px 6px 6px 16px;
   width: 100%;
   background: var(--bs-dark);
 }
+.chooseAction p,
+.yourAccount p,
+.list_item a {
+  color: var(--color-dark-link);
+}
+.chooseAction .displaySelection .changeTheme {
+  display: none;
+}
+.chooseAction .displaySelection .changeTheme.open {
+  display: flex;
+}
+
+.yourAccount .list li:last-child {
+  padding-left: 14px;
+}
+
 .navbar-current-user .dropDownWrap ul {
   width: 100%;
 }
@@ -597,7 +646,7 @@ div.dropdown {
 
 .navbar-current-user .dropDownWrap ul li {
   justify-content: start;
-  padding-left: 28px;
+  padding-left: 32px;
   width: 100%;
   min-height: 52px;
   font-size: 1.6rem;
@@ -605,11 +654,14 @@ div.dropdown {
   box-shadow: var(--box-shadow-dark-2);
 }
 
+.navbar-current-user .dropDownWrap svg {
+  width: 20px;
+}
 .navbar-current-user .dropDownWrap.open {
   box-shadow: var(--list-box-shadow-dark);
   display: block;
 }
-.navbar-current-user:has(.open) .arrow {
+.navbar-current-user:has(.dropDownWrap.open) .arrow {
   animation: arrowRotate 0.25s linear forwards;
 }
 .navbar-current-user .arrow {
@@ -620,12 +672,16 @@ div.dropdown {
   color: var(--primary-color);
   background-color: var(--navbar-button-hovered-color) !important;
 }
+.navbar-current-user .wrapper:hover .arrow,
 .navbar-current-user .wrapper:hover .name {
   color: var(--primary-color);
 }
 .darkFace svg,
 .lightFace svg {
   width: 20px;
+}
+span.symbol {
+  font-size: 1.8rem;
 }
 li.darkFace {
   display: none;
@@ -821,7 +877,7 @@ div#famousBrand.toggle {
   border-radius: 6px;
   padding: 2px 8px 4px;
   transform: translateX(-50%);
-  color: #0900b7;
+  color: #0900b7 !important;
   background-color: #fffdc3;
   border: 0.25px solid #ff812b;
 }
@@ -1407,24 +1463,29 @@ div.dropdown.toggle > div.list {
   padding: 10px 16px;
   cursor: pointer;
   transition: all 0.35s ease-out 0s;
-  box-shadow: var(--box-shadow-dark, #ddd);
+  box-shadow: var(--box-shadow-dark-1, #ddd);
   user-select: none;
 }
 
 .item:hover,
 .lesson:hover,
+.lesson:hover,
 .lesson:active,
 .lessons:hover {
   background-color: var(--bg-hover-dark, var(--bg-5));
-  color: var(--text-code-color);
+  color: var(--color-dark-active, var(--text-code-color)) !important;
 }
+.lesson:hover h4.lessonTitle {
+  color: var(--color-dark-active, var(--text-code-color)) !important;
+}
+
 .lesson.active {
   background: var(--bg-gradient-dark, #f0910d29);
   box-shadow: 0 0 1px 0.5px var(--bs-gray-dark, var(--primary-color-2));
 }
 #lessonList .lesson.active .lessonInfo span,
 #lessonList .lesson.active .lessonInfo .lessonTitle {
-  color: var(--primary-color) !important;
+  color: var(--color-dark-active, var(--primary-color)) !important;
 }
 .lessonList .icon_right,
 .lessonList .lessonContent {
@@ -1466,9 +1527,9 @@ div.dropdown.toggle > div.list {
   width: 0px !important;
 }
 
-.dpn {
+/* .dpn {
   display: none !important;
 }
 .dpf {
   display: flex !important;
-}
+} */
