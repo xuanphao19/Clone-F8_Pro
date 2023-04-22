@@ -654,8 +654,9 @@ div.dropdown {
   box-shadow: var(--box-shadow-dark-2);
 }
 
-.navbar-current-user .dropDownWrap svg {
+.navbar-current-user .dropDownWrap ul li svg {
   width: 20px;
+  flex: 0 0;
 }
 .navbar-current-user .dropDownWrap.open {
   box-shadow: var(--list-box-shadow-dark);
