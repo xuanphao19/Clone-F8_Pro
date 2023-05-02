@@ -46,7 +46,7 @@ html.dark {
   --bg-5: #000;
   --bg-2-dark: #32353e;
   --bs-dark: #212529;
-  --bs-gray-dark: #343a40;
+  --bs-gray-dark: #2b2d3038;
   --light-when-dark: #fff;
   --dark-when-light: #222;
   --dark-icon-color: #222;
@@ -67,6 +67,7 @@ html.dark {
     linear-gradient(rgb(94, 187, 255) 0%, rgb(161, 116, 255) 40%) border-box border-box;
   --bg-hover-dark: #3b4a58;
   --bg-white-dark-1: #32353b;
+  --bg-white-dark-2: #1d1d27ed;
   --dark-color: #d8d2d2;
   --navbar-button-hovered-color: #2e4a8d;
   --box-shadow-inset-dark: inset 1px 1px 1px #999, 1px 1px 3px #272323;

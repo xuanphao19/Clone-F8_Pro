@@ -212,12 +212,12 @@ a.list_item,
 }
 .dialogQR .dialogTitle {
   padding: 24px 32px 0;
-  color: var(--dark-when-light, --text-color) !important;
+  color: var(--bs-cyan, --text-color) !important;
 }
 .dialogQR .dialogDesc {
   padding: 12px 32px 0;
   text-align: left;
-  color: var(--dark-when-light, --text-color) !important;
+  color: var(--bs-cyan, --text-color) !important;
 }
 .dialogQR .imgQR {
   position: absolute;
@@ -1120,7 +1120,8 @@ span.author {
   padding-top: 6px;
   padding-bottom: 6px;
   background: var(--bs-gray-dark, #ffffff55);
-  backdrop-filter: blur(5px);
+  box-shadow: 1px 1px 2px 0.5px var(--bs-pink);
+  backdrop-filter: blur(15px);
   z-index: 999;
 }
 .remoteControlArea .action {
@@ -1138,6 +1139,22 @@ span.author {
   background: var(--bg-gradient-dark-4, var(--bg-gradient-4));
   cursor: pointer;
 }
+
+.menuOpen,
+.arrowOpen {
+  display: none;
+}
+.menuOpen.open,
+.arrowOpen.open {
+  display: block;
+}
+img.actionFocus {
+  padding: 12px;
+}
+img.actionFocus:last-child {
+  width: 40px;
+}
+
 .actionBtn .like:hover,
 .actionBtn .unLike:hover,
 .action .bottomNavIcon:hover,
@@ -1182,7 +1199,15 @@ span.author {
 .controlsBtn svg.nextLesson {
   transform: rotate(180deg);
 }
-
+.videoPlaylists.dpns {
+  width: 0;
+  visibility: hidden;
+  opacity: 0;
+  -moz-transition: opacity 1s, visibility 1.3s;
+  -webkit-transition: opacity 1s, visibility 1.3s;
+  -o-transition: opacity 1s, visibility 1.3s;
+  transition: all 0.3s;
+}
 .videoPlaylists {
   width: 23%;
   height: calc(100vh - 118px);
@@ -1190,6 +1215,12 @@ span.author {
   background: var(--bg-2-dark, whitesmoke);
   box-shadow: var(--box-shadow-dark-1);
   overflow-y: scroll;
+  visibility: visible;
+  opacity: 1;
+  -moz-transition: opacity 1s, visibility 1.3s;
+  -webkit-transition: opacity 1s, visibility 1.3s;
+  -o-transition: opacity 1s, visibility 1.3s;
+  transition: all 0.3s;
 }
 
 .videoPlaylists .sidebarHeader {
@@ -1481,7 +1512,7 @@ div.dropdown.toggle > div.list {
 
 .lesson.active {
   background: var(--bg-gradient-dark, #f0910d29);
-  box-shadow: 0 0 1px 0.5px var(--bs-gray-dark, var(--primary-color-2));
+  box-shadow: 0 0 1px 0.6px var(--bs-dark, var(--primary-color-2));
 }
 #lessonList .lesson.active .lessonInfo span,
 #lessonList .lesson.active .lessonInfo .lessonTitle {

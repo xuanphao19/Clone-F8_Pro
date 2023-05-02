@@ -132,13 +132,11 @@
 .lightBoxContent {
   position: absolute;
   inset: 0;
-  background: var(--bs-white);
+  background: var(--bg-white-dark-2, var(--bs-white));
   border-radius: 0.5rem;
   user-select: none;
 }
-/* github.com/leminhson22/project-final-01/ */
 
-/* https://Tuanvu1504.github.oi/f8-HtmlCss-01 */
 .bridgeTop::before,
 .bridgeRight::before,
 .bridgeBottom::before,

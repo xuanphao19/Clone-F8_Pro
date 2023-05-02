@@ -66,6 +66,7 @@ textarea {
 h1 {
   font-size: calc(1.6rem + 1.5vw);
 }
+
 .h2,
 h2 {
   font-size: calc(1.2rem + 0.9vw);
@@ -103,8 +104,11 @@ ul ul {
   margin-bottom: 0;
 }
 
-li {
-  list-style-type: none;
+ul[class] {
+  list-style: none;
+}
+ul:where([class]) {
+  list-style: none;
 }
 
 dt {
@@ -164,6 +168,21 @@ iframe {
   border: 0;
 }
 
+:root {
+  --min-tap-target-height: 32px;
+  /* Cho phép nhắm mục tiêu các thiết bị di động và máy tính bảng */
+  /* @media (pointer: coarse) {
+    --min-tap-target-height: 48px;
+  } */
+}
+
+.button {
+  min-height: var(--min-tap-target-height);
+}
+
+.text-input {
+  min-height: var(--min-tap-target-height);
+}
 ::-webkit-scrollbar {
   width: 8px;
 }
