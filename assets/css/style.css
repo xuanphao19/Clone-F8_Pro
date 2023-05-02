@@ -925,3 +925,10 @@ table.gstl_50.gssb_c {
 .gsc-modal-background-image {
   height: 110vh !important;
 }
+
+.glightbox-clean .gslide-media img {
+  box-shadow: rgba(59, 152, 252, 0.945) 0px 1px 60px 1px, inset 0px 1px 6px 1px rgba(59, 152, 252, 0.945) !important;
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: brightness(8);
+}
