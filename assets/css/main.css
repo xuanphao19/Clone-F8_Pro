@@ -206,8 +206,8 @@ body {
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  overflow-y: overlay;
-  overflow-x: unset;
+  overflow-y: auto;
+  overflow-x: hidden !important;
   overscroll-behavior: move;
   touch-action: manipulation;
   -webkit-user-drag: none;
@@ -517,7 +517,4 @@ section .price .main_price {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
-}
-.dpn {
-  display: none;
 }

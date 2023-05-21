@@ -824,7 +824,14 @@ form.gsc-search-box.gsc-search-box-tools * {
   margin: 0;
 }
 table.gsc-search-box td.gsc-input {
-  width: 100%;
+  top: 50%;
+  min-width: 390px;
+  transform: translateY(-50%);
+}
+
+.gsc-control-cse.gsc-control-cse-en {
+  background: transparent;
+  border-color: transparent;
 }
 td#gs_tti50 {
   width: 85%;
@@ -834,8 +841,6 @@ td#gs_tti50 {
 .gsc-control-wrapper-cse {
   width: 100%;
   height: 100%;
-}
-table.gsc-search-box {
 }
 
 div#gsc-iw-id1 {
@@ -871,7 +876,12 @@ table.gsc-search-box td .gsst_a .gscb_a {
   color: var(--primary-color);
   border-left: 1px solid var(--bs-gray-300);
 }
-
+.gsc-search-button {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+}
 button.gsc-search-button {
   display: flex;
   align-items: center;
@@ -882,17 +892,22 @@ button.gsc-search-button {
   height: 100%;
   left: 6px;
   border: none;
-  position: absolute;
+  /* position: absolute; */
   background: transparent;
   border-right: 1px solid var(--bs-gray-300);
   cursor: pointer;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
 }
 .gsc-search-button-v2 svg {
   fill: #a1b9ed !important;
   width: 20px;
   height: 20px;
 }
-
+table.gsc-search-box {
+  display: flex;
+  align-items: center;
+}
 input#gsc-i-id1 {
   height: 42px !important;
   width: 100% !important;

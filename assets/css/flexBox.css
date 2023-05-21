@@ -5,13 +5,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
 }
 .d-f-center {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
-
 .f-row {
   display: flex;
   flex-direction: row;

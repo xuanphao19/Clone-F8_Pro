@@ -29,7 +29,6 @@
   if (preloader) {
     window.addEventListener("load", () => {
       preloader.remove();
-      responsiveVoice.speak("Chào mừng bạn đến với F8, fullstack chấm edu chấm vn", "Vietnamese Female");
     });
   }
   const glightbox = GLightbox({
@@ -63,7 +62,6 @@
     selector: ".phaoThu",
   });
 
-
   window.addEventListener("load", () => {
     AOS.init({
       duration: 1000,
@@ -72,4 +70,15 @@
       mirror: false,
     });
   });
+  document.addEventListener("DOMContentLoaded", function () {
+    responsiveVoice.speak("Chào mừng bạn đến với F8, fullstack chấm edu chấm vn", "Vietnamese Female");
+  });
+  const gcse = select(".Search_wrapper ");
+  if (gcse) {
+    gcse.addEventListener("click", (e) => {
+      if (e.target.name === "search") {
+        responsiveVoice.speak("Xin mời nhập nội dung bạn cần tìm kiếm", "Vietnamese Female");
+      }
+    });
+  }
 })();
