@@ -5,7 +5,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
 }
 .d-f-center {
   display: flex !important;
@@ -65,6 +64,10 @@
 .justify-content-around {
   justify-content: space-around !important;
 }
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+
 .gap4 {
   gap: 4px !important;
 }

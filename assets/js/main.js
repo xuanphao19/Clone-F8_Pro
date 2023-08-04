@@ -13,24 +13,26 @@
     el.addEventListener("scroll", listener);
   };
 
-  let backtotop = select(".back-to-top");
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add("active");
-      } else {
-        backtotop.classList.remove("active");
-      }
-    };
-    window.addEventListener("load", toggleBacktotop);
-    onscroll(document, toggleBacktotop);
-  }
-  let preloader = select("#preloader");
-  if (preloader) {
-    window.addEventListener("load", () => {
-      preloader.remove();
-    });
-  }
+  const backtotop = ((sle) => {
+    const el = select(sle);
+    if (el)
+      onscroll(document, () => {
+        if (window.scrollY > 100) {
+          el.classList.add("active");
+        } else {
+          el.classList.remove("active");
+        }
+      });
+  })(".back-to-top");
+
+  const preloader = ((sle) => {
+    if (select(sle)) {
+      window.addEventListener("load", () => {
+        select(sle).remove();
+      });
+    }
+  })("#preloader");
+
   const glightbox = GLightbox({
     selector: ".glightbox",
   });
@@ -46,6 +48,7 @@
     autoplay: {
       delay: 5500,
       disableOnInteraction: false,
+      pauseOnMouseEnter: true,
     },
     slidesPerView: "auto",
     pagination: {
@@ -73,12 +76,16 @@
   document.addEventListener("DOMContentLoaded", function () {
     responsiveVoice.speak("Chào mừng bạn đến với F8, fullstack chấm edu chấm vn", "Vietnamese Female");
   });
-  const gcse = select(".Search_wrapper ");
-  if (gcse) {
-    gcse.addEventListener("click", (e) => {
-      if (e.target.name === "search") {
-        responsiveVoice.speak("Xin mời nhập nội dung bạn cần tìm kiếm", "Vietnamese Female");
-      }
-    });
-  }
+  const gcse = ((sle) => {
+    const gs = select(sle);
+    if (gs) {
+      gs.addEventListener(
+        "click",
+        (e) => {
+          if (e.target.name === "search")
+            responsiveVoice.speak("Xin mời nhập nội dung bạn cần tìm kiếm", "Vietnamese Female");
+        } /*, {once: true} */,
+      );
+    }
+  })(".Search_wrapper ");
 })();
